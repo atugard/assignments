@@ -68,7 +68,69 @@
        $d(x,y) = \abs{\arctan(x) - \arctan(y)}$,
     \end{center}
     where $\arctan(\pm \infty) = \pm \pi / 2$, is a metric on $\overline \R$.
+  \item Let $(x_n)_{n=1}^{\infty}$ be a sequence in $\overline \R $ and $x \in \overline \R $. Prove the following:
+    \begin{enumerate}
+    \item
+      If $x \in \R$ then $(x_n)_{n=}^{\infty}$ converges to $x$ in the metric space $(\overline \R, d)$ iff for every $\epsilon > 0$ there exists $N \in \N$ such that $x_n \in (x - \epsilon, x + \epsilon)$ for all $n \ge N$.
+    \item
+      If $x = \infty$ then $(x_n)_{n=1}^{\infty}$ converges to $x$ in the metric space $(\overline \R, d)$ i0000000ff for every $M \in \R$ there exists $N \in \N$ such that $x_n \in (M, \infty]$ for all $n \ge N$. 
+    \end{enumerate}
   \end{enumerate}
 \end{exercise}
+
+\begin{exercise}
+  Let that $A$ and $B$ be closed disjoint subsets of a topological sp=ace $X$. Prove that
+  $(A \cup B)^\circ = A^\circ \cup B^ \circ$ and $ Fr(A \cup B) = Fr(A) \cup Fr(B)$. 
+\end{exercise}
+
+\begin{exercise}
+  Prove the claims in items 1 and 2 of Problem 2C on p.20 in the text. 
+\end{exercise}
+
+\begin{exercise}
+  Let $(M, \rho)$ be a pseudometric space and $(M^*, \rho^*)$ denote the pseudometric identification, as in Problem 2C on p.20.
+
+  \begin{enumerate}
+  \item
+    Let  $h: M \to M^*$ denote the mapping $h(x) = [x]$ (see part 3 of 2C). Prove that fort every $ x \in M$ and every $\epsilon > 0$:
+    \begin{enumerate}
+    \item
+      $h(U_{\rho}(x, \epsilon)) = U_{\rho^*} (h(x), \epsilon)$, and 
+    \item
+      $h^{-1}(U_{\rho^*}(h(x), \epsilon)) = U_{\rho}(x, \epsilon)$.
+    \end{enumerate}
+  \item
+    Conclude that  when $A \subseteq M$ is open, then so is $h(A)$; moreover $h^{-1}(h(A)) = A$ and $h (M \setminus A) = M^* \setminus h(A)$.
+  \item
+    Conclude that when $A \subseteq M$ is closed, then so is $h(A)$.
+  \item
+    Show by example that the claims made in Part 3 of 2C are false. 
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+  Recall that when $(X, \tau)$ is a topological space and for every $x \in X$, $\mathcal{B}_x$ is a neighbourhood base at x, then:$
+  \begin{itemize}
+  \item (V1) $\forall V \in \mathcal{B}_x,  x \in V$,
+  \item (V2) $\forall V_1, V_2 \in \mathcal{B}_x, \exists V_3 \in \mathcal{B}_x, V_3 \subseteq V_1 \cap V_2$,
+  \item (V3) $\forall V \in \mathcal{B}_x, \exists V_0 \in \mathcal{B}_x, \forall y \in V_0, \exists W \in \mathcal{B}_y, W \subseteq V. ]$
+  \end{itemize}
+  \begin{enumerate}
+  \item
+    Prove that $\mathcal{B}_x \subseteq \tau$ iff: $\forall V \in \mathcal{B}_x, y \in V, \exists W \in \mathcal{B}_y, W \subseteq V$.
+  \item
+    Prove that if $X$ is any set and to each $x \in X$ a nonempty family $\mathcal{B}_x$ of subsets of $X$ is assigned so that the family $(\mathcal{B}__x)_{x \in X}$ satisfies conditions $(V1), (V2),$ and $(V3')$, then there exists a unique topology $\tau$ on $X$ for which $\mathcal{B}_x$ is a neighbourhood base at $x$ for each $x \in X$; moreover. $\mathcal{B}_x \subseteq \tau$ for each $x$.
+
+    Hint: Avoid lengthy rewriting of a proof shown in class.
+
+  \item
+    Suppose that $\mathcal{B}_x$ is countable and $\mathcal{B}_{x^'}$ is another neighbourhood base at $x$. Prove that there exists a countable subcollection $\mathcal{B}_x^{''} \subseteq \mathcal{B}_x^{'}$ which is a neighourhood base at $x$. 
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+  From the text: #4A, pp. 35, 36. Which intervals are closed sets in $\mathbb{E}$. 
+\end{exercise}
+
 
 \end{document}
