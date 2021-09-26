@@ -71,13 +71,43 @@
   \item Let $(x_n)_{n=1}^{\infty}$ be a sequence in $\overline \R $ and $x \in \overline \R $. Prove the following:
     \begin{enumerate}
     \item
-      If $x \in \R$ then $(x_n)_{n=}^{\infty}$ converges to $x$ in the metric space $(\overline \R, d)$ iff for every $\epsilon > 0$ there exists $N \in \N$ such that $x_n \in (x - \epsilon, x + \epsilon)$ for all $n \ge N$.
+      If $x \in \R$ then $(x_n)_{n=1}^{\infty}$ converges to $x$ in the metric space $(\overline \R, d)$ iff for every $\epsilon > 0$ there exists $N \in \N$ such that $x_n \in (x - \epsilon, x + \epsilon)$ for all $n \ge N$.
     \item
-      If $x = \infty$ then $(x_n)_{n=1}^{\infty}$ converges to $x$ in the metric space $(\overline \R, d)$ i0000000ff for every $M \in \R$ there exists $N \in \N$ such that $x_n \in (M, \infty]$ for all $n \ge N$. 
+      If $x = \infty$ then $(x_n)_{n=1}^{\infty}$ converges to $x$ in the metric space $(\overline \R, d)$ iff for every $M \in \R$ there exists $N \in \N$ such that $x_n \in (M, \infty]$ for all $n \ge N$. 
     \end{enumerate}
   \end{enumerate}
 \end{exercise}
+\begin{proof}
+  %remember to check \pm infinity points too
+  \begin{enumerate}
+  \item
+    \begin{itemize}
+    \item
+      If $d(x,y)=0$ then $\arctan(x) = \arctan(y)$. Since $\arctan$ is injective over the extended reals, we have $x=y$.
+    \item
+      $d(x,y) = \abs{\arctan(x) - \arctan(y)} = \abs{\arctan(y) - \arctan(x)} = d(y,x)$ holds for any real numbers $x$ and $y$.
+    \item
+      Applying the triangle inequality for real numbers $\arctan(x),\arctan(y),\arctan(z)$ we get
+      \begin{align*}
+        d(x,z) = \abs{\arctan(x) - \arctan(z)}
+        &= \abs{\arctan(x) - \arctan(y) + \arctan(y) - \arctan(z)} \\
+        &\leq  \abs{ \arctan(x) - \arctan(y)} + \abs{ \arctan{y} - \arctan{z}} \\
+        &= d(x,y) + d(y,z)
+      \end{align*}
+    \end{itemize}
+  \item
+    \begin{enumerate}
+    \item
+      $\Rightarrow$: 
+      Since $\arctan$ is continuous, $x$ is not plus or minus infinity, and $\arctan(x_n) \to \arctan(x)$ as $n \to \infty$, we can find a natural number $N$ such that for all $n \geq N, x_n$ are not plus or minus infinity. In this way we get the tail sequence $(x_n)_{n=N}^{\infty}$.   
+      
+      $\Leftarrow$: 
 
+    \end{enumerate}
+
+
+  \end{enumerate}
+\end{proof}
 \begin{exercise}
   Let that $A$ and $B$ be closed disjoint subsets of a topological sp=ace $X$. Prove that
   $(A \cup B)^\circ = A^\circ \cup B^ \circ$ and $ Fr(A \cup B) = Fr(A) \cup Fr(B)$. 
@@ -131,6 +161,5 @@
 \begin{exercise}
   From the text: #4A, pp. 35, 36. Which intervals are closed sets in $\mathbb{E}$. 
 \end{exercise}
-
 
 \end{document}
