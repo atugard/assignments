@@ -98,20 +98,60 @@
   \item
     \begin{enumerate}
     \item
-      $\Rightarrow$: 
-      Since $\arctan$ is continuous, $x$ is not plus or minus infinity, and $\arctan(x_n) \to \arctan(x)$ as $n \to \infty$, we can find a natural number $N$ such that for all $n \geq N, x_n$ are not plus or minus infinity. In this way we get the tail sequence $(x_n)_{n=N}^{\infty}$.   
+      $\Rightarrow$:
+      The sequence $(\arctan(x_n))_{n=1}^{\infty}$ converges to $\arctan(x)$, which is not $\pm \pi/2$. We can fix a small enough $\delta>0$ and find a natural number $M$
+      such that for all $n >
+      M$, $\set{\pm \pi/2} \not \in (\arctan(x)-\delta, \arctan(x)+\delta)$ and $x_n \in (\arctan(x)-\delta, \arctan(x)+\delta) $.
+      Let $y_n = \arctan(x_{n+M})$. Then $(y_n)_{n=0}^{\infty}$ is a sequence of elements in $\R$ converging to $y:=\arctan(x)$. Since $\tan$ is continuous on $(-\pi/2, \pi/2)$, we have $ y_n \to y$ implies $x_n = \tan(y_n) \to x = \tan(y)$. This means that for every $\epsilon > 0$ there exists some natural number $N$ such that for all $n>N, \abs{x_n-x} < \epsilon$, but this is equivalent to $x_n \in (x-\epsilon, x+ \epsilon)$ for all $n>N$. 
       
-      $\Leftarrow$: 
+      $\Leftarrow$:
+      %fill in details for full marks...
+      The statement is equivalent to $x_n \to x$ as $n \to \infty$ , and by the continuity of $\arctan$ this implies that $\arctan(x_n) \to \arctan(x)$, which can be restated as $d(x_n, x) \to 0$ as $n \to \infty$, or $(x_n)_{n=1}^{\infty}$ converges to $x$ in $(\overline \R, d)$.
+    \item
+      $\Rightarrow$:
 
+      Suppose there exists some constant $0<M<\infty$, such that for any natural number $K$ we can find some $n>K$ with $x_n \leq M$.
+      Then, since $\arctan$ is non-decreasing we have $ \arctan{x_n} \leq \arctan{M} < \pi/2 $.
+      Set $\epsilon = \cfrac{1}{2}(\pi/2 - \arctan(M)).$ Then for any natural number $N$ there exists some $n>N$ with
+      $\abs{\arctan(x_n) - \pi/2} = \abs{\pi/2 - \arctan(x_n)} = 2 \epsilon > \epsilon$, which is a contradiction.
+
+      $\Leftarrow$:
+
+      We have $x_n \to \infty$ and $\arctan$ is strictly increasing with upper bound $\pi/2$, so that $ \arctan(x_n) \to \pi/2$, which is equivalent to $(x_n)_{n=1}^{\infty}$ converges to $\infty$ in $(\overline \R, d)$. 
+
+      
+     
     \end{enumerate}
-
-
   \end{enumerate}
 \end{proof}
+
 \begin{exercise}
-  Let that $A$ and $B$ be closed disjoint subsets of a topological sp=ace $X$. Prove that
+  Let that $A$ and $B$ be closed disjoint subsets of a topological space $X$. Prove that
   $(A \cup B)^\circ = A^\circ \cup B^ \circ$ and $ Fr(A \cup B) = Fr(A) \cup Fr(B)$. 
 \end{exercise}
+\begin{proof}
+  As $A,B$ are disjoint, we have that their interiors are too. If $x \in (A \cup B)^{\circ}$ we have some $U \in \mathcal{U}_x$ such that $U \subseteq A \cup B$.
+  Since the intersection of two open sets is open we have that $U \cap A$, $U \cap B$ are open and they can't both be empty. Suppose without loss of generally
+  that $U \cap A$ is not empty. Then $U \cap A \in \mathcal{U}_x$ and $U \cap A \subseteq A$ so that $x \in A^{\circ}$.
+
+  Conversely, if $x \in A^{\circ} \cup B^{\circ}$, since the two are disjoint it has to be in one. Say w.l.o.g. that it's in $A^{\circ}$.
+  Then, there exists some $U \in \mathcal{U}_x$ with $U \subseteq A \subseteq A \cup B$, so that $x \in (A \cup B)^{\circ}$.
+
+  Next,
+  \begin{align*}
+    Fr(A \cup B)
+    &= \overline{A \cup B} \setminus (A \cup B)^{\circ} \\
+    &= \overline{A} \cup \overline{B} \setminus (A^{\circ} \cup B^{\circ}) \\
+    &= A \cup B \setminus (A^{\circ} \cup B^{\circ}) \\
+    &= ((A \cup B) \setminus A^{\circ}) \cap ((A \cup B) \setminus B^{\circ}) \\
+    &= ((A \setminus A^{\circ}) \cup (B \setminus A^{\circ})) \cap ((A \setminus B^{\circ}) \cup (B \setminus B^{\circ})) \\
+    &= (Fr(A) \cup B) \cap (A \cup Fr(B)) \\
+    &= (Fr(A) \cap A) \cup (Fr(A) \cap Fr(B)) \cup (B \cap A) \cup (B \cap Fr(B)) \\
+    &= Fr(A) \cup \emptyset \cup \emptyset \cup Fr(B) \\
+    &= Fr(A) \cup Fr(B)
+  \end{align*}
+  %make sure to explain how that was done.
+\end{proof}
 
 \begin{exercise}
   Prove the claims in items 1 and 2 of Problem 2C on p.20 in the text. 
