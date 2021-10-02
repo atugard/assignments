@@ -1,0 +1,124 @@
+\documentclass[12pt]{extarticle}
+%Some packages I commonly use.
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{framed}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage[utf8]{inputenc}
+\usepackage[top=1 in,bottom=1in, left=1 in, right=1 in]{geometry}
+
+%A bunch of definitions that make my life easier
+\newcommand{\matlab}{{\sc Matlab} }
+\newcommand{\abs}[1]{|#1|}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\cvec}[1]{{\mathbf #1}}
+\newcommand{\rvec}[1]{\vec{\mathbf #1}}
+\newcommand{\ihat}{\hat{\textbf{\i}}}
+\newcommand{\jhat}{\hat{\textbf{\j}}}
+\newcommand{\khat}{\hat{\textbf{k}}}
+\newcommand{\minor}{{\rm minor}}
+\newcommand{\trace}{{\rm trace}}
+\newcommand{\spn}{{\rm Span}}
+\newcommand{\rem}{{\rm rem}}
+\newcommand{\ran}{{\rm range}}
+\newcommand{\range}{{\rm range}}
+\newcommand{\mdiv}{{\rm div}}
+\newcommand{\proj}{{\rm proj}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\attn}[1]{\textbf{#1}}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{prob}{Problem}
+\newtheorem{corollary}{Corollary}
+\newtheorem*{definition}{Definition}
+\newtheorem*{example}{Example}
+\newtheorem*{note}{Note}
+\newtheorem{exercise}{Exercise}
+\newcommand{\bproof}{\bigskip {\bf Proof. }}
+\newcommand{\eproof}{\hfill\qedsymbol}
+\newcommand{\Disp}{\displaystyle}
+\newcommand{\qe}{\hfill\(\bigtriangledown\)}
+\setlength{\columnseprule}{1 pt}
+
+
+\title{ Math 5205 -- Topology Assignment 1}
+\author{David Draguta}
+\date{2021-09-25
+
+\begin{document}
+
+\maketitle
+
+\begin{exercise}
+  Consider the following functions from $\R$ into $\R$: $f(x)=-x$, $g(x) = x^2 $, $h(x) = x^3 $,
+  $k(x) =
+  \begin{cases}
+    0 \quad &\text{if} \, x \leq 0 \\
+    1 \quad &\text{if} \, x > 0 \\
+  \end{cases}$,
+  and
+  $l(x) =
+  \begin{cases}
+    0 \quad &\text{if} \, x < 0 \\
+    1 \quad &\text{if} \, x \geq 0 \\
+  \end{cases}$.
+  
+  Which of these functions is continuous when considered:
+
+  \begin{enumerate}
+  \item
+    As a function from $\mathbb{E}$ into $\mathbb{R}$?
+  \item
+    As a function from $\mathbb{R}$ into $\mathbb{E}$?
+  \item
+    As a function from $\mathbb{E}$ into $\mathbb{E}$?
+  \end{enumerate}
+
+  $\mathbb{E}$ denotes the Sorgenfrey line from #6 (Assignment 1).
+\end{exercise}
+
+\begin{proof}
+  We use the bases $\mathcal{B}_{\mathbb{E}} = \set{[a,b): a<b}$ and $\mathcal{B}_{\mathbb{R}} = \set{(x-\epsilon,x+\epsilon): x \in \R, \epsilon>0}$ for $(\mathbb{E}, \tau_\mathbb{E})$ and $(\mathbb{R}, \tau_\mathbb{R})$ respectively. Let $a<b$, and choose an $N > 1/b-a$. Then, $(a,b) = \bigcup\limits_{n \geq N}[a+1/n,b)$, and so $\mathcal{B}_{\mathbb{R}} \subseteq \mathcal{B}_{\mathbb{E}}$, which gives us that $\tau_\mathbb{R} \subseteq \tau_\mathbb{E}$. Hence any function that's continuous from $\R \to \R$ will be continuous from $\mathbb{E} \to \mathbb{R}$.
+      
+      We have $k^{-1}[a,b) =
+        \begin{cases}
+          \R \quad & \, 0,1 \in [a,b) \\
+            (-\infty,0] & \, 0 \in [a,b), 1 \not \in [a,b) \\
+              (0,\infty) & \, 0 \not \in [a,b), 1 \in [a,b) \\
+                  \emptyset \, &\text{otherwise} 
+        \end{cases}$,
+        
+        and it's the same thing for the preimage of $(a,b)$.
+
+        We have
+        $l^{-1}[a,b) =
+        \begin{cases}
+          \R \quad & \, 0,1 \in [a,b) \\
+            (-\infty,0) & \, 0 \in [a,b), 1 \not \in [a,b) \\
+              [0,\infty) & \, 0 \not \in [a,b), 1 \in [a,b) \\
+                  \emptyset \, &\text{otherwise} 
+        \end{cases}$,
+
+        and the same for the preimage of $(a,b)$.
+  \begin{enumerate}
+  \item
+    $f,g,h: \R \to \R$ are all continuous, so $f,g,h: \mathbb{E} \to \R$ are too. $l: \mathbb{E} \to \mathbb{R}$ is continuous, but $k: \mathbb{E} \to \mathbb{R}$ is not.
+  \item
+    All of $f,g,h,k,l: \R \to \mathbb{E}$ are not continuous.
+  \item
+    $f,g,h,l: \mathbb{E} \to \mathbb{E}$ are continuous, but $k: \mathbb{E} \to \mathbb{E}$ is not.
+
+\end{proof}
+
+\end{document}
