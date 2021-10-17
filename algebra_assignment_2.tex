@@ -131,7 +131,22 @@
   \item
     $\C[x,y]/(x^3+y^3-1)$:
 
-    
+  \item
+    $\C[x,x^{-1}]$:
+
+    This ring is not artinian, as we get the infinitely descending chain of ideals $(x^{-1}) \supseteq (x^{-1}, x^{-2}) \supseteq \dots $,
+  \item
+    $C([0,1])$: the ring of continuous real valued functions on $[0,1]$:
+
+    Consider $I_a = \set{f \in C([0,1]): supp(f) \subseteq [0,a]}$. Then we have
+    \begin{align*}
+      I_{0} \subseteq I_{1/2} \subseteq \dots \subseteq I_{1-1/n} \subseteq \dots 
+    \end{align*}
+    and
+    \begin{align*}
+      I_{1} \supseteq I_{1/2} \supseteq \dots \supseteq I_{1/n} \supseteq \dots 
+    \end{align*}
+    are ascending and descending chains that don't stabilize in countably many steps, so this ring is neither noetherian nor artinian. 
   \end{enumerate}
 \end{proof}
 \end{document}
