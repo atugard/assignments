@@ -191,4 +191,74 @@
   $\mathcal{M}$ fully describes the module in question. 
 \end{proof}
 
+\begin{exercise}
+  Let
+  \begin{align*}
+    A = \set{
+      \begin{pmatrix}
+        a & b \\
+        0 & c 
+      \end{pmatrix}
+      |
+      a,b,c \in k}.
+  \end{align*}
+  We have submodules:
+  \begin{align*}
+    A_0 &:= 0, \\
+    A_1 &:= \set{
+    \begin{pmatrix}
+      a & 0 \\
+      0 & 0
+    \end{pmatrix}
+    |
+    a \in k
+    }, \\
+    A_2 &:= \set{
+      \begin{pmatrix}
+        a & b \\
+        0 & 0
+      \end{pmatrix}
+      |
+      a,b \in k
+    }, \\
+    A_3 &:= A.
+  \end{align*}
+  Then $A_0 \subseteq A_1 \subseteq A_2 \subseteq A_3$ is a composition series for $A$.
+
+  We have maximal ideals
+  \begin{align*}
+    \set{
+      \begin{pmatrix}
+        a & b \\
+        0 & 0
+      \end{pmatrix}
+      |
+      a,b \in k
+      }
+  \end{align*}
+  and
+  \begin{align*}
+    \set{
+    \begin{pmatrix}
+        0 & b \\
+        0 & c
+    \end{pmatrix}
+    |
+    b,c \in k
+    }
+  \end{align*}
+  and so as the Jacobson radical is the intersection of all maximal ideals we have
+  \begin{align*}
+    J(A) =
+    \set{
+    \begin{pmatrix}
+      0 & b \\
+      0 & 0
+    \end{pmatrix}
+    |
+    b \in k
+    }.
+  \end{align*}
+\end{exercise}
+
 \end{document}
