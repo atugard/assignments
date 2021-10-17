@@ -126,15 +126,16 @@
       \Q[x]/(x^3-7x) &\cong \Q[x]/(x) \times \Q[x]/(x^2-7) \\
       &\cong \Q \times \Q(\sqrt{7}).
     \end{align*}
-    Since ideals of the product of two rings $R \times S$ are of the form $I \times J$ for $I \ideal R$ and $J \ideal S$, and since fields have only trivial ideals, we conclude that the ring in question is both artinian and noetherian.
+    Since ideals in the product of two rings $R \times S$ are of the form $I \times J$ for $I \ideal R$ and $J \ideal S$, and since fields have only trivial ideals, we conclude that the ring in question is both artinian and noetherian.
 
   \item
     $\C[x,y]/(x^3+y^3-1)$:
 
+    
   \item
     $\C[x,x^{-1}]$:
 
-   \item
+ s  \item
     $C([0,1])$: the ring of continuous real valued functions on $[0,1]$:
 
     Consider $I_a = \set{f \in C([0,1]): supp(f) \subseteq [0,a]}$. Then we have
@@ -153,7 +154,41 @@
     Since $\Q$ is noetherian, $\Q[x]$ is too, and so is $\Q[x,y]$. Any ascending chain of ideals in the chain on the left will be an ascending chain on the right, and so it must stabilize. Hence, the ring in question is noetherian.
 
     $(x) \supseteq (xy) \supseteq \dots \supseteq (xy^n) \supseteq \dots $ does not stabilize on the left hand side, so it's not artinian. 
-    
+  \item
   \end{enumerate}
 \end{proof}
+
+\begin{exercise}
+  Describe $\hom_{k^{n \times n}}(k^{n \times r}, k^{n \times s})$
+\end{exercise}
+\begin{proof}
+  Let 
+  \begin{align*}
+    M = \hom_{k^{n \times n}}(k^{n \times r}, k^{n \times s}).
+  \end{align*}
+  We can fully describe $M$ by matrices $k^{r \times s}$, so let's write
+  \begin{align*}
+    M = \set{\alpha_A : A \in k^{r \times s}}.
+  \end{align*}
+  If $\alpha_A \in M$ and $B \in k^{n \times r}$, then we define how $\alpha_A$ acts on $B$ by
+  \begin{align*}
+    \alpha_A(B) = BA.
+  \end{align*}
+  We define the addition operation $+_M: M \times M \to M$ by 
+  \begin{align*}
+    (\alpha_{A_1} +_M \alpha_{A_2})(B) = \alpha_{A_1 + A_2}(B) = B(A_1 + A_2).
+  \end{align*}
+  The additive identity is given by $\alpha_0$ for $0 \in k^{r \times s}$, and so $M$ is an additive abelian group.
+  
+  Scalar multiplication $\cdot_M: k^{n \times n} \times M \to M$ is given by
+  \begin{align*}
+    (C \cdot_M \alpha_A) (B) = C(\alpha_A(B))
+  \end{align*}
+  Let's package all of this information as a tuple
+  \begin{align*}
+    \mathcal{M} = (M, +_M, \cdot_M).
+  \end{align*}
+  $\mathcal{M}$ fully describes the module in question. 
+\end{proof}
+
 \end{document}
