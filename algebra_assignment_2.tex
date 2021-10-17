@@ -131,11 +131,22 @@
   \item
     $\C[x,y]/(x^3+y^3-1)$:
 
+    $(x) \supseteq (x^2) \supseteq (x^3) \supseteq \dots $ doesn't stabilize, so the ring is not artinian. 
+    
+    As $\C[x,y]$ is noetherian, all ideals are finitely generated, and this remains true when we mod out by $(x^3 + y^3 - 1)$, because the ideals in the ring in question are in one to one correspondence with the ideals of $\C[x,y]$ that contain $(x^3+y^3-1)$, all of which then must be finitely generated, as we can just project the generators onto the quotient ring. That means that $\C[x,y]/(x^3+y^3-1)$ is noetherian.
     
   \item
     $\C[x,x^{-1}]$:
 
- s  \item
+    $\C[x]$ is noetherian, and $\C[x,x^{-1}] = \C[x]_x$ is the localization of the ring at $x$. The localization of a noetherian ring is noetherian, and so the ring in question is noetherian.
+
+    Let $f \in \C[x,x^{-1}] \setminus \C[x,x^{-1}]^x$, i.e. $f$ is not a unit. Then we have
+    \begin{align*}
+      (f) \supseteq (f^2) \supseteq (f^3) \supseteq \cdots 
+    \end{align*}
+    does not stabilize, so that the ring in question is not artinian.
+    
+  \item
     $C([0,1])$: the ring of continuous real valued functions on $[0,1]$:
 
     Consider $I_a = \set{f \in C([0,1]): supp(f) \subseteq [0,a]}$. Then we have
@@ -153,8 +164,30 @@
 
     Since $\Q$ is noetherian, $\Q[x]$ is too, and so is $\Q[x,y]$. Any ascending chain of ideals in the chain on the left will be an ascending chain on the right, and so it must stabilize. Hence, the ring in question is noetherian.
 
-    $(x) \supseteq (xy) \supseteq \dots \supseteq (xy^n) \supseteq \dots $ does not stabilize on the left hand side, so it's not artinian. 
+    $(x) \supseteq (xy) \supseteq \dots \supseteq (xy^n) \supseteq \dots $ does not stabilize on the left hand side, so it's not artinian.
   \item
+    $\Q[x^iy^j|j<i\sqrt{2}, i,j \geq 0] \subseteq \Q[x,y]$:
+
+    This ring is noetherian, for the same reason that the previous ring was noetherian.
+  \item 
+
+    \begin{align*}
+      (xy^{\max\limits_{j \in \N}(j<\sqrt{2})}) \supseteq (x^2y^{\max\limits_{j \in \N}(j<2\sqrt{2})}) \supseteq \dots \supseteq (x^iy^{\max\limits_{j \in \N}(j<i\sqrt{2})}) \supseteq \dots
+    \end{align*}
+    doesn't stabilize, so this ring is not artinian. 
+  \item
+    The $\Z$ module $\Z[1/2]/\Z$:
+
+    \begin{align*}
+      \Z[1/2]/\Z = \set{a\cfrac{1}{2} + \Z: a \in \Z}.
+    \end{align*}
+
+    Any non trivial element of this module will generate the whole $\Z$-module, and so the module is simple, so has a composition series, so is both artinian and noetherian.
+    
+  \item
+    The $\Z$ module $\Q/\Z$:
+    
+    
   \end{enumerate}
 \end{proof}
 
