@@ -134,8 +134,7 @@
   \item
     $\C[x,x^{-1}]$:
 
-    This ring is not artinian, as we get the infinitely descending chain of ideals $(x^{-1}) \supseteq (x^{-1}, x^{-2}) \supseteq \dots $,
-  \item
+   \item
     $C([0,1])$: the ring of continuous real valued functions on $[0,1]$:
 
     Consider $I_a = \set{f \in C([0,1]): supp(f) \subseteq [0,a]}$. Then we have
@@ -146,7 +145,15 @@
     \begin{align*}
       I_{1} \supseteq I_{1/2} \supseteq \dots \supseteq I_{1/n} \supseteq \dots 
     \end{align*}
-    are ascending and descending chains that don't stabilize in countably many steps, so this ring is neither noetherian nor artinian. 
+    are ascending and descending chains that don't stabilize in countably many steps, so this ring is neither noetherian nor artinian.
+
+  \item
+    The ring $\Q[x,xy,xy^2,xy^3,\dots] \subseteq \Q[x,y]$:
+
+    Since $\Q$ is noetherian, $\Q[x]$ is too, and so is $\Q[x,y]$. Any ascending chain of ideals in the chain on the left will be an ascending chain on the right, and so it must stabilize. Hence, the ring in question is noetherian.
+
+    $(x) \supseteq (xy) \supseteq \dots \supseteq (xy^n) \supseteq \dots $ does not stabilize on the left hand side, so it's not artinian. 
+    
   \end{enumerate}
 \end{proof}
 \end{document}
