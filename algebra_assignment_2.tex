@@ -169,8 +169,8 @@
     $\Q[x^iy^j|j<i\sqrt{2}, i,j \geq 0] \subseteq \Q[x,y]$:
 
     This ring is noetherian, for the same reason that the previous ring was noetherian.
-  \item 
 
+    However, the following descending chain 
     \begin{align*}
       (xy^{\max\limits_{j \in \N}(j<\sqrt{2})}) \supseteq (x^2y^{\max\limits_{j \in \N}(j<2\sqrt{2})}) \supseteq \dots \supseteq (x^iy^{\max\limits_{j \in \N}(j<i\sqrt{2})}) \supseteq \dots
     \end{align*}
@@ -186,8 +186,35 @@
     
   \item
     The $\Z$ module $\Q/\Z$:
-    
-    
+
+    Consider 
+    \begin{align*}
+      \Z\cfrac{1}{2} \subseteq \Z\cfrac{1}{4} \subseteq \Z\cfrac{1}{8} \subseteq \dots 
+    \end{align*}
+    and
+    \begin{align*}
+      \Z\cfrac{2}{3} \supseteq \Z\cfrac{4}{3} \supseteq \Z\cfrac{8}{3} \supseteq \dots       
+    \end{align*}
+    Neither chains stabilize, and so we conclude that the module is neither noetherian nor artinian.
+
+  \item
+    The $k[x]$ module $k(x)/k[x]$:
+
+    We use very similar counter examples:
+    \begin{align*}
+      k[x] \cfrac{1}{x} \subseteq k[x] \cfrac{1}{x^2} \subseteq k[x] \cfrac{1}{x^3} \subseteq \dots
+    \end{align*}
+    and
+    \begin{align*}
+      k[x] \cfrac{x-1}{x} \supseteq k[x] \cfrac{(x-1)^2}{x} \supseteq k[x] \cfrac{(x-1)^3}{x} \supseteq \dots 
+    \end{align*}
+    Neither stabilize, so the module is neither noetherian nor artinian.
+
+  \item
+    The $k[x]$ module $k[x,x^{-1}]/k[x]$:
+
+    Both of the counter examples from the previous question work in this case too, which shows that the module in question is neither noetherian nor artinian. 
+
   \end{enumerate}
 \end{proof}
 
