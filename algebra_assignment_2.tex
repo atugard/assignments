@@ -1,0 +1,137 @@
+\documentclass[12pt]{extarticle}
+%Some packages I commonly use.
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{framed}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage[utf8]{inputenc}
+\usepackage[top=1 in,bottom=1in, left=1 in, right=1 in]{geometry}
+
+%A bunch of definitions that make my life easier
+\newcommand{\matlab}{{\sc Matlab} }
+\newcommand{\abs}[1]{|#1|}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\cvec}[1]{{\mathbf #1}}
+\newcommand{\rvec}[1]{\vec{\mathbf #1}}
+\newcommand{\ihat}{\hat{\textbf{\i}}}
+\newcommand{\jhat}{\hat{\textbf{\j}}}
+\newcommand{\khat}{\hat{\textbf{k}}}
+\newcommand{\minor}{{\rm minor}}
+\newcommand{\trace}{{\rm trace}}
+\newcommand{\spn}{{\rm Span}}
+\newcommand{\rem}{{\rm rem}}
+\newcommand{\ran}{{\rm range}}
+\newcommand{\range}{{\rm range}}
+\newcommand{\mdiv}{{\rm div}}
+\newcommand{\proj}{{\rm proj}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\<}{\langle}
+\newcommand{\ideal}{\triangleleft}
+\renewcommand{\>}{\rangle}
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\attn}[1]{\textbf{#1}}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{prob}{Problem}
+\newtheorem{corollary}{Corollary}
+\newtheorem*{definition}{Definition}
+\newtheorem*{example}{Example}
+\newtheorem*{note}{Note}
+\newtheorem{exercise}{Exercise}
+\newcommand{\bproof}{\bigskip {\bf Proof. }}
+\newcommand{\eproof}{\hfill\qedsymbol}
+\newcommand{\Disp}{\displaystyle}
+\newcommand{\qe}{\hfill\(\bigtriangledown\)}
+\setlength{\columnseprule}{1 pt}
+
+
+\title{ Math 5107 -- Algebra Assignment 2}
+\author{David Draguta}
+\date{2021-10-16}
+
+\begin{document}
+
+\maketitle
+
+\begin{exercise}
+  Are the following rings or modules noetherian, artinian, both, neither?
+  \begin{enumerate}
+  \item
+    $\Z$
+  \item
+    $\Z/n\Z$
+  \item
+    $\C[x]$
+  \item
+    $\C[x,y]$
+  \item
+    $\Q[x]/(x^3-7x)$
+  \item
+    $\C[x,y]/(x^3+y^3-1)$
+  \item
+    $\C[x,x^{-1}]$
+  \item
+    $C([0,1])$: the ring of continuous real valued functions on $[0,1]$
+  \item
+    The ring $\Q[x,xy,xy^2,xy^3,\dots] \subseteq \Q[x,y]$
+  \item
+    $\Q[x^iy^j|j<i\sqrt{2}, i,j \geq 0] \subseteq \Q[x,y]$
+  \item
+    The $\Z$ module $\Z[1/2]/\Z$.
+  \item
+    The $\Z$ module $\Q/\Z$.
+  \item
+    The $k[x]$ module $k(x)/k[x]$.
+  \item
+    The $k[x]$ module $k[x,x^{-1}]/k[x]$ 
+  \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+  \begin{enumerate}
+  \item $\Z$:
+    
+    For any prime $p$ we can form the infinitely descending chain of ideals
+    \begin{align*}
+      \Z \supseteq p\Z \supseteq \dots \supseteq p^n\Z \supseteq \dots,
+    \end{align*}
+    so $\Z$ is not artinian.
+
+    $\Z$ is noetherian, as $\Z$ is a PID.
+  \item
+    $\Z/n\Z$:
+
+    We have $\abs{\set{a\Z: a \leq n}} \leq n$, i.e. the set of ideals of $\Z/n\Z$ is finite, and so any ascending or descending chain will have to stabilize, making this ring both noetherian and artinian. 
+  \item
+    $\C[x]$:
+
+    $\C$ is noetherian, so by Hilbert's Basis Theorem, $\C[x]$ is too. $\C[x]$ is not artinian, because for example $(x) \supseteq (x^2) \supseteq (x^3) \supseteq \dots $ doesn't stabilize.
+  \item
+    $\C[x,y]$:
+
+    $\C[x,y] = \C[x][y]$, so by Hilbert's Basis Theorem, $C[x,y]$ is noetherian; but it's not artinian, because $(x) \supseteq (x^2) \supseteq (x^3) \supseteq \dots $ doesn't stabilize.
+  \item
+    $\Q[x]/(x^3-7x)$:
+
+    \begin{align*}
+      \Q[x]/(x^3-7x) &\cong \Q[x]/(x) \times \Q[x]/(x^2-7) \\
+      &\cong \Q \times \Q(\sqrt{7}).
+    \end{align*}
+    Since ideals of the product of two rings $R \times S$ are of the form $I \times J$ for $I \ideal R$ and $J \ideal S$, and since fields have only trivial ideals, we conclude that the ring in question is both artinian and noetherian.
+
+  \item
+    $\C[x,y]/(x^3+y^3-1)$:
+
+    
+  \end{enumerate}
+\end{proof}
+\end{document}
