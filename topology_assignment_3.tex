@@ -1,0 +1,102 @@
+\documentclass[12pt]{extarticle}
+%Some packages I commonly use.
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{framed}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage[utf8]{inputenc}
+\usepackage[top=1 in,bottom=1in, left=1 in, right=1 in]{geometry}
+
+%A bunch of definitions that make my life easier
+\newcommand{\matlab}{{\sc Matlab} }
+\newcommand{\abs}[1]{|#1|}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\cvec}[1]{{\mathbf #1}}
+\newcommand{\rvec}[1]{\vec{\mathbf #1}}
+\newcommand{\ihat}{\hat{\textbf{\i}}}
+\newcommand{\jhat}{\hat{\textbf{\j}}}
+\newcommand{\khat}{\hat{\textbf{k}}}
+\newcommand{\minor}{{\rm minor}}
+\newcommand{\trace}{{\rm trace}}
+\newcommand{\spn}{{\rm Span}}
+\newcommand{\rem}{{\rm rem}}
+\newcommand{\ran}{{\rm range}}
+\newcommand{\range}{{\rm range}}
+\newcommand{\mdiv}{{\rm div}}
+\newcommand{\proj}{{\rm proj}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\attn}[1]{\textbf{#1}}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{prob}{Problem}
+\newtheorem{corollary}{Corollary}
+\newtheorem*{definition}{Definition}
+\newtheorem*{example}{Example}
+\newtheorem*{note}{Note}
+\newtheorem{exercise}{Exercise}
+\newcommand{\bproof}{\bigskip {\bf Proof. }}
+\newcommand{\eproof}{\hfill\qedsymbol}
+\newcommand{\Disp}{\displaystyle}
+\newcommand{\qe}{\hfill\(\bigtriangledown\)}
+\setlength{\columnseprule}{1 pt}
+
+
+\title{ Math 5205 -- Topology Assignment 3}
+\author{David Draguta}
+\date{2021-10-18}
+
+\begin{document}
+
+\maketitle
+
+\begin{exercise}
+  Let $(X_{\alpha})_{\alpha \in A}$ be a non-empty family of topological spaces and $\varphi: A \to A$ a bijection of $A$ onto $A$. Prove that the cartesian product
+  $\prod\limits_{\alpha \in A}X_{\alpha}$ and $\prod\limits_{\alpha \in A}X_{\varphi{\alpha}}$ are homeomorphic. 
+\end{exercise}
+\begin{proof}
+  We define $f: \prod\limits_{\alpha \in A}X_{\alpha} \to \prod\limits_{\alpha \in A}X_{\varphi(\alpha)}$ by $ f(x) = x \circ \varphi$ and $g: f: \prod\limits_{\alpha \in A}X_{\varphi(\alpha)} \to \prod\limits_{\alpha \in A}X_{\alpha}$ by $g(x') = x' \circ \varphi^{-1}$, and check that these are continuous inverses of each other. We first check that the two are inverses of each other (which shows they're bijections)
+  \begin{align*}
+    g(f(x))  &= g(x \circ \varphi)     = (x \circ \varphi) \circ \varphi^{-1} = x \circ (\varphi \circ \varphi^{-1}) \\
+    &= x, 
+  \end{align*}
+  and
+  \begin{align*}
+    f(g(x')) &= f(x'\circ \varphi^{-1}) = (x' \circ \varphi^{-1}) \circ \varphi = x' \circ (\varphi^{-1} \circ \varphi) \\
+    &= x'.
+  \end{align*}
+  Next, we use Thm 101 part 3 to show that $f,g$ are continuous. For each $\alpha \in A$ and $(x_{\alpha})_{\alpha \in A} \in \prod\limits_{\alpha \in A}X_{\alpha}$ we have 
+  \begin{align*}
+    (\pi_\alpha \circ f)((x_{\alpha})_{\alpha \in A}) &= \pi_\alpha(f((x_{\alpha})_{\alpha \in A})) = \pi_{\alpha}((x_{\alpha})_{\alpha \in A} \circ \varphi) = \pi_{\alpha}((x_{\varphi(\alpha)})_{\alpha \in A}) = x_{\varphi(\alpha)} \\
+    &= \pi_{\varphi(\alpha)}(x_{\alpha}_{\alpha \in A}),
+  \end{align*}
+  and so
+  \begin{align*}
+    \pi_{\alpha} \circ f  = \pi_{\varphi(\alpha)}.
+  \end{align*}
+  is continous for all $\alpha \in A$. We conclude that $f$ is continuous (with respect to the weak topology).
+
+  Similarly for $\alpha \in A$ and $(x_{\varphi(\alpha)})_{\alpha \in A} \in \prod\limits_{\alpha \in A} X_{\varphi(\alpha)}$, we have
+  \begin{align*}
+    (\pi_{\alpha}\circ g)((x_{\varphi(\alpha)})_{\alpha \in A}) &= \pi_{\alpha}(g((x_{\varphi(\alpha)})_{\alpha \in A})) = \pi_{\alpha}((x_{\varphi(\alpha)})_{\alpha \in A} \circ \varphi^{-1}) = \pi_{\alpha}((x_{\alpha})_{\alpha \in A}) = x_{\alpha} \\
+    &= \pi_{\varphi^{-1}(\alpha)}((x_{\varphi(\alpha)})_{\alpha \in A}),
+  \end{align*}
+  so
+  \begin{align*}
+    \pi_{\alpha}\circ g = \pi_{\varphi^{-1}(\alpha)}.
+  \end{align*}
+\end{proof}
+\end{document}
+
+
+
