@@ -177,6 +177,28 @@
     \end{enumerate}
   \end{enumerate}
 \end{exercise}
+\begin{proof}
+  \begin{enumerate}
+  \item
+    Let $V \subseteq X$ be a nhood of $f(y_0)$ in $X$. Let $\mathcal{B}_{f_{\alpha}(f(y_0))}^{\alpha}$ be a nhood base at $f_{\alpha}(f(y_0))$ in $X_{\alpha}$ for each $\alpha \in A$.
+    Then there exist $V_i \in  \mathcal{B}_{f_{\alpha_i}(f(y_0))}^{\alpha_i}$ such that 
+    \begin{align*}
+      f_{\alpha_1}^{-1}(V_1) \cap \dots \cap f_{\alpha_n}^{-1}(V_n) \subseteq V.
+    \end{align*}
+    We have
+    \begin{align*}
+      f^{-1}(f_{\alpha_1}^{-1}(V_1) \cap \dots \cap f_{\alpha_n}^{-1}(V_n))
+      &= f^{-1}(f_{\alpha_1}^{-1}(V_1)) \cap \dots \cap f^{-1}(f_{\alpha_n}^{-1}(V_n)) \\
+      &= (f_{\alpha_1} \circ f)^{-1}(V_1) \cap \dots \cap (f_{\alpha_n} \circ f)^{-1}(V_n).
+    \end{align*}
+    Now, as $f_{\alpha_i} \circ f$ is continuous at $y_0$ and $(f_{\alpha_i} \circ f)(y_0) \in V_i$ is open in $X_{\alpha_i}$, we have that $y_0 \in (f_{\alpha_n} \circ f)^{-1}(V_i)$ is open in $X$, too, for each $i$. Thus, $y_0 \in (f_{\alpha_1} \circ f)^{-1}(V_1) \cap \dots \cap (f_{\alpha_n} \circ f)^{-1}(V_n)$ is open in $Y$, and 
+    \begin{align*}
+      (f_{\alpha_1} \circ f)^{-1}(V_1) \cap \dots \cap (f_{\alpha_n} \circ f)^{-1}(V_n) \subseteq f^{-1}(V).
+    \end{align*}
+    Hence, $f^{-1}(V)$ is a nhood of $y_0$ in $Y$ such that $f(f^{-1}(V)) \subseteq V$, and $f$ is continuous at $y_0$. 
+    
+  \end{enumerate}
+\end{proof}
 \end{document}
 
 
