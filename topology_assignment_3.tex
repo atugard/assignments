@@ -100,6 +100,8 @@
   Thus both $f$ and $g$ are continuous, and the two spaces are homeomorphic. 
 \end{proof}
 \begin{exercise}
+  Let $A = B \cup C$ where $A,B,C$ are nonempty sets with $B \cap C = \emptyset$ and let $(X_{\alpha})_{\alpha \in A}$ be a family of topological spaces.
+  Prove that $\prod\limits_{\alpha \in A} X_{\alpha}$ is homeomorphic to $\prod\limits_{\lambda \in \Lambda} \prod\limits_{\alpha \in A_{\lambda}} X_{\alpha}$.
 \end{exercise}
 \begin{proof}
   We prove 8C part 1 in the textbook.
@@ -120,7 +122,7 @@
   \end{align*}
   and
   \begin{align*}
-    &g: Y \to X, \quad ((x_{\alpha})_{\alpha \in A_{\lambda}})_{\lambda \in \Lambda} \mapsto (x_{\alpha})_{\alpha \in A} 
+    &g: Y \to X, \quad ((x_{\alpha})_{\alpha \in A_{\lambda}})_{\lambda \in \Lambda} \mapsto (x_{\alpha})_{\alpha \in A}.
   \end{align*}
   These are obviously inverses. It remains to check that they're continuous. We apply part 3 of theorem 101 in the course notes.
   \begin{align*}
@@ -137,14 +139,26 @@
   \end{align*}
   is continuous, again we apply part 3 of theorem 101:
   \begin{align*}
-    \pi_{\alpha}^{Y_{\lambda}} \circ \prod\limits_{\alpha \in A_{\lambda}}\pi_{\alpha}^X(x) = x_{\alpha} = \pi_{\alpha}^X(x),
+    \pi_{\alpha}^{Y_{\lambda}} \circ \prod\limits_{\alpha \in A_{\lambda}}\pi_{\alpha}^X((x_{\alpha})_{\alpha \in A}) =\pi_{\alpha}^{Y_{\lambda} ((x_{\alpha})_{\alpha \in A_{\lambda}}) = \pi_{\alpha}^X((x_{\alpha})_{\alpha \in A}),
   \end{align*}
   and so
   \begin{align*}
     \pi_{\alpha}^{Y_{\lambda}} \circ \prod\limits_{\alpha \in A_{\lambda}}\pi_{\alpha}^X = \pi_{\alpha}^X.
   \end{align*}
-  Now, for all $\alpha \in A_{\lambda}, \pi_{\alpha}^X$ is continuous, and so $\prod\limits_{\alpha \in A_{\lambda}}\pi_{\alpha}^X$ is continuous, which is true for all $\lambda \in \Lambda$. Hence, $f$ is continuous. 
+  Now, for all $\alpha \in A_{\lambda}, \pi_{\alpha}^X$ is continuous, and so $\prod\limits_{\alpha \in A_{\lambda}}\pi_{\alpha}^X$ is continuous, which is true for all $\lambda \in \Lambda$. Hence, $f$ is continuous.
 
+  For the other direction, we have
+  \begin{align*}
+    \pi_{\alpha}^X \circ g (((x_{\alpha})_{\alpha \in A_{\lambda}})_{\lambda \in \Lambda}) &= \pi_{\alpha}^X((x_{\alpha})_{\alpha \in A}) = x_{\alpha} \\
+    &= \pi_{\alpha}^{Y_{\lambda}} \circ \pi_{\lambda}^Y (((x_{\alpha})_{\alpha \in A_{\lambda}})_{\lambda \in \Lambda}),
+  \end{align*}
+  and so
+  \begin{align*}
+    \pi_{\alpha}^X \circ g = \pi_{\alpha}^{Y_{\lambda}} \circ \pi_{\lambda}^Y,
+  \end{align*}
+  where the right hand side is a composition of continuous functions, and is therefore continuous. By theorem 101 part 3 we conclude that $g$ is continuous. Hence $X$ is homeomorphic to $Y$.
+
+  Now, partitioning $A$ into $A_{1} = B$ and $A_{2} = C$ and applying this result yields the solution to the problem. 
 \end{proof}
 \end{document}
 
