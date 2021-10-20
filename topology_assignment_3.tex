@@ -99,6 +99,53 @@
   
   Thus both $f$ and $g$ are continuous, and the two spaces are homeomorphic. 
 \end{proof}
+\begin{exercise}
+\end{exercise}
+\begin{proof}
+  We prove 8C part 1 in the textbook.
+  
+  Let 
+  \begin{align*}
+    X = \prod\limits_{\alpha \in A} X_{\alpha}
+  \end{align*}
+  and
+  \begin{align*}
+    Y= \prod_{\lambda \in \Lambda}Y_{\lambda},
+  \end{align*}
+  where $Y_{\lambda} = \prod_{\alpha \in A_{\lambda}} X_{\alpha}$.
+
+  Next, let
+  \begin{align*}
+    &f: X \to Y, \quad (x_{\alpha})_{\alpha \in A} \mapsto ((x_{\alpha})_{\alpha \in A_{\lambda}})_{\lambda \in \Lambda}
+  \end{align*}
+  and
+  \begin{align*}
+    &g: Y \to X, \quad ((x_{\alpha})_{\alpha \in A_{\lambda}})_{\lambda \in \Lambda} \mapsto (x_{\alpha})_{\alpha \in A} 
+  \end{align*}
+  These are obviously inverses. It remains to check that they're continuous. We apply part 3 of theorem 101 in the course notes.
+  \begin{align*}
+    \pi_{\lambda}^Y \circ f ((x_{\alpha})_{\alpha \in A}) &= \pi_{\lambda}^Y (((x_{\alpha})_{\alpha \in A_{\lambda}})_{\lambda \in \Lambda}) = (x_{\alpha})_{\alpha \in A_{\lambda}} \\
+    &= (\prod\limits_{\alpha \in A_{\lambda}}\pi_{\alpha}^X )((x_{\alpha})_{\alpha \in A}),
+  \end{align*}
+  and so
+  \begin{align*}
+    \pi_{\lambda}^Y \circ f = \prod\limits_{\alpha \in A_{\lambda}}\pi_{\alpha}^X.
+  \end{align*}
+  To show that
+  \begin{align*}
+    \prod\limits_{\alpha \in A_{\lambda}}\pi_{\alpha}^X: X \to Y_{\lambda}
+  \end{align*}
+  is continuous, again we apply part 3 of theorem 101:
+  \begin{align*}
+    \pi_{\alpha}^{Y_{\lambda}} \circ \prod\limits_{\alpha \in A_{\lambda}}\pi_{\alpha}^X(x) = x_{\alpha} = \pi_{\alpha}^X(x),
+  \end{align*}
+  and so
+  \begin{align*}
+    \pi_{\alpha}^{Y_{\lambda}} \circ \prod\limits_{\alpha \in A_{\lambda}}\pi_{\alpha}^X = \pi_{\alpha}^X.
+  \end{align*}
+  Now, for all $\alpha \in A_{\lambda}, \pi_{\alpha}^X$ is continuous, and so $\prod\limits_{\alpha \in A_{\lambda}}\pi_{\alpha}^X$ is continuous, which is true for all $\lambda \in \Lambda$. Hence, $f$ is continuous. 
+
+\end{proof}
 \end{document}
 
 
