@@ -196,7 +196,17 @@
       (f_{\alpha_1} \circ f)^{-1}(V_1) \cap \dots \cap (f_{\alpha_n} \circ f)^{-1}(V_n) \subseteq f^{-1}(V).
     \end{align*}
     Hence, $f^{-1}(V)$ is a nhood of $y_0$ in $Y$ such that $f(f^{-1}(V)) \subseteq V$, and $f$ is continuous at $y_0$. 
-    
+  \item
+    \begin{enumerate}
+    \item
+      If $h^{-1}(U)$ is a nhood of $z_0$ in $Z$, then there exists some open $z_0 \in W \subseteq Z$.
+      Since $h$ is surjective we have $W=h^{-1}(h(W))$, so by the definition of the quotient topology $h(W)$ is open in $X$.
+      Since $h(z_0) \in h(W) \subseteq U$, we conclude that $U$ is a nhood of $h(z_0)$ in $X$.
+    \item
+      Let $V$ be a nhood of $f(h(z_0))$. Then, as $f \circ h$ is continuous at $z_0$ there exists a nhood $W$ of $z_0$ such that $(f \circ h)(W) \subseteq V$.
+      Then, as $W = h^{-1}(h(W))$ (since $h$ is surjective), by the first part of this question we conclude $h(W)$ is a neighbourhood of $h(z_0)$.
+      Thus, $f$ is continuous at $h(z_0)$ (since $f(h(W)) \subseteq V$). 
+    \end{enumerate}
   \end{enumerate}
 \end{proof}
 \end{document}
