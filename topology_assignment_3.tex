@@ -209,6 +209,39 @@
     \end{enumerate}
   \end{enumerate}
 \end{proof}
+\begin{exercise}
+  Show that TFCAE for a topological space $(X, \tau)$:
+  \begin{enumerate}
+  \item
+    If $E \subseteq X$ and $x \in \overline{E}$, then there is a sequence $(x_n)_{n=1}^{\infty}$ in $E$ with $x_n \to x$.
+  \item
+    If $x \in U \subseteq X$ and for every sequence $(x_n)_{n=1}^{\infty}$ in $X, x_n \to x$ implies that $(x_n)_{n=1}^{\infty}$ is eventually in $U$, then $x \in U^o$.
+  \item
+    If $f:X \to Y$ where $Y$ is a topological space, $x \in X$ and for every sequence $(x_n)_{n=1}^{\infty}$ in $X$, $x_n \to x$ implies $f(x_n) \to f(x)$,
+    then $f$ is continuous at $x$. 
+  \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+  \begin{itemize}
+  \item
+    $1. \implies 2.$
+    
+    If $x \not \in U^o$, then for every neighbourhood $W$ of $x$ we have, $(W \setminus \set{x}) \cap U^c = W\cap (U^c \setminus \set{x}) = W \cap U^c \neq \emptyset$,
+    so that $x \in (U^c)' \subseteq \overline{U^c}$. Thus, there exists a sequence $(x_n)_{n \in \N}$ in $U^c$ with $x_n \to x$, i.e. there exists a sequence of points converging to $x$ that is not eventually in $U$. 
+  \item
+    $2. \implies 3.$
+    
+    Let $V \subseteq Y$ be a nhood of $f(x)$. Then for any sequence $x_n \to x$ we have $f(x_n) \to f(x)$, so that $(f(x_n))_{n \in \N}$ is residually in $V$,
+    and $(x_n)_{n \in N}$ is residually in $f^{-1}(V)$. Thus, we have that $x \in (f^{-1}(V))^o \subseteq f^{-1}(V)$. Let $W:=f^{-1}(V)$. Then $W$ is a nhood of $x$,
+    and $f(W) \subseteq V$, so that $f$ is continuous. 
+  \item
+    $3. \implies 1.$
+
+    asasd
+  \end{itemize}
+\end{proof}
+
 \end{document}
 
 
