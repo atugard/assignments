@@ -236,9 +236,20 @@
     and $(x_n)_{n \in N}$ is residually in $f^{-1}(V)$. Thus, we have that $x \in (f^{-1}(V))^o \subseteq f^{-1}(V)$. Let $W:=f^{-1}(V)$. Then $W$ is a nhood of $x$,
     and $f(W) \subseteq V$, so that $f$ is continuous. 
   \item
-    $3. \implies 1.$
+    $3. \implies 2.$
 
-    $1_E$ is continuous. So there exists some nhood of $x$, call it $U$, such that $1_E(V) \subseteq \set{1}$, that is $x \in V \subseteq E$, and $x_n \to x$, so $(x_n)$ is residually in $V$, that is the tail sequence is entirely in $E$!
+    Well, if any sequence $(x_n)$ in $X$ is eventually in $U$ then $1_U:X \to \set{0,1}$, i.e. the indicator function for $U$ is continuous at $x$, and so
+    giving $\set{0,1}$ the Sierpinski topology, we have for $\set{1}$ some neighbourhood $W$ of $X$ such that $1_U(W) \subseteq \set{1}$, but that means $W \subseteq U$,
+    and so $x \in W^o \subseteq U^o$.
+
+    $2. \implies 1.$
+
+    If $x \in E^o$, then as this is a neighbourhood of $x$, any $x_n \to x$ will be eventually in $E^o$, and we can take our sequence as the tail of any sequence.
+    Otherwise, $x \not \in E^o$ implies $x \in \overline{E} \setminus E^o = Fr(E) = \overline{E} \cap \overline{X \setminus E}$, i.e. $x \in \overline{X \setminus E}$,
+    but $x \not \in (X \setminus E)^o = \overline{X \setminus E}$, so by $2$ there exists a sequence $(y_n)$ such that for any $n_0 \in \N$ there exists some $n > n_0$ such
+    that $y_n \not \in X \setminus E$. Then we can form a subsequence $(x_n)_{n \in \N}$ such that for each $n \in \N$ there exists some $k \in \N$ with $x_n = y_{n_k}$,
+    where $y_{n_k} \not \in X \setminus E$, i.e. $y_{n_k} \in E$ and $n_k < n_{k+1}$ for each $k$. Then $x_n \to x$ and $(x_n)_{n \in \N}$ is entirely in $E$. 
+     
   \end{itemize}
 \end{proof}
 
