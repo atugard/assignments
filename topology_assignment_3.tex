@@ -271,16 +271,27 @@
       
       Well, let $x \in X$, $U \in \mathcal{U}_x$, and $(x_n)_{n \in \N}$ a sequence in $X$ such that $x_n \to x$.
       Then $x \in U^o$, which must be uncountable. Suppose that $(x_n)_{n \in \N}$ doesn't stabilize on $x$,
-      that is for any $n_0 \in \N$ there exists some $n \geq n_0$ such that $x_n \neq x$. Let
+      that is for any $n_0 \in \N$ there exists some $n \geq n_0$ such that $x_n \neq x$.
+
+      Let
       \begin{align*}
         I := \set{n \in \N: x_n \neq x}.
       \end{align*}
-      Then $I$ is countable, and $U^* = U^o \setminus (x_n)_{n \in I}$ is an open neighbourhood of $x$; but $(x_n)_{n=1}^{\infty}$
+      Then $I$ is countable and unbounded, and $U^* = U^o \setminus (x_n)_{n \in I}$ is an open neighbourhood of $x$; but $(x_n)_{n=1}^{\infty}$
       is not residually in $U^*$, and that's a contradiction.
 
       Okay, so the sequences in this topology are those that stabilize, i.e. those such that there exists some $n_0 \in \N$
-      such that $x_n = x$ for all $n \geq n_0$. Well, the other side of this coin, the second thing to consider, is what values
-      of $x$ are appropriate here. 
+      such that $x_n = x$ for all $n \geq n_0$. Well, the other side of this coin, the second thing to consider, is what points are appropriate here?
+      Well, 
+
+    \item
+      Suppose that $X$ is first countable. Let $x \in \X$, and $\mathcal{B}_x$ be a countable nhood base at $x$ in $X$.
+      Then $\bigcap \mathcal{B}_x$ is a countable intersection of non-disjoint uncountable sets, and so is uncountable, hence open.
+      Let $B = \bigcap \mathcal{B}_x \setminus \set{y}$, where $y \neq x$ and $y \in \bigcap \mathcal{B}_x$. Then, there exists some $W \in \mathcal{B}_x$
+      such that $W \subseteq B$, which is impossible, as $y \in W$, so $y$ both is and is not part of the intersection.
+      Hence, $X$ is not first countable.
+    \item
+      No, because $(x_n) \subseteq E$ would have to stabilize on $x$, but $x$ in general need not be in $E$, i.e. there exists $n \in \N$ such that $x_n=x$, but it could be that $x \in \overline{E} \setminus E$.
 
     \end{enumerate}
   \item
