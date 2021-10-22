@@ -263,7 +263,26 @@
 \begin{proof}
   \begin{enumerate}
   \item
-    
+    \begin{enumerate}
+    \item
+      The open sets in this topology are the uncountable sets. 
+
+
+      
+      Well, let $x \in X$, $U \in \mathcal{U}_x$, and $(x_n)_{n \in \N}$ a sequence in $X$ such that $x_n \to x$.
+      Then $x \in U^o$, which must be uncountable. Suppose that $(x_n)_{n \in \N}$ doesn't stabilize on $x$,
+      that is for any $n_0 \in \N$ there exists some $n \geq n_0$ such that $x_n \neq x$. Let
+      \begin{align*}
+        I := \set{n \in \N: x_n \neq x}.
+      \end{align*}
+      Then $I$ is countable, and $U^* = U^o \setminus (x_n)_{n \in I}$ is an open neighbourhood of $x$; but $(x_n)_{n=1}^{\infty}$
+      is not residually in $U^*$, and that's a contradiction.
+
+      Okay, so the sequences in this topology are those that stabilize, i.e. those such that there exists some $n_0 \in \N$
+      such that $x_n = x$ for all $n \geq n_0$. Well, the other side of this coin, the second thing to consider, is what values
+      of $x$ are appropriate here. 
+
+    \end{enumerate}
   \item
     
   \end{enumerate}
