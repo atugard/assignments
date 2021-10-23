@@ -368,4 +368,26 @@
     
   \end{enumerate}
 \end{proof}
+
+\begin{exercise}
+  Let $R = \Z \oplus \Z i \oplus \Z j \oplus \Z k \subset \mathbb{H}$ be the integral quaternions. For any prime $p \subset \Z$, let $R_p = R / pR$.
+  Describe the Jacobson radical $J(R/pR)$ and the Wedderburn Decomposition of the semi-simple quotient $R_p/J(R_p)$ for all $p$. 
+\end{exercise}
+\begin{proof}
+  We have
+  \begin{align*}
+    R/pR \cong \Z/p\Z \oplus (\Z/p\Z)i \oplus (\Z/p\Z) \oplus (\Z/p\Z)j \oplus (\Z/p\Z) k, 
+  \end{align*}
+  so that we can write
+  \begin{align*}
+    R/pR = \set{a+bi+cj+dk : a,b,c,d \in \Z/p\Z}
+  \end{align*}
+  The maximal ideals are
+  \begin{align*}
+    \mathfrak{m}_1 &= \text{span}_{\Z/p\Z}(1,i,j) \\
+    \mathfrak{m}_2 &= \text{span}_{\Z/p\Z}(1,i,k) \\
+    \mathfrak{m}_3 &= \text{span}_{\Z/p\Z}(1,j,k) \\
+    \mathfrak{m}_3 &= \text{span}_{\Z/p\Z}(i,j,k) 
+  \end{align*}
+\end{proof}
 \end{document}
