@@ -280,9 +280,10 @@
 
       Okay, so the sequences in this topology are those that stabilize, i.e. those such that there exists some $n_0 \in \N$ such that $x_n = x$ for all $n \geq n_0$. What can we say about the points to which the sequences converge?
 
-      The points $x$ to which the sequences converge must have finitely many neighbourhoods. Otherwise we could use an infinitely strictly descending chain of neighbourhoods of $x$, $ U_1 \supset U_2 \supset \dots$
-      to define a sequence $(x_n)_{n \in \N}$ such that $x_n \in U_n$ and $x_n \neq x$ for any of the $n \in \N$, where $U_1$ is an arbitrary initial neighbourhood.
-      Then $U_1^{*} = U_1 \setminus (x_n)_{n \in \N}$ is an nhood of $x$, and $x_n \to x$, so  $(x_n)_{n \in \N}$ is residually in $U_1^{*}$, which is a contradiction. 
+      There must not be a countably infinite neighbourhood base at $x$. If there is such a base, we have $\mathcal{B}_x = \set{U_n : n \in \N}$, and we can put $V_n := \bigcap\limits_{k=1}^n U_k$,
+      and use this to define a sequence by choosing some $x_n \in V_n$ such that $x_n \neq x$ for all $n \in \N$. Then $x_n \to x$ and $ V_1^* := V_1 \setminus (x_n)_{n=1}^{\infty}$ is an nhood of $x$ (it's uncountable and we chose the $x_n \neq x$),
+      so that $(x_n)_{n=1}^{\infty}$ is residually in $V_1^*$, a contradiction. Clearly no neighbourhood base can be finite, because we're in an uncountable space where the open sets are uncountable. Hence,
+      it must be that any neighbourhood base at $x$ must be uncountable. 
 
 
     \item
