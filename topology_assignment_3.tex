@@ -246,7 +246,7 @@
 
     If $x \in E^o$, then as this is a neighbourhood of $x$, any $x_n \to x$ will be eventually in $E^o$, and we can take our sequence as the tail of any sequence.
     Otherwise, $x \not \in E^o$ implies $x \in \overline{E} \setminus E^o = Fr(E) = \overline{E} \cap \overline{X \setminus E}$, i.e. $x \in \overline{X \setminus E}$,
-    but $x \not \in (X \setminus E)^o = \overline{X \setminus E}$, so by $2$ there exists a sequence $(y_n)$ such that for any $n_0 \in \N$ there exists some $n > n_0$ such
+    but $x \not \in (\overline{X \setminus E})^o = (X \setminus E)^o$, so by $2$ there exists a sequence $(y_n)$ such that for any $n_0 \in \N$ there exists some $n > n_0$ such
     that $y_n \not \in X \setminus E$. Then we can form a subsequence $(x_n)_{n \in \N}$ such that for each $n \in \N$ there exists some $k \in \N$ with $x_n = y_{n_k}$,
     where $y_{n_k} \not \in X \setminus E$, i.e. $y_{n_k} \in E$ and $n_k < n_{k+1}$ for each $k$. Then $x_n \to x$ and $(x_n)_{n \in \N}$ is entirely in $E$. 
      
@@ -265,24 +265,25 @@
   \item
     \begin{enumerate}
     \item
-      The open sets in this topology are the uncountable sets. 
+      The open sets in this topology are the uncountable sets.
 
-
-      
-      Well, let $x \in X$, $U \in \mathcal{U}_x$, and $(x_n)_{n \in \N}$ a sequence in $X$ such that $x_n \to x$.
-      Then $x \in U^o$, which must be uncountable. Suppose that $(x_n)_{n \in \N}$ doesn't stabilize on $x$,
+      Let $x \in X$, $U \in \mathcal{U}_x$, and $(x_n)_{n \in \N}$ a sequence in $X$ such that $x_n \to x$.
+      Then as $U^o \subseteq U$, we have that $U$ is uncountable. Suppose that $(x_n)_{n \in \N}$ doesn't stabilize on $x$,
       that is for any $n_0 \in \N$ there exists some $n \geq n_0$ such that $x_n \neq x$.
 
       Let
       \begin{align*}
         I := \set{n \in \N: x_n \neq x}.
       \end{align*}
-      Then $I$ is countable and unbounded, and $U^* = U^o \setminus (x_n)_{n \in I}$ is an open neighbourhood of $x$; but $(x_n)_{n=1}^{\infty}$
+      Then $I$ is countable and unbounded, and $U^* = U \setminus (x_n)_{n \in I}$ is a neighbourhood of $x$; but $(x_n)_{n=1}^{\infty}$
       is not residually in $U^*$, and that's a contradiction.
 
-      Okay, so the sequences in this topology are those that stabilize, i.e. those such that there exists some $n_0 \in \N$
-      such that $x_n = x$ for all $n \geq n_0$. Well, the other side of this coin, the second thing to consider, is what points are appropriate here?
-      Well, 
+      Okay, so the sequences in this topology are those that stabilize, i.e. those such that there exists some $n_0 \in \N$ such that $x_n = x$ for all $n \geq n_0$. What can we say about the points to which the sequences converge?
+
+      The points $x$ to which the sequences converge must have finitely many neighbourhoods. Otherwise we could use an infinitely strictly descending chain of neighbourhoods of $x$, $ U_1 \supset U_2 \supset \dots$
+      to define a sequence $(x_n)_{n \in \N}$ such that $x_n \in U_n$ and $x_n \neq x$ for any of the $n \in \N$, where $U_1$ is an arbitrary initial neighbourhood.
+      Then $U_1^{*} = U_1 \setminus (x_n)_{n \in \N}$ is an nhood of $x$, and $x_n \to x$, so  $(x_n)_{n \in \N}$ is residually in $U_1^{*}$, which is a contradiction. 
+
 
     \item
       Suppose that $X$ is first countable. Let $x \in \X$, and $\mathcal{B}_x$ be a countable nhood base at $x$ in $X$.
