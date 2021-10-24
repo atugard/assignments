@@ -287,6 +287,18 @@
 
 
     \item
+
+      Suppose that $X$ is first countable. Let $x \in \X$, and $\mathcal{B}_x = \set{U_n: n \in \N} $ be a countable nhood base at $x$ in $X$. Then
+      \begin{align*}
+        (\bigcap\limits_{n=1}^{\infty} U_n)^c = \bigcup\limits_{n=1}^{\infty} U_n^c,
+      \end{align*}
+      and the right hand side is a countable union of countable sets, so is countable. Hence, the intersection is an open neighbourhood of $x$, as it's uncountable and $x$ is contained in it. Let $y$ be in the intersection such that $y \neq x$. Then
+      \begin{align*}
+        U^* = \bigcap\limits_{n=1}^{\infty} U_n \setminus \set{y}
+      \end{align*}
+      is an nhood of $x$, and so there exists some $U \in \mathcal{B}_x$ such that $U \subseteq U^*$; but then $y \in U \subseteq U^*$, which is a contradiction. 
+    \item
+      No, because $(x_n) \subseteq E$ would have to stabilize on $x$, but $x$ in general need not be in $E$, i.e. there exists $n \in \N$ such that $x_n=x$, but it could be that $x \in \overline{E} \setminus E$.
       Suppose that $X$ is first countable. Let $x \in \X$, and $\mathcal{B}_x$ be a countable nhood base at $x$ in $X$.
       Then $\bigcap \mathcal{B}_x$ is a countable intersection of non-disjoint uncountable sets, and so is uncountable, hence open.
       Let $B = \bigcap \mathcal{B}_x \setminus \set{y}$, where $y \neq x$ and $y \in \bigcap \mathcal{B}_x$. Then, there exists some $W \in \mathcal{B}_x$
