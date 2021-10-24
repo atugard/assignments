@@ -380,14 +380,20 @@
   \end{align*}
   so that we can write
   \begin{align*}
-    R/pR = \set{a+bi+cj+dk : a,b,c,d \in \Z/p\Z}
+    R/pR = \set{a+bi+cj+dk : a,b,c,d \in \Z/p\Z}.
   \end{align*}
-  The maximal ideals are
+
+  This problem reduces to finding the zero divisors in $R/pR$, since any
+  simple module is cyclic, and thus the annihilator of any element is its zero divisors. In this ring, an element is a zero divisor if and only if $p$ divides its norm. Thus, we have
   \begin{align*}
-    \mathfrak{m }_1 &= \text{span}_{\Z/p\Z}(1,i,j) \\
-    \mathfrak{m}_2 &= \text{span}_{\Z/p\Z}(1,i,k) \\
-    \mathfrak{m}_3 &= \text{span}_{\Z/p\Z}(1,j,k) \\
-    \mathfrak{m}_3 &= \text{span}_{\Z/p\Z}(i,j,k) 
+    Ann(s) =
+    \begin{cases}
+      \set{\overline{s}r: r \in R/pR} & \text{ if } p \mid s \overline{s}  \\
+      \set{0} & \text { otherwise } 
+    \end{cases}
   \end{align*}
+
+  
+  
 \end{proof}
 \end{document}
