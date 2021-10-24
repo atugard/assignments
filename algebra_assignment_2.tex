@@ -380,20 +380,13 @@
   \end{align*}
   so that we can write
   \begin{align*}
-    R/pR = \set{a+bi+cj+dk : a,b,c,d \in \Z/p\Z}.
+    R_p = \set{a+bi+cj+dk : a,b,c,d \in \Z/p\Z}.
   \end{align*}
-
-  This problem reduces to finding the zero divisors in $R/pR$, since any
-  simple module is cyclic, and thus the annihilator of any element is its zero divisors. In this ring, an element is a zero divisor if and only if $p$ divides its norm. Thus, we have
+  Let $A:= R_p \setminus R_p^\times = \set{r \in R/pR: p \mid r \overline{r}}$, which is the set of zero divisors of $R_p$.
+  Any element in this set generates a proper right $R_p$-submodule. Thus, we have
   \begin{align*}
-    Ann(s) =
-    \begin{cases}
-      \set{\overline{s}r: r \in R/pR} & \text{ if } p \mid s \overline{s}  \\
-      \set{0} & \text { otherwise } 
-    \end{cases}
+    J(R_p) &= \bigcap \limits_{a \in A} \text{Ann}(aR_p) \\
+    &= \bigcap \limits_{a \in A} \text{Ann}(aR_p) \\
   \end{align*}
-
-  
-  
 \end{proof}
 \end{document}
