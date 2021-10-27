@@ -56,7 +56,7 @@
 
 \title{ Math 5107 -- Algebra Assignment 2}
 \author{David Draguta}
-\date{2021-10-16}
+\date{2021-10-26}
 
 \begin{document}
 
@@ -380,13 +380,14 @@
   \end{align*}
   so that we can write
   \begin{align*}
-    R_p = \set{a+bi+cj+dk : a,b,c,d \in \Z/p\Z}.
+    R_p = \set{a+bi+cj+dk : a,b,c,d \in \Z/p\Z},
   \end{align*}
-  Let $A:= R_p \setminus R_p^\times = \set{r \in R/pR: p \mid r \overline{r}}$, which is the set of zero divisors of $R_p$.
-  Any element in this set generates a proper right $R_p$-submodule. Thus, we have
+  i.e. these are the quaternions mod $p$. We define $A= \set{r \in R_p: r \overline{r} = 0}$, and find $A = R_p \setminus R_p^x$.
+  Every element of $a$ generates a simple right $R_p$-module $aR_p$, and these are all the simple right $R_p$-modules of $R_p$. We have that
   \begin{align*}
-    J(R_p) &= \bigcap \limits_{a \in A} \text{Ann}(aR_p) \\
-    &= \bigcap \limits_{a \in A} \text{Ann}(aR_p) \\
+   J(R_p) \subseteq \bigcap \limits_{a \in A} Ann(aR_p).
+  \end{align*}
+  For $p \neq 2$, $Ann(aR_p) = \emptyset$, and so $J(R_p) = \emptyset$. For $p = 2$, we have
   \end{align*}
 \end{proof}
 \end{document}
