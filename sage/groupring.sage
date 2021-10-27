@@ -81,6 +81,8 @@ def zeroIdealAnn(q):
 def intersectZeroIdealAnns(q):
     return list(set.intersection(*map(set,zeroIdealAnn(q))))
 
+def intersectIdeals(Is):
+    return list(set.intersection(*map(set, Is)))
 #checking if the modules are indeed simple, which they are...
 
 #checks if for each x in I xQ = I. Then each x generates the whole module, which is equivalent to it being simple. 

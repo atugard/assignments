@@ -412,40 +412,43 @@
 \begin{exercise}
   Let $\mathbb{F}_3$ be the field with three elements. Compute the Jacobson radical $J(\mathbb{F}_3S_3)$ and the semi-simple quotient $\mathbb{F}_3 S_3 / J(\mathbb{F}_3 S_3)$. 
 \end{exercise}
+
 \begin{proof}
-  The following element is nilpotent in $\mathbb{F}_3 S_3$
+  Let $R = \mathbb{F}_3 S_3$. $R$ has 81 nilpotent elements. The following is nilpotent in $R$
   \begin{align*}
     \sigma = 2e + (23) + 2(123) + 2(132) + 2(13),
   \end{align*}
-  and so 
+  and
   \begin{align*}
-    N = \sigma \mathbb{F}_3S_3
+    I = \sigma \mathbb{F}_3S_3
   \end{align*}
-  is a simple right $\mathbb{F}_3 S_3$ module.
-
-  Let
+  is a right ideal of $R$ such that $\abs{I} = 81$, that is $I$ contains all nilpotent elements of $R$, so it's a nil ideal of $R$. Thus
+  \begin{align*}
+    I \subseteq J(\mathbb{F}_3/S_3).
+  \end{align*}
+  From the character table of $S_3$ one finds the following central simple idempotents of $S_3$: 
   \begin{align*}
     e_1 &=  () + (123) + (132) + (12) + (13) + (23) \\
     e_2 &= () + (123) + (132) - (12) - (13) - 23) \\
     e_3 &= 2() - (123) - (132)
   \end{align*}
-  Then,
+  One finds that $e_1 R$ and $e_2 R$ are simple right $R$-modules (and that $e_3 R$ is not). Moreover, one finds that 
   \begin{align*}
-    Ann(N) = \< e_1, e_2, e_3 \>.
+    I = Ann_R(e_1 R) \cap Ann_R(e_2 R).
   \end{align*}
   Since
   \begin{align*}
-    J(\mathbb{F}_3/S_3) \subseteq Ann(N)
+    J(\mathbb{F}_3/S_3) \subseteq Ann_R(e_1 R) \cap Ann_R(e_2 R),
   \end{align*}
-  and
+  we conclude that 
   \begin{align*}
-    \< e_1, e_2, e_3 \> \subseteq J(\mathbb{F}_3/S_3),
+    J(\mathbb{F}_3/S_3) = Ann_R(e_1 R) \cap Ann_R(e_2 R).
   \end{align*}
-  we have
+  Using the chinese remainder theorem, we get
   \begin{align*}
-    J(\mathbb{F}_3/S_3) = \<e_1, e_2, e_3 \>.
+    R/J(R) &\cong R/Ann_R(e_1R) \times R/Ann_R(e_2R) \\
+    &\cong \mathbb{F}_3 \times \mathbb{F}_3
   \end{align*}
-
 \end{proof}
 
 \end{document}
