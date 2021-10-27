@@ -382,12 +382,33 @@
   \begin{align*}
     R_p = \set{a+bi+cj+dk : a,b,c,d \in \Z/p\Z},
   \end{align*}
-  i.e. these are the quaternions mod $p$. We define $A= \set{r \in R_p: r \overline{r} = 0}$, and find $A = R_p \setminus R_p^x$.
+  i.e. these are the quaternions mod $p$. We define $A= \set{r \in R_p: r \overline{r} = 0}$, and find $A = R_p \setminus R_p^\times$.
   Every element of $a$ generates a simple right $R_p$-module $aR_p$, and these are all the simple right $R_p$-modules of $R_p$. We have that
   \begin{align*}
    J(R_p) \subseteq \bigcap \limits_{a \in A} Ann(aR_p).
   \end{align*}
-  For $p \neq 2$, $Ann(aR_p) = \emptyset$, and so $J(R_p) = \emptyset$. For $p = 2$, we have
+  For $p \neq 2$, $Ann(aR_p) = \set{0}$, and so $J(R_p) = \set{0}$.
+
+  For $p = 2$, we have $A = \set{0, 1+i, 1+j, 1+k, i+j, i+k, j+k, 1+i+j+k}$, and one checks that the intersection of the annihilators of the right simple modules $aR_p$, for $a \in A$, is
+  $\set{ 0, 1+i+j+k}$; and so
+  \begin{align*}
+    J(R_2) \subseteq \set{0, 1+i+j+k}.
   \end{align*}
+  On the other hand $\set{0, 1+i+j+k}$ is a nil ideal of $R_p$, so that
+  \begin{align*}
+    \set{0,1+i+j+k} \subseteq J(R_2),
+  \end{align*}
+  and $J(R_2) = \set{0,1+i+j+k}$.
+
+  Hence,
+  \begin{align*}
+    J(R_p)=
+    \begin{cases}
+      \set{0} & \text{ if } p \neq 2 \\
+      \set{0,1+i+j+k}  & \text{ if } p = 2
+    \end{cases}
+  \end{align*}
+
+  
 \end{proof}
 \end{document}
