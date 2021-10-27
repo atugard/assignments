@@ -356,7 +356,7 @@
     $G = Q_8$:
 
     \begin{align*}
-      \R G = \R \oplus \R \oplus \R \oplus \R \oplus \R^{2\times2}
+      \R G = \R \oplus \R \oplus \R \oplus \R \oplus \C \oplus \C
     \end{align*}
 
   \item
@@ -408,7 +408,44 @@
       \set{0,1+i+j+k}  & \text{ if } p = 2
     \end{cases}
   \end{align*}
-
-  
 \end{proof}
+\begin{exercise}
+  Let $\mathbb{F}_3$ be the field with three elements. Compute the Jacobson radical $J(\mathbb{F}_3S_3)$ and the semi-simple quotient $\mathbb{F}_3 S_3 / J(\mathbb{F}_3 S_3)$. 
+\end{exercise}
+\begin{proof}
+  The following element is nilpotent in $\mathbb{F}_3 S_3$
+  \begin{align*}
+    \sigma = 2e + (23) + 2(123) + 2(132) + 2(13),
+  \end{align*}
+  and so 
+  \begin{align*}
+    N = \sigma \mathbb{F}_3S_3
+  \end{align*}
+  is a simple right $\mathbb{F}_3 S_3$ module.
+
+  Let
+  \begin{align*}
+    e_1 &=  () + (123) + (132) + (12) + (13) + (23) \\
+    e_2 &= () + (123) + (132) - (12) - (13) - 23) \\
+    e_3 &= 2() - (123) - (132)
+  \end{align*}
+  Then,
+  \begin{align*}
+    Ann(N) = \< e_1, e_2, e_3 \>.
+  \end{align*}
+  Since
+  \begin{align*}
+    J(\mathbb{F}_3/S_3) \subseteq Ann(N)
+  \end{align*}
+  and
+  \begin{align*}
+    \< e_1, e_2, e_3 \> \subseteq J(\mathbb{F}_3/S_3),
+  \end{align*}
+  we have
+  \begin{align*}
+    J(\mathbb{F}_3/S_3) = \<e_1, e_2, e_3 \>.
+  \end{align*}
+
+\end{proof}
+
 \end{document}

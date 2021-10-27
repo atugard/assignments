@@ -1,4 +1,4 @@
-def Q(p):
+ def Q(p):
     _Q = QuaternionAlgebra(Zmod(p)(-1), Zmod(p)(-1))
     i = _Q.gen(0)
     j = _Q.gen(1)
