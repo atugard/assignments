@@ -38,15 +38,6 @@ def nilpotents(R):
             results.append(r)
     return list(set(results))
 
-def spanEs(e1, e2, e3, _A):
-
-    result = []
-    for x1 in l1:
-        for x2 in l2:
-            for x3 in l3:
-                result.append(x1+x2+x3)
-    return list(set(result))
-
 def qideal(x,q):
     return list(set([x*y for y in q]))
 
