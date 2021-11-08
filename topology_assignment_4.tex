@@ -8,6 +8,7 @@
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{amsfonts}
+\usepackage{mathtools}
 \usepackage{enumerate}
 \usepackage[utf8]{inputenc}
 \usepackage[top=1 in,bottom=1in, left=1 in, right=1 in]{geometry}
@@ -60,8 +61,118 @@
 
 \maketitle
 
+\begin{exercise}
+  \begin{enumerate}
+  \item
+    Exhibit a sequence $(x_n)$ on a set $X$ and a subnet of $(x_n)$ which is not a sequence.
+  \item
+    Exhibit a net which has no sequence as a subnet
+  \item
+    Let $P: \Lambda \to X$ be a net and $Q = P \circ \varphi : M \to X$ a subnet of $P$ (i.e. $\Lambda$ and $M$ are directed sets, $\varphi: M \to \Lambda$, and $\forall \lambda_0 \in \Lambda$ 
+  \end{enumerate}
+\end{exercise}
+\begin{proof}
+  \begin{enumerate}
+  \item
+    We let $P: \N \to \N, n \mapsto n$ be our sequence and write it as $(n)_{n \in \N}$; and $\varphi : \R \to \N, r \mapsto \abs{\lceil r \rceil} $ our map,
+    such that $Q = P \circ \varphi$ is a subnet, which we write as $(x_r)_{r \in \R}$, for $x_r = \abs{\lceil r \rceil}$. Then, $(x_r)_{r \in \R}$ is a subnet which is not a sequence. 
+  \item
+    Let $\Lambda = \abs{2^{\R}}$. Then we can just let $P: \Lambda \to X$ be the identity, where $X = \Lambda$. Then the existence of some $\varphi: \N \to \Lambda$ such that $Q = P \circ \varphi$
+    is a sequence implies that the cofinality...
+  \item
+
+  \end{enumerate}
+\end{proof}
+\begin{exercise}
+  \begin{enumerate}
+  \item
+    Let $X = Y \times Z$ where $Y,Z$ are topological spaces, and let $B \subseteq Y, C \subseteq Z$. Prove that $\overline{B} \times \overline{C}  = \overline{B \times C}$ by using nets.
+    Hint: If $y \in \overline{B}$ and $z \in \overline{C}$ then there is a net $(b_\xi)_{\xi \in \Xi}$ in $B$ with $b_{\xi} \to y$ and there is a net $(c_{\omega})_{\omega \in \Omega}$ in $C$
+    with $c_{\omega} \to z$, but what you need is a net $(x_{\lambda})_{\lambda \in \Lambda} = ((y_{\lambda}, z_{\lambda}))_{\lambda \in \Lambda}$ in $B \times C$.
+  \item
+    Let $(M, \rho)$ be a metric space. A net $(x_{\lambda})_{\lambda \in \Lambda}$ in $M$ is called a Cauchy net if
+    \begin{align*}
+      \forall \epsilon > 0, \exists \lambda_0 \in \Lambda, \forall \lambda, \lambda' \geq \lambda_0 \quad  \rho(x_{\lambda}, x_{\lambda'}) < \epsilon .
+    \end{align*}
+    Recall that $(M, \rho)$ is called complete if every cauchy sequence converges. Prove that if $(M, \rho)$ is complete then every cauchy net in $M$ converges.
+
+    Hint: Construct a sequence $\lambda_1 \leq \lambda_2 \leq \dots$ of elements of $\Lambda$, such that for each $n$ and all $\lambda, \lambda' \geq \lambda_n, \rho(x_{\lambda}, x_{\lambda'}) \leq 2^{-n}$.
+    Show that the sequence $y_n = x_{\lambda_n}$ is a cauchy sequence in $M$ (caution: $y_n$ need not be a subnet). 
+  \end{enumerate}
+\end{exercise}
+\begin{proof}
+  \begin{enumerate}
+  \item
+    Let $(x,y) \in \overline{B} \times \overline{C}$, then by theorem 144 we have sequences $(x_{\xi})_{\xi \in \Xi}$ in $B$ and $(y_{\omega})_{\omega \in \Omega}$ in $C$
+    such that $x_{\xi} \to x$ and $y_{\omega} \to y$. We let $\Lambda = \Xi \times \Omega$, and say for $\lambda_1 = (\xi_1, \omega_1), \lambda_2 = (\xi_2, \omega_2)$ that
+    \begin{align*}
+      \lambda_1 \leq \lambda_2 \iff \xi_1 \leq \xi_2 \text{ and } \omega_1 \leq \omega_2
+    \end{align*}
+    We define the net
+    \begin{align*}
+      (x_{\lambda})_{\lambda \in \Lambda} = ((y_{\lambda}, z_{\lambda}))_{\lambda \in \Lambda}.
+    \end{align*}
+    Then, $(x_{\lambda})_{\lambda \in \Lambda}$ is entirely in $B \times C$, and $x_{\lambda} \to (y,z)$, so that $(y,z) \in \overline{A \times B}$.
+    \begin{align*}
+      (x_{\lambda}, y_{\lambda}) \to (x,y)
+    \end{align*}
+
+    For the other direction if $(x,y) \in \overline{B \times C}$, then, agin by theorem 144, there exists some sequence
+    $(x_{\lambda}, y_{\lambda})_{\lambda \in \Lambda}$ such that $(x_{\lambda}, y_{\lambda}) \to (x,y)$. Well, we have $(x_{\lambda})_{\lambda \in \Lambda}$ a sequence entirely in $B$ that converges to $x \in B$,
+    so that $x \in \overline{B}$, and the same holds for $(y_{\lambda})_{\lambda \in \Lambda}$ and $y \in C$, so that $y \in \overline{C}$. Hence, again by theorem 144, $(x,y) \in \overline{B} \times \overline{C}$.
+  \item
+    Let $(x_{\lambda})_{\lambda \in \Lambda}$ be a cauchy net. Then for each $n$ we can find some $\lambda_n \in \Lambda$ such that for all $\lambda, \lambda' \geq \lambda_n$
+    \begin{align*}
+      \rho(x_{\lambda}, x_{\lambda'}) \leq \cfrac{1}{2^n}
+    \end{align*}
+    We define the sequence $(y_n)_{n \in \N} = (x_{\lambda_n})_{n \in \N}$. Then $(y_n)_{n \in \N}$ is a cauchy sequence in $M$, and since
+    this space is complete we get that it converges to some value $x$. Let $\epsilon>0$, then there exists $n_0 \in \N$ such that for all $n \geq n_0$
+    \begin{align*}
+      \rho(y_n, y) < \epsilon/2.
+    \end{align*}
+    Also, since this is a cauchy net, there exists $\lambda^{*}$ such that for all $\lambda, \lambda' \geq \lambda^{*}$ we have
+    \begin{align*}
+      \rho(x_{\lambda}, x_{\lambda'}) < \epsilon/2.
+    \end{align*}
+    Then, let $\lambda_0 := \max(\lambda^{*}, \lambda_{n_0})$. We have, then for all $\lambda \geq \lambda_0$
+    \begin{align*}
+      \rho(x_{\lambda}, x) &\leq \rho(x_{\lambda}, x_{\lambda_n}) + \rho(x_{\lambda_n}, x_{\lambda})  \\
+      & < \cfrac{\epsilon}{2} + \cfrac{\epsilon}{2} = \epsilon
+    \end{align*}
+  \end{enumerate}
+\end{proof}
+\begin{exercise}
+  \begin{enumerate}
+  \item
+    A topological space is called completely normal if every subspace of $X$ is normal. Prove TFCAE for a topological space $X$:
+    \begin{enumerate}
+    \item X is completely normal
+    \item Every open subspace of $X$ is normal
+    \item For any $A,B \subseteq X$, if $A \cap \overline{B} = \overline{A} \cap B = \emptyset$, then there exist disjoint open sets $U,V \subseteq X$ with $A \subseteq U$ and $B \subseteq V$.
+    \end{enumerate}
+  \end{enumerate}
+\end{exercise}
+\begin{proof}
+  \begin{itemize}
+  \item $1) \implies 2)$:
+
+    Well, an open subspace is a subspace, so it's normal, by $1)$.
+  \item $2) \implies 3)$:
+
+    Let $A,B \subseteq X$ be such that $\overline{A} \cap B = A \cap \overline{B} = \emptyset$.
+
+    Consider the subspace $(A \cup B, \tau_{A \cup B})$. Then $A = (A \cup B) \cap \overline{A}$ and $B = (A \cup B) \cap \overline{B}$, so that $A, B$ are closed in $A \cup B$.
+    Moreover, $A \cap B \subseteq \overline{A} \cap B = \emptyset$, so that $A \cap B = \emptyset$. (damn, this doesn't work as $A \cup B$ is not an open set! )
 
 
+  \item $3) \implies 1)$:
+    
+    Let $Y \subseteq X$ be a subspace of $X$. Let $V_1, V_2 \subseteq Y$ be disjoint closed sets. Then there exist closed (in $X$) sets $W_1, W_2$ such that
+    $V_1 = W_1 \cap Y$ and $V_2 = W_2 \cap Y$. We have $\overline{V_i} = \overline{W_i} \cap Y = W_i \cap Y = V_i $, since $W_i$ are closed in $X$, for $i=1,2$.
+    Hence, $\emptyset = V_1 \cap V_2 = \overline{V_1} \cap V_2 = V_1 \overline{V_2}$, and so by 3) there exist $U_1, U_2$ disjoint open (in $X$) sets such that
+    $V_i \subseteq U_i$, for $i=1,2$. Now, of course this implies $V_i \subseteq U_i \cap Y$, and $U_i \cap Y$ are open in $Y$, so that $Y$ is a normal subspace. 
+  \end{itemize}
+\end{proof}
 \end{document}
 
 
