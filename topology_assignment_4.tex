@@ -159,11 +159,30 @@
     Well, an open subspace is a subspace, so it's normal, by $1)$.
   \item $2) \implies 3)$:
 
-    Let $A,B \subseteq X$ be such that $\overline{A} \cap B = A \cap \overline{B} = \emptyset$.
+    Let $A, B \subseteq X$ be such that $\overline{A} \cap B = A \cap \overline{B} = \emptyset$. Consider the open subspace $Y := (X \setminus \overline{A}) \cup (X \setminus \overline{B})$. We have then $A,B \subseteq Y$, and
+    \begin{align*}
+      \overline{A} \cap Y &= \overline{A} \cap ((X \setminus \overline{A}) \cup (X \setminus \overline{B})) \\ 
+      &= (\overline{A} \cap (X \setminus \overline{A})) \cup (\overline{A} \cap (X \setminus \overline{B})) \\
+      &= \emptyset \cup (\overline{A} \cap (X \setminus \overline{B})) \\
+      &= (A \cup Fr(A)) \cap (X \setminus \overline{B}) \\
+      &= A \cap (X \setminus \overline{B}) \cup (Fr(A) \cap (X \setminus \overline{B})) \\
+      &= A \cup (Fr(A) \setminus Fr(B))
+    \end{align*}
+    so that $A^{*} := A \cup (Fr(A) \setminus Fr(B))$ is closed in $Y$ (as $\overline{A}$ is closed in $X$), and similarly one shows that $B^{*} := B \cup (Fr(B) \setminus Fr(A))$ is closed in $Y$.
 
-    Consider the subspace $(A \cup B, \tau_{A \cup B})$. Then $A = (A \cup B) \cap \overline{A}$ and $B = (A \cup B) \cap \overline{B}$, so that $A, B$ are closed in $A \cup B$.
-    Moreover, $A \cap B \subseteq \overline{A} \cap B = \emptyset$, so that $A \cap B = \emptyset$. (damn, this doesn't work as $A \cup B$ is not an open set! )
-
+    Next, we check that the two sets are disjoint. We have
+    \begin{align*}
+      A^{*} \cap B^{*} &= \\
+      &= (A \cap B) \cup (A \cap Fr(B) \setminus Fr(A)) \cup ((Fr(A) \setminus Fr(B)) \cap B) \\
+      &\cup ((Fr(A) \setminus Fr(B)) \cap (Fr(B) \setminus Fr(A))).
+    \end{align*}
+    As $A \cap \overline{B} = \emptyset$, $A \cap B = \emptyset$ and $A \cap Fr(B) = \emptyset$; and as $\overline{A} \cap B = \emptyset$, $Fr(A) \cap B = \emptyset$ too; also,
+    $(Fr(A) \setminus Fr(B)) \cap (Fr(B) \setminus Fr(A)) = \emptyset$. Hence we get,
+    \begin{align*}
+      A^{*} \cap B^{*} = \emptyset
+    \end{align*}
+    Thus, since $Y$ is an open subspace of $X$, it's normal, and there exist disjoint open (with respect to $Y$) sets $U,V$ such that
+    $A^{*} \subseteq U$ and $B^{*} \subseteq V$. Now as $Y$ is open, $U, V$ are open with respect to $X$; and $A \subseteq U$, $B \subseteq V$ (as $A \subseteq A^{*}$ and $B \subseteq B^{*}$).
 
   \item $3) \implies 1)$:
     
