@@ -149,48 +149,84 @@
     \item X is completely normal
     \item Every open subspace of $X$ is normal
     \item For any $A,B \subseteq X$, if $A \cap \overline{B} = \overline{A} \cap B = \emptyset$, then there exist disjoint open sets $U,V \subseteq X$ with $A \subseteq U$ and $B \subseteq V$.
+    \item
+      Prove or disprove: the Sorgenfrey line $\mathbb{E}$ is completely normal. 
     \end{enumerate}
+  \item
+    Prove that every pseudometric space is completely normal. 
   \end{enumerate}
 \end{exercise}
 \begin{proof}
-  \begin{itemize}
-  \item $1) \implies 2)$:
+  \begin{enumerate}
+  \item
+    \begin{itemize}
+    \item $1) \implies 2)$:
 
-    Well, an open subspace is a subspace, so it's normal, by $1)$.
-  \item $2) \implies 3)$:
+      Well, an open subspace is a subspace, so it's normal, by $1)$.
+    \item $2) \implies 3)$:
 
-    Let $A, B \subseteq X$ be such that $\overline{A} \cap B = A \cap \overline{B} = \emptyset$. Consider the open subspace $Y := (X \setminus \overline{A}) \cup (X \setminus \overline{B})$. We have then $A,B \subseteq Y$, and
+      Let $A, B \subseteq X$ be such that $\overline{A} \cap B = A \cap \overline{B} = \emptyset$. Consider the open subspace $Y := (X \setminus \overline{A}) \cup (X \setminus \overline{B})$. We have then $A,B \subseteq Y$, and
+      \begin{align*}
+        \overline{A} \cap Y &= \overline{A} \cap ((X \setminus \overline{A}) \cup (X \setminus \overline{B})) \\ 
+        &= (\overline{A} \cap (X \setminus \overline{A})) \cup (\overline{A} \cap (X \setminus \overline{B})) \\
+        &= \emptyset \cup (\overline{A} \cap (X \setminus \overline{B})) \\
+        &= (A \cup Fr(A)) \cap (X \setminus \overline{B}) \\
+        &= A \cap (X \setminus \overline{B}) \cup (Fr(A) \cap (X \setminus \overline{B})) \\
+        &= A \cup (Fr(A) \setminus Fr(B))
+      \end{align*}
+      so that $A^{*} := A \cup (Fr(A) \setminus Fr(B))$ is closed in $Y$ (as $\overline{A}$ is closed in $X$), and similarly one shows that $B^{*} := B \cup (Fr(B) \setminus Fr(A))$ is closed in $Y$.
+
+      Next, we check that the two sets are disjoint. We have
+      \begin{align*}
+        A^{*} \cap B^{*} &= \\
+        &= (A \cap B) \cup (A \cap Fr(B) \setminus Fr(A)) \cup ((Fr(A) \setminus Fr(B)) \cap B) \\
+        &\cup ((Fr(A) \setminus Fr(B)) \cap (Fr(B) \setminus Fr(A))).
+      \end{align*}
+      As $A \cap \overline{B} = \emptyset$, $A \cap B = \emptyset$ and $A \cap Fr(B) = \emptyset$; and as $\overline{A} \cap B = \emptyset$, $Fr(A) \cap B = \emptyset$ too; also,
+      $(Fr(A) \setminus Fr(B)) \cap (Fr(B) \setminus Fr(A)) = \emptyset$. Hence we get,
+      \begin{align*}
+        A^{*} \cap B^{*} = \emptyset
+      \end{align*}
+      Thus, since $Y$ is an open subspace of $X$, it's normal, and there exist disjoint open (with respect to $Y$) sets $U,V$ such that
+      $A^{*} \subseteq U$ and $B^{*} \subseteq V$. Now as $Y$ is open, $U, V$ are open with respect to $X$; and $A \subseteq U$, $B \subseteq V$ (as $A \subseteq A^{*}$ and $B \subseteq B^{*}$).
+
+    \item $3) \implies 1)$:
+      
+      Let $Y \subseteq X$ be a subspace of $X$. Let $V_1, V_2 \subseteq Y$ be disjoint closed sets. Then there exist closed (in $X$) sets $W_1, W_2$ such that
+      $V_1 = W_1 \cap Y$ and $V_2 = W_2 \cap Y$. We have $\overline{V_i} = \overline{W_i} \cap Y = W_i \cap Y = V_i $, since $W_i$ are closed in $X$, for $i=1,2$.
+      Hence, $\emptyset = V_1 \cap V_2 = \overline{V_1} \cap V_2 = V_1 \overline{V_2}$, and so by 3) there exist $U_1, U_2$ disjoint open (in $X$) sets such that
+      $V_i \subseteq U_i$, for $i=1,2$. Now, of course this implies $V_i \subseteq U_i \cap Y$, and $U_i \cap Y$ are open in $Y$, so that $Y$ is a normal subspace. 
+    \end{itemize}
+  \item
+    Let $Y \subseteq X$ be an open subset of the pseudometric space $X$. Suppose that we have disjoint, closed subsets $A,B \subseteq Y$.
+    Then as $A \cap B = \emptyset$, we have $A \subseteq Y \setminus B$, and so as $Y \setminus B$ is open we can choose for any $x \in A$ some $\delta_x>0$ such that $\mathcal{U}(x, \delta_x) \cap Y \subseteq Y \setminus B$.
+    We do the same thing for $B \subseteq Y \setminus A$, i.e. we choose a $\epsilon_y >0$ for each $y \in B$ such that $\mathcal{U}(y, \epsilon_y) \cap Y \subseteq Y \setminus A$. Define
     \begin{align*}
-      \overline{A} \cap Y &= \overline{A} \cap ((X \setminus \overline{A}) \cup (X \setminus \overline{B})) \\ 
-      &= (\overline{A} \cap (X \setminus \overline{A})) \cup (\overline{A} \cap (X \setminus \overline{B})) \\
-      &= \emptyset \cup (\overline{A} \cap (X \setminus \overline{B})) \\
-      &= (A \cup Fr(A)) \cap (X \setminus \overline{B}) \\
-      &= A \cap (X \setminus \overline{B}) \cup (Fr(A) \cap (X \setminus \overline{B})) \\
-      &= A \cup (Fr(A) \setminus Fr(B))
+      U := \bigcup\limits_{x \in A} (\mathcal{U}_{\rho}(x, \delta_x/2) \cap Y), \quad V := \bigcup\limits_{y \in B} (\mathcal{U}_{\rho}(y, \epsilon_y/2) \cap Y).
     \end{align*}
-    so that $A^{*} := A \cup (Fr(A) \setminus Fr(B))$ is closed in $Y$ (as $\overline{A}$ is closed in $X$), and similarly one shows that $B^{*} := B \cup (Fr(B) \setminus Fr(A))$ is closed in $Y$.
-
-    Next, we check that the two sets are disjoint. We have
+    Then $A \subseteq U$ and $B \subseteq V$. Suppose that $z \in U \cap V$, then we have
     \begin{align*}
-      A^{*} \cap B^{*} &= \\
-      &= (A \cap B) \cup (A \cap Fr(B) \setminus Fr(A)) \cup ((Fr(A) \setminus Fr(B)) \cap B) \\
-      &\cup ((Fr(A) \setminus Fr(B)) \cap (Fr(B) \setminus Fr(A))).
+      \rho(x,y) \leq \rho(x,z) + \rho(z,y) < \delta_x/2 + \epsilon_y/2.
     \end{align*}
-    As $A \cap \overline{B} = \emptyset$, $A \cap B = \emptyset$ and $A \cap Fr(B) = \emptyset$; and as $\overline{A} \cap B = \emptyset$, $Fr(A) \cap B = \emptyset$ too; also,
-    $(Fr(A) \setminus Fr(B)) \cap (Fr(B) \setminus Fr(A)) = \emptyset$. Hence we get,
+    If $\delta_x \leq \epsilon_y$, then 
     \begin{align*}
-      A^{*} \cap B^{*} = \emptyset
+      \rho(x,y) \leq \rho(x,z) + \rho(z,y) < \delta_x/2 + \epsilon_y/2 \leq \epsilon_y,
     \end{align*}
-    Thus, since $Y$ is an open subspace of $X$, it's normal, and there exist disjoint open (with respect to $Y$) sets $U,V$ such that
-    $A^{*} \subseteq U$ and $B^{*} \subseteq V$. Now as $Y$ is open, $U, V$ are open with respect to $X$; and $A \subseteq U$, $B \subseteq V$ (as $A \subseteq A^{*}$ and $B \subseteq B^{*}$).
+    so that $x \in \mathcal{U}(y, \epsilon_y) \cap Y$, which is a contradiction.
 
-  \item $3) \implies 1)$:
-    
-    Let $Y \subseteq X$ be a subspace of $X$. Let $V_1, V_2 \subseteq Y$ be disjoint closed sets. Then there exist closed (in $X$) sets $W_1, W_2$ such that
-    $V_1 = W_1 \cap Y$ and $V_2 = W_2 \cap Y$. We have $\overline{V_i} = \overline{W_i} \cap Y = W_i \cap Y = V_i $, since $W_i$ are closed in $X$, for $i=1,2$.
-    Hence, $\emptyset = V_1 \cap V_2 = \overline{V_1} \cap V_2 = V_1 \overline{V_2}$, and so by 3) there exist $U_1, U_2$ disjoint open (in $X$) sets such that
-    $V_i \subseteq U_i$, for $i=1,2$. Now, of course this implies $V_i \subseteq U_i \cap Y$, and $U_i \cap Y$ are open in $Y$, so that $Y$ is a normal subspace. 
-  \end{itemize}
+    Similarly if $ \epsilon_y \leq \delta_x$, we have that $y \in \mathcal{U}(x, \delta_x) \cap Y$. Hence, no such $z$ can exist and $U \cap V = \emptyset$. Thus, condition 2 of the first part of this question is satisfied and $X$ is completely normal.
+  \item
+    We let $A := (- \infty, a)$ and $B = (a, \infty)$. Then $\overline{A} = (- \infty, a) $ and $\overline{B} = [a, \infty)$, so we get 
+    \begin{align*}
+      \overline{A} \cap B = (- \infty, a) \cap (a, \infty) = \emptyset
+    \end{align*}
+    and 
+    \begin{align*}
+      A \cap \overline{B} = (- \infty, a) \cap [a, \infty) = \emptyset
+    \end{align*}
+    but $A, B$ are not separable by disjoint open sets, so that condition 3 of the first part of this question fails, and $\mathbb{E}$ is not completely normal. 
+  \end{enumerate}
+  
 \end{proof}
 \end{document}
 
