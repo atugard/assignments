@@ -226,7 +226,97 @@
     \end{align*}
     but $A, B$ are not separable by disjoint open sets, so that condition 3 of the first part of this question fails, and $\mathbb{E}$ is not completely normal. 
   \end{enumerate}
-  
+\end{proof}
+\begin{exercise}
+  Let $(X, \tau)$ be a topological space. Denote by $\mathcal{U}_x$ the nhood system at $x \in X$ and by $\overline{\mathcal{U}}_x$,
+  the collection of closed nhoods of $x$. Prove the following:
+  \begin{enumerate}
+  \item
+    $X$ is $T_0$ $\iff$ for all $x, y \in X, x \neq y$ implies $\overline{\set{x}} \neq \overline{\set{y}}$.
+  \item
+    $X$ is $T_1$ $\iff$ for every $x \in X$, $\set{x} = \bigcap \mathcal{U}_x$.
+  \item
+    $X$ is $T_2$ $\iff$ for every $x \in X$, $\set{x} = \bigcap \overline{\mathcal{U}_x}$.
+  \end{enumerate}
+\end{exercise}
+\begin{proof}
+  \begin{enumerate}
+  \item 
+    \begin{itemize}
+    \item
+      $\implies$: Say $x,y \in X$ such that $x \neq y$, without loss of generality then there exists some open $U \subseteq X$ such that $y \in U$ but $x \not \in U$.
+      We have then $x \in X \setminus U$ and $y \not \in X \setminus U$, which is closed, so that $y \not \in \overline{\set{x}}$ and $\overline{\set{x}} \neq \overline{\set{y}}$.
+    \item 
+      $\impliedby$: Suppose $x, y \in X$ are such that $x \neq y$. Then $\overline{\set{x}} \neq \overline{\set{y}}$, i.e. there exists some closed $F$ such that
+      $\overline{\set{x}} \subseteq F$ but $\overline{\set{y}} \not \subseteq F$, i.e. $y \in F^c$, but $x \not \in F^c$. Well, $F^c$ is open, so $X$ is $T_0$.
+    \end{itemize}
+  \item
+    \begin{itemize}
+    \item
+      $\implies$: Let $y \in X$ be different from $x$. Then there exists some $U \in \tau$ such that $x \in U$ but $y \not \in U$; but $U \in \mathcal{U}_x$, so that
+      $y \not \in \bigcap\mathcal{U}_u$. As $y$ was arbitrary, we conclude that $\set{x} = \bigcap\mathcal{U}_u$.
+    \item
+      $\impliedby$: Let $x,y \in X$ such that $x \neq y$. Then, as $ \set{x} = \bigcap\limits \mathcal{U}_x$, there exists some $U \in \mathcal{U}_x$ such that $y \not \in U$;
+      but then $x \in U^o$ and $y \not \in U^o$, so that $X$ is $T_1$.
+    \end{itemize}
+  \item
+    \begin{itemize}
+    \item $\implies$: Let $x,y \in X$ such that $x \neq y$. Then, there exist disjoint open sets $U, V \subseteq X$ such that $x \in U$ and $y \in V$.
+      We have $\overline{U} \setminus V \in \overline{\mathcal{U}_x}$, and $y \not \in \overline{U} \setminus V$, so that $y \not \in \bigcap \overline{\mathcal{U}_x}$.
+      As $y$ was arbitrary, we conclude $\set{x} = \bigcap \overline{\mathcal{U}_x}$.
+    \item $\impliedby$: As $\set{x} = \bigcap \overline{\mathcal{U}_x}$, there exists some $U \in \overline{\mathcal{U}_u}$ such that $y \not \in U$;
+      similarly, as $\set{y} = \bigcap \overline{\mathcal{U}_y}$ there exists some $V \in \overline{\mathcal{U}_y}$ such that $x \not \in V$.
+      Let $U^{*} := U^o \setminus U \cap V$ and $V^{*} := V^o \setminus U \cap V$. Then $U^*, V^* \in \tau$ are disjoint; and $x \in U^*, y \not \in U^*$, and $x \not \in V^*$, $y \in V^*$.
+      Hence, $X$ is $T_2$. 
+    \end{itemize}
+  \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+  For any topological space $X$, define $\sim$ by $x \sim y \iff \overline{\set{x}} = \overline{\set{y}}$
+  \begin{itemize}
+  \item
+    (2): The resulting quotient space $X/\sim$ $= \widetilde{X}$ is $T_0$.
+  \item
+    (3): The procedure above, when applied to a pseudometric space $(S, \rho)$ yields the metric identification $S^*$ of $S$ described in 2C. 
+  \end{itemize}
+\end{exercise}
+
+\begin{exercise}
+  \begin{enumerate}
+  \item
+    Let $\mathcal{F}$ be a family of pairwise disjoint subsets of a second countable topological space $X$, such that $F^o \neq \emptyset$ for every $F \in \mathcal{F}$.
+    Prove that $\mathcal{F}$ is countable.
+  \item
+    Show that the Sorgenfrey line $\mathbb{E}$ is a Lindelof space.
+  \end{enumerate}
+\end{exercise}
+\begin{proof}
+  \begin{enumerate}
+  \item
+    Let $\mathcal{B}$ be a countable basis for $X$. Then as the $F \in \mathcal{F}$ are disjoint, it follows that if we define $\mathcal{B}_F$ such that
+    $F^o = \bigcup \mathcal{B}_F$, that the $\mathcal{B}_F$ will also be pairwise disjoint. Hence, we get
+    \begin{align*}
+      \abs{\mathcal{F}} \leq \abs{\bigcup\limits_{F \in \mathcal{F}} \mathcal{B}_F} \leq \abs{\mathcal{B}} \leq \omega .
+    \end{align*}
+  \item
+    Let $\mathcal{U}$ be an open cover of $\mathbb{E}$. We define
+    \begin{align*}
+      \mathcal{P} = \set{\mathcal{F} \subseteq \mathcal{U}: (\forall F_1, F_2 \in \mathcal{F},
+        F_1 \neq F_2 \implies F_1 \cap F_2 = \emptyset) \wedge
+        (\forall F \in \mathcal{F}, Int_{\R}(F) \neq \emptyset)}
+    \end{align*}
+    Let $\mathcal{C} \subseteq \mathcal{P}$ be a chain. Then, I claim $\bigcup \mathcal{C} \in \mathcal{P}$. Let $F_1, F_2 \in \bigcup \mathcal{C}$.
+    Then, there exists some $\mathcal{F}_1 \in \mathcal{C}$ such that $F_1 \in \mathcal{F}_1$ and some $\mathcal{F}_2 \in \mathcal{C}$ such that $F_2 \in \mathcal{F}_2$. Now,
+    either $\mathcal{F}_1 \subseteq \mathcal{F}_2$ or $\mathcal{F}_2 \subseteq \mathcal{F}_1$. Suppose, without loss of generality, that $\mathcal{F}_1 \subseteq \mathcal{F}_2$.
+    Then $F_1, F_2 \in \mathcal{F}_2 \in \mathcal{P}$, and by definition the two sets are disjoint. If $F \in \bigcup \mathcal{C}$, then there exists some $\mathcal{F} \in \mathcal{C}$ such that $F \in \mathcal{F}$, and so by definition of these families $F^o \neq \emptyset$. Hence, $\bigcup \mathcal{C} \in \mathcal{P}$.
+
+    By Zorn's Lemma, $\mathcal{P}$ has a maximal element, which we call $\mathcal{F}$.
+
+    It remains to check that $\mathcal{F}$ covers $\mathbb{E}$. Suppose not. Then $\mathbb{E} \setminus \bigcup \mathcal{F} \neq \emptyset$. Hence there exists...
+
+    
+  \end{enumerate}
 \end{proof}
 \end{document}
 
