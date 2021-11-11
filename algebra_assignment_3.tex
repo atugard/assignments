@@ -1,0 +1,96 @@
+\documentclass[12pt]{extarticle}
+%Some packages I commonly use.
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{framed}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage[utf8]{inputenc}
+\usepackage[top=1 in,bottom=1in, left=1 in, right=1 in]{geometry}
+
+%A bunch of definitions that make my life easier
+\newcommand{\matlab}{{\sc Matlab} }
+\newcommand{\abs}[1]{|#1|}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\cvec}[1]{{\mathbf #1}}
+\newcommand{\rvec}[1]{\vec{\mathbf #1}}
+\newcommand{\ihat}{\hat{\textbf{\i}}}
+\newcommand{\jhat}{\hat{\textbf{\j}}}
+\newcommand{\khat}{\hat{\textbf{k}}}
+\newcommand{\minor}{{\rm minor}}
+\newcommand{\trace}{{\rm trace}}
+\newcommand{\spn}{{\rm Span}}
+\newcommand{\rem}{{\rm rem}}
+\newcommand{\ran}{{\rm range}}
+\newcommand{\range}{{\rm range}}
+\newcommand{\mdiv}{{\rm div}}
+\newcommand{\proj}{{\rm proj}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\<}{\langle}
+\newcommand{\ideal}{\triangleleft}
+\renewcommand{\>}{\rangle}
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\attn}[1]{\textbf{#1}}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{prob}{Problem}
+\newtheorem{corollary}{Corollary}
+\newtheorem*{definition}{Definition}
+\newtheorem*{example}{Example}
+\newtheorem*{note}{Note}
+\newtheorem{exercise}{Exercise}
+\newcommand{\bproof}{\bigskip {\bf Proof. }}
+\newcommand{\eproof}{\hfill\qedsymbol}
+\newcommand{\Disp}{\displaystyle}
+\newcommand{\qe}{\hfill\(\bigtriangledown\)}
+\setlength{\columnseprule}{1 pt}
+
+
+\title{ Math 5107 -- Algebra Assignment 3}
+\author{David Draguta}
+\date{2021-11-11}
+
+\begin{document}
+
+\maketitle
+
+\begin{exercise}
+  Let $R = \mathbb{F}_5[x,y]$. Compute the homology of the following complex, i.e. find presentations for all the homology modules.
+  \begin{align*}
+    0 \xrightarrow{} R^2 \xrightarrow{d_2} R^3 \xrightarrow{d_3} R^1 \xrightarrow{} 0 
+  \end{align*}
+  where
+  \begin{align*}
+    d_2 = 
+    \begin{pmatrix}
+      x^2  & -2xy+y^2 \\
+      xy   & x^2 - y^2 \\
+      -y^2 & xy - 2y^2 
+    \end{pmatrix}
+  \end{align*}
+  and
+    \begin{align*}
+    d_1 = 
+    \begin{pmatrix}
+      -2x^2y^2+2xy^3+y^4 & x^3y-2x^2y^2-2xy^3+y^4 & -x^4-x^2y^2+xy^3
+    \end{pmatrix}
+  \end{align*}
+\end{exercise}
+\begin{proof}
+  The sequence that we need to compute is
+  \begin{align*}
+    ker(d_2)/im(0) \xrightarrow{} ker(d_3)/im(d_2) \xrightarrow{} ker(0)/im(d_3) 
+  \end{align*}
+\end{proof}
+
+
+\end{document}
