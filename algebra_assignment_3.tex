@@ -19,6 +19,7 @@
 \newcommand{\cvec}[1]{{\mathbf #1}}
 \newcommand{\rvec}[1]{\vec{\mathbf #1}}
 \newcommand{\ihat}{\hat{\textbf{\i}}}
+\newcommand{\im}{\text{im}}
 \newcommand{\jhat}{\hat{\textbf{\j}}}
 \newcommand{\khat}{\hat{\textbf{k}}}
 \newcommand{\minor}{{\rm minor}}
@@ -66,7 +67,7 @@
 \begin{exercise}
   Let $R = \mathbb{F}_5[x,y]$. Compute the homology of the following complex, i.e. find presentations for all the homology modules.
   \begin{align*}
-    0 \xrightarrow{} R^2 \xrightarrow{d_2} R^3 \xrightarrow{d_3} R^1 \xrightarrow{} 0 
+    0 \xrightarrow{0_1} R^2 \xrightarrow{d_2} R^3 \xrightarrow{d_3} R^1 \xrightarrow{0_2} 0 
   \end{align*}
   where
   \begin{align*}
@@ -86,9 +87,9 @@
   \end{align*}
 \end{exercise}
 \begin{proof}
-  The sequence that we need to compute is
+  We get the following homology modules
   \begin{align*}
-    ker(d_2)/im(0) \xrightarrow{} ker(d_3)/im(d_2) \xrightarrow{} ker(0)/im(d_3) 
+    M_1 = \ker(d_2)/\im(0_1), \quad M_2 = \ker(d_3)/\im(d_2), \quad M_3 = \ker(0_2)/\im(d_3)
   \end{align*}
 \end{proof}
 
