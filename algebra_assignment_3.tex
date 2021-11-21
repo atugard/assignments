@@ -67,11 +67,11 @@
 \begin{exercise}
   Let $R = \mathbb{F}_5[x,y]$. Compute the homology of the following complex, i.e. find presentations for all the homology modules.
   \begin{align*}
-    0 \xrightarrow{0_1} R^2 \xrightarrow{d_2} R^3 \xrightarrow{d_3} R^1 \xrightarrow{0_2} 0 
+    0 \xrightarrow{0_1} R^2 \xrightarrow{d_1} R^3 \xrightarrow{d_2} R^1 \xrightarrow{0_2} 0 
   \end{align*}
   where
   \begin{align*}
-    d_2 = 
+    d_1 = 
     \begin{pmatrix}
       x^2  & -2xy+y^2 \\
       xy   & x^2 - y^2 \\
@@ -80,7 +80,7 @@
   \end{align*}
   and
     \begin{align*}
-    d_1 = 
+    d_2 = 
     \begin{pmatrix}
       -2x^2y^2+2xy^3+y^4 & x^3y-2x^2y^2-2xy^3+y^4 & -x^4-x^2y^2+xy^3
     \end{pmatrix}
@@ -89,9 +89,70 @@
 \begin{proof}
   We get the following homology modules
   \begin{align*}
-    M_1 = \ker(d_2)/\im(0_1), \quad M_2 = \ker(d_3)/\im(d_2), \quad M_3 = \ker(0_2)/\im(d_3)
+    M_1 = \ker(d_2)/\im(0_1), \quad M_2 = \ker(d_3)/\im(d_2), \quad M_3 = \ker(0_2)/\im(d_3).
   \end{align*}
+
+  Using the Macaulay2 calculator, one finds that $ker(d_3) = im(d_2)$, so that $M_2 = 0$. Also, $M_3 = 0$ too as $ker(0_2)=R^1$ and $im(d_3) = R^1$.
+
+  Thus, this homology is trivial, i.e. all of the homology modules are zero. 
+
 \end{proof}
 
-
+\begin{exercise}
+  Let $R= \Q[x,y]$ and $M$ be the $R$-module with presentation given by the matrix
+  \begin{align*}
+    A =
+    \begin{pmatrix}
+      x^2     & xy          & y^2 \\
+      xy+4y^4 & 6x^2 + 3y^2 & 3xy + 2y^2  
+    \end{pmatrix}
+  \end{align*}
+  Compute a free resolution of $M$.
+\end{exercise}
+\begin{proof}
+  We have the free resolution
+  \begin{align*}
+    R^2 \xrightarrow{A} R^2 \xrightarrow{\pi_{AR^2}} M \xrightarrow{0} 0 
+  \end{align*}
+\end{proof}
+\begin{exercise}
+  Suppose that we have a finite chain complex $C$ of finite dimensional $k$ vector spaces with boundary map $\delta_i: C_i \to C_{i-1}$
+  \begin{align*}
+    0 \to C_n \to \dots C_0 \to 0
+  \end{align*}
+  Let $r_i$ be the rank of $\delta_i$ and $d_i = dim C_i $.
+    \begin{enumerate}
+    \item
+      Write $\dim(H_i(C))$ in terms of $r_j$ and $d_j$.
+    \item
+      Define the Euler characteristic
+      \begin{align*}
+        \chi(C) = \sum\limits_{i} (-1)^i dim H_i(C)
+      \end{align*}
+      Show that
+      \begin{align*}
+        \chi(C) = \sum\limits_{i} (-1)^i dim (C_i).
+      \end{align*}
+    \end{enumerate}
+\end{exercise}
+\begin{proof}
+  \begin{enumerate}
+  \item
+    We have 
+    \begin{align*}
+      h_i
+      &= \dim(H_i) = \dim (\ker(\delta_i)/\im(\delta_{i+1})) \\
+      &= \dim (\ker(\delta_i)/\im(\delta_{i+1})) \\
+      &= \dim (\ker(\delta_i)) + \dim(\im(\delta_i)) - \dim(\im(\delta_i)) - \dim(\im(\delta_{i+1}))  \\
+      &=  c_i - r_i - r_{i+1}
+    \end{align*}
+  \item
+    \begin{align*}
+      \sum\limits_i (-1)^i h_i &= \sum\limits_i (-1)^i (c_i - r_i - r_{i+1})  \\
+      &= (c_n - r_n - r_{n+1}) - (c_{n-1} - r_{n-1} - r_n) + \cdots + (-1)^n(c_0 - r_0 - r_1) \\
+      &= \sum \limits_i (-1)^i c_i - r_{n+1} + (-1)^{n+1} r_0 \\
+      &= \sum \limits_i (-1)^i c_i
+    \end{align*}
+  \end{enumerate}
+\end{proof}
 \end{document}
