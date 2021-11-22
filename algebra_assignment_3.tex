@@ -16,10 +16,17 @@
 \newcommand{\matlab}{{\sc Matlab} }
 \newcommand{\abs}[1]{|#1|}
 \newcommand{\set}[1]{\{#1\}}
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
 \newcommand{\cvec}[1]{{\mathbf #1}}
 \newcommand{\rvec}[1]{\vec{\mathbf #1}}
 \newcommand{\ihat}{\hat{\textbf{\i}}}
 \newcommand{\im}{\text{im}}
+\newcommand{\cok}{\text{cok}}
 \newcommand{\jhat}{\hat{\textbf{\j}}}
 \newcommand{\khat}{\hat{\textbf{k}}}
 \newcommand{\minor}{{\rm minor}}
@@ -154,5 +161,44 @@
       &= \sum \limits_i (-1)^i c_i
     \end{align*}
   \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+  Let $A,B,C$ be abelian groups with maps $\alpha: A \to B$ and $\beta: B \to C$ . Prove that the following sequence is exact
+  \begin{align*}
+    0 \to \ker \alpha \to \ker \beta \alpha \to \ker \beta \to \cok \alpha \to \cok  \beta \alpha \to \cok \beta \to 0
+  \end{align*}
+\end{exercise}
+\begin{proof}
+  We have the following sequence of maps 
+  \begin{align*}
+    0 \xrightarrow{0} \ker \alpha \xrightarrow{id}  \ker \beta \alpha \xrightarrow{\alpha} \ker \beta \xrightarrow{\pi_{\im(\alpha)}} \cok \alpha \xrightarrow{\beta} \cok  \beta \alpha \xrightarrow{\pi_{\im(\beta)}} \cok \beta \xrightarrow{0} 0,
+  \end{align*}
+  where we assume the domains are adjusted to make sense...
+  \begin{itemize}
+  \item
+    $0 \xrightarrow{0} \ker \alpha \xrightarrow{id}  \ker \beta \alpha:$
+
+    $\im(0) = \set{0}$ and $ker(id) = \set{0}$, so this parts exact.
+  \item
+    $\ker \alpha \xrightarrow{id}  \ker \beta \alpha \xrightarrow{\alpha} \ker \beta$:
+
+    $\im(\restr{\alpha}{\ker(a)}) = \ker(\alpha)$ and $\ker(\restr{\alpha}{\ker \beta \alpha}) = \ker(\alpha)$
+
+  \item
+    $\ker \beta \alpha \xrightarrow{\alpha} \ker \beta \xrightarrow{\pi_{\im(\alpha)}} \cok \alpha$:
+
+    $\im(\restr{\alpha}{\ker \beta \alpha}) = \alpha(A) \cap \ker(\beta)$ and $\ker(\restr{\pi_{\im(\alpha)}}{\ker(\beta)}) = \im(\alpha) \cap \ker(\beta)$
+  \item
+    $\ker \beta \xrightarrow{\pi_{\im(\alpha)}} \cok \alpha \xrightarrow{\beta} \cok  \beta \alpha$:
+
+    $\im(\ker(\beta \alpha)) = \im(\alpha) \cap \ker(\beta)$ and $\ker(\pi_{\im(\alpha)}) = \im(\alpha) \cap \ker(\beta)$.
+  \item 
+    $\cok \alpha \xrightarrow{\beta} \cok  \beta \alpha \xrightarrow{\pi_{\im(\beta)}} \cok \beta$:
+
+    $\beta(\cok(\alpha)) = \beta(B/\alpha(B)) = \beta(B)/\beta\alpha(B)$ and $ker(\restr{\pi_{\im(\beta)}}{\cok \beta \alpha}) = \beta(B)/\beta\alpha(B)$
+    
+    
+  \end{itemize}
 \end{proof}
 \end{document}
