@@ -197,8 +197,97 @@
     $\cok \alpha \xrightarrow{\beta} \cok  \beta \alpha \xrightarrow{\pi_{\im(\beta)}} \cok \beta$:
 
     $\beta(\cok(\alpha)) = \beta(B/\alpha(B)) = \beta(B)/\beta\alpha(B)$ and $ker(\restr{\pi_{\im(\beta)}}{\cok \beta \alpha}) = \beta(B)/\beta\alpha(B)$
-    
-    
+  \item
+    $\cok  \beta \alpha \xrightarrow{\pi_{\im(\beta)}} \cok \beta \xrightarrow{0} 0$:
+
+    $\im(\restr{\pi_{\im(\beta)}}{\cok \beta \alpha}) = \cok \beta $ and $\ker(0) = \cok \beta$.
   \end{itemize}
+  Hence, the sequence is exact! 
+\end{proof}
+\begin{exercise}
+  Let $k$ be a field and let $R = k[x]$. For all $i,m,n \geq 0$ compute
+  \begin{align*}
+    Ext_R^i(k[x]/(x^n), k[x]/(x^m)),
+  \end{align*}
+  and
+  \begin{align*}
+    Tor_R^i(k[x]/(x^n), k[x]/(x^m)).
+  \end{align*}
+\end{exercise}
+
+
+\begin{proof}
+  \begin{itemize}
+  \item
+    $Ext_{k[x]}^i(k[x]/(x^n), k[x]/(x^m))$:
+    
+    We compute a projective resolution of $k[x]/(x^n)$:
+    \begin{align*}
+      0 \xrightarrow{0} k[x] \xrightarrow{x^n} k[x] \xrightarrow{\pi_{(x^n)}} k[x]/(x^n) \xrightarrow{0} 0  
+    \end{align*}
+    and drop the second last term and apply $Hom(-, k[x]/(x^m))$ to get
+    \begin{align*}
+      0 \xrightarrow{0} hom(k[x],k[x]/(x^m)) \xrightarrow{x^n_*} hom(k[x], k[x]/(x^m)) \xrightarrow{0} 0.
+    \end{align*}
+    Since $\varphi: k[x] \to k[x]/(x^m)$ is fully determined by $\varphi(x) \in k[x]/(x^m)$, we have 
+    \begin{align*}
+      \hom(k[x],k[x]/(x^m)) \cong k[x]/(x^m),
+    \end{align*}
+    and so the last sequence is the same as
+    \begin{align*}
+      0 \xrightarrow{0} k[x]/(x^m) \xrightarrow{x^n} k[x]/(x^m) \xrightarrow{0} 0,
+    \end{align*}
+    which yields
+    \begin{align*}
+      Ext_{k[x]}^0 = k[x]x^{m-n}/k[x]x^m
+    \end{align*}
+    and
+    \begin{align*}
+      Ext_{k[x]}^1 &= (k[x]x^{m-n}/k[x]x^m)/(k[x]x^n/k[x]x^m) \\
+      &\cong k[x]x^{m-n}/k[x]x^n
+    \end{align*}
+  \item
+    $Tor_{k[x]}^i(k[x]/(x^n), k[x]/(x^m)):$
+
+    We can use the same projective resolution as before
+    \begin{align*}
+      0 \xrightarrow{0} k[x] \xrightarrow{x^n} k[x] \xrightarrow{\pi_{(x^n)}} k[x]/(x^n) \xrightarrow{0} 0  
+    \end{align*}
+    and then drop the second last term and apply $(-) \otimes k[x]/(x^m)$.
+    We get
+    \begin{align*}
+      0 \xrightarrow{0} k[x] \otimes_{k[x]} k[x]/(x^m)  \xrightarrow{x^n_*} k[x] \otimes_{k[x]} k[x]/(x^m) \xrightarrow{0} 0  .
+    \end{align*}
+    We have
+    \begin{align*}
+      k[x] \otimes_{k[x]} k[x]/(x^m) \cong k[x]/(x^m),
+    \end{align*}
+    and so this sequence is equivalent to
+    \begin{align*}
+      0 \xrightarrow{0} k[x]/(x^m)  \xrightarrow{x^n} k[x]/(x^m) \xrightarrow{0} 0  .      
+    \end{align*}
+    Which is the same as in the case of the ext functor, and so we get:
+    \begin{align*}
+      Tor_{k[x]}^0(k[x]/(x^n), k[x]/(x^m)) = k[x]x^{m-n}/k[x]x^m 
+    \end{align*}
+    and
+    \begin{align*}
+      Tor_{k[x]}^1(k[x]/(x^n), k[x]/(x^m)) = k[x]x^{m-n}/k[x]x^n .
+    \end{align*}
+  \end{itemize}
+\end{proof}
+\begin{exercise}
+  Let $p \in \Z$ be a prime number. For all $i,m,n \geq 0 $ compute
+  \begin{align*}
+    Ext_{\Z}^i(\Z/p^n\Z, \Z/p^m\Z)
+  \end{align*}
+  and
+  \begin{align*}
+    Tor_{\Z}^i(\Z/p^n\Z, \Z/p^m\Z)
+  \end{align*}
+  Explain how the above result can be combined with the fundamental theorem of finitely generated abelian groups to determine Ext and Tor for any finitely generated abelian groups.
+\end{exercise}
+\begin{proof}
+  
 \end{proof}
 \end{document}
