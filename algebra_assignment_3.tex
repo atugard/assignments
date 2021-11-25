@@ -239,12 +239,13 @@
     \end{align*}
     which yields
     \begin{align*}
-      Ext_{k[x]}^0 = k[x]x^{m-n}/k[x]x^m
+      Ext_{k[x]}^0 = \ker(x^n) = k[x]x^{m-n}/k[x]x^m
     \end{align*}
     and
     \begin{align*}
-      Ext_{k[x]}^1 &= (k[x]x^{m-n}/k[x]x^m)/(k[x]x^n/k[x]x^m) \\
-      &\cong k[x]x^{m-n}/k[x]x^n
+      Ext_{k[x]}^1 &= \ker(0)/\im(x^n) \\
+      &= (k[x]/k[x]x^m)/(k[x]x^n/k[x]x^m) \\
+      &\cong k[x]/k[x]x^n
     \end{align*}
   \item
     $Tor_{k[x]}^i(k[x]/(x^n), k[x]/(x^m)):$
@@ -288,6 +289,117 @@
   Explain how the above result can be combined with the fundamental theorem of finitely generated abelian groups to determine Ext and Tor for any finitely generated abelian groups.
 \end{exercise}
 \begin{proof}
+  We start as before with the following projective resolution
+  \begin{align*}
+    0 \to \Z \xrightarrow{p^n} \Z \xrightarrow{\pi_{p^n}} \Z/p^n\Z \xrightarrow{0} 0 
+  \end{align*}
+  and then apply $\hom(-, \Z^m)$ to get
+  \begin{align*}
+    0 \xrightarrow{0} \hom(\Z, p^m\Z) \xrightarrow{p^n_*} \hom(\Z, p^m\Z) \xrightarrow{0} 0
+  \end{align*}
+  which is the same as
+  \begin{align*}
+    0 \xrightarrow{0} \Z/p^m\Z \xrightarrow{p^n} \Z/p^m \Z \xrightarrow{0} 0.
+  \end{align*}
+  We have
+  \begin{align*}
+    Ext_{\Z}^0(\Z/p^n\Z, \Z/p^m\Z)
+    &= \ker(p^n) \\
+    &= p^{m-n}\Z/p^m\Z 
+  \end{align*}
+  and
+  \begin{align*}
+    Ext_{\Z}^1(\Z/p^n\Z, \Z/p^m\Z) &= \ker(0)/\im(p^n) \\
+    &= (\Z/p^m \Z)/(p^n \Z / p^m \Z) \\
+    &=
+    \begin{cases}
+      \text{ if } n<m & \Z/ p^n \Z \\
+      \text{ otherwise } & \Z / p^m \Z
+    \end{cases}
+  \end{align*}
+
+  We apply $(-) \otimes \Z/p^m\Z$ to the projective resolution of $\Z/p^n\Z$, remembering to drop $\Z/p^n \Z$ itself to get
+
+  \begin{align*}
+    0 \xrightarrow{0} \Z \otimes_{\Z} \Z/p^m\Z \xrightarrow{p^n_*} \Z \otimes_{\Z} \Z/p^m\Z \xrightarrow{0} 0 ,
+  \end{align*}
+
+  which is the same as
+
+  \begin{align*}
+    0 \xrightarrow{0} \Z/p^m\Z \xrightarrow{p^n} \Z/p^m\Z \xrightarrow{0} 0 .
+  \end{align*}
+  Thus, in this case we have the same result as in the previous case
+  \begin{align*}
+    Tor_{\Z}^0(\Z/p^n\Z, \Z/p^m\Z) = p^{m-n}\Z/p^m\Z
+  \end{align*}
+  and
+  \begin{align*}
+    Tor_{\Z}^1(\Z/p^n\Z, \Z/p^m\Z) =
+    \begin{cases}
+      \text{ if } n<m & \Z/ p^n \Z \\
+      \text{ otherwise } & \Z / p^m \Z
+    \end{cases}
+  \end{align*}
   
+  The Ext functor for finitely generated groups allows us to pull out direct sums in both indices, so we have
+
+  \begin{align*}
+    & Ext_{\Z}^i(\Z^r \oplus \bigoplus\limits_{j=1}^n \Z/p_j^{r_j}\Z, \Z^l
+    \oplus \bigoplus\limits_{j=1}^n \Z/q_j^{l_j}\Z) \\
+    &= Ext_{\Z}^i(\Z^r, \Z^l) \oplus Ext_{\Z}^i(\Z^r, \bigoplus \Z/q_j^{l_j}\Z) \oplus Ext_{\Z}^i(\bigoplus\limits_{j=1}^n \Z/p_j^{r_j}\Z, \Z^l) \oplus Ext_{\Z}^i(\bigoplus\limits_{j=1}^n \Z/p_j^{r_j}\Z,\bigoplus\limits_{j=1}^n \Z/q_j^{l_j}\Z)
+  \end{align*}
+  We have that $Ext_{\Z}^i(\Z^r, \Z^l) = 0$, since for example we have the following projective resolution of $\Z^r$:
+  \begin{align*}
+    0 \xrightarrow{0} \Z^r \xrightarrow{id} \Z^r \xrightarrow{id} \Z^r \xrightarrow{0} 0 
+  \end{align*}
+  which we turn into
+  \begin{align*}
+    0 \xrightarrow{0} \hom(\Z^r,\Z^l) \xrightarrow{id_*} \hom(\Z^r, \Z^l) \xrightarrow{0} 0     
+  \end{align*}
+  which is equivalent to 
+  \begin{align*}
+    0 \xrightarrow{0} \Z^{rl} \xrightarrow{id} \Z^{rl} \xrightarrow{0} 0.
+  \end{align*}
+  Thus 
+  \begin{align*}
+    Ext_{\Z}^0(\Z^r, \Z^l) = ker(id)/im(0) = 0, \quad Ext_{\Z}^1(\Z^r, \Z^l) = ker(0)/im(id) = \Z^{rl}/\Z^{rl} = 0.
+  \end{align*}
+
+  We also have that $Ext_{\Z}^i(\Z^r, \bigoplus \Z/q_j^{l_j}\Z) = 0$ for $i=0,1$, since
+  \begin{align*}
+    Ext_{\Z}^i(\Z^r, \bigoplus \Z/q_j^{l_j}\Z)
+    &= Ext_{\Z}^i(\Z, \bigoplus \Z/q_j^{l_j}\Z)^r \\
+    &= (\bigoplus Ext_{\Z}^i(\Z,\Z/q_j^{l_j}\Z))^r.
+  \end{align*}
+  We have the following projective resolution of $\Z$:
+  \begin{align*}
+    0 \xrightarrow{0} \Z \xrightarrow{id} \Z \xrightarrow{id} \Z \xrightarrow{0} 0,
+  \end{align*}
+  and then we apply $\hom$ to this to get
+  \begin{align*}
+    0 \xrightarrow{0} \hom(\Z, \Z/q_j^{l_j}\Z) \xrightarrow{id_*} \hom(\Z, \Z/q_j^{l_j}\Z) \xrightarrow{0} 0,    
+  \end{align*}
+  which is the same as 
+  \begin{align*}
+    0 \xrightarrow{0} \Z/q_j^{l_j}\Z \xrightarrow{id} \Z/q_j^{l_j}\Z \xrightarrow{0} 0.
+  \end{align*}
+  Thus, we get
+  \begin{align*}
+    Ext_{\Z}^i(\Z,\Z/q_j^{l_j}\Z) = 0,
+  \end{align*}
+  and this holds for each $j$. Thus,
+  \begin{align*}
+    Ext_{\Z}^i(\Z^r, \bigoplus \Z/q_j^{l_j}\Z) = 0.
+  \end{align*}
+
+  Next, we have that $Ext(\bigoplus \Z/p_j^{r_j} \Z, \Z^)$
+  
+  
+  The Tor functor preserves direct sums in the first argument and so we get
+  \begin{align*}
+    Tor_{\Z}^i(\Z^r \oplus \bigoplus\limits_{j=1}^n \Z/p_j^{r_j}\Z, \Z/p_k^s\Z) 
+    &= Tor_{\Z}^i(\Z, \Z/p_j^s\Z)^r \oplus \bigoplus\limits_{j=1}^n Tor_{\Z}^i(\Z/p_j^{r_j}\Z, \Z/p_k^s\Z)
+  \end{align*}
 \end{proof}
 \end{document}
