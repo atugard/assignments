@@ -446,7 +446,15 @@
   \begin{align*}
     &Ext_{\Z}^0(\Z^r \oplus \bigoplus\limits_{j=1}^n \Z/p_j^{r_j}\Z, \Z^l
     \oplus \bigoplus\limits_{j=1}^n \Z/q_j^{l_j}\Z) \\
-    &= \bigoplus\limits_{j}^{n}  p_j^{r_j-s_j}\Z/p_j^{r_j} \Z
+    &= \bigoplus\limits_{j}^{n}  N_j
+  \end{align*}
+  where
+  \begin{align*}
+    N_j =
+    \begin{cases}
+      \text{ if } s_j<r_j & p_j^{r_j-s_j}\Z/p_j^{r_j} \Z \\
+      \text{ otherwise } & \Z/p_j^{r_j} \Z
+    \end{cases}
   \end{align*}
   and
   \begin{align*}
@@ -527,13 +535,30 @@
       \text { otherwise } & Tor_{\Z}^i(\Z/p_j^{r_j}\Z, \Z/p_j^s\Z)
     \end{cases}
   \end{align*}
+  where $p_j = q$. 
   Thus, we have
   \begin{align*}
-    &Tor_{\Z}^0(\Z^r \oplus \bigoplus\limits_{j=1}^n \Z/p_j^{r_j}\Z, \Z/q^s\Z)  \\
+    &Tor_{\Z}^i(\Z^r \oplus \bigoplus\limits_{j=1}^n \Z/p_j^{r_j}\Z, \Z/q^s\Z)  \\
     &=
     \begin{cases}
       \text { if } \forall j, q \neq p_j & 0 \\
-      \text { otherwise } & Tor_{\Z}^i(\Z/p_j^{r_j}\Z, \Z/p_j^s\Z)
+      \text { otherwise } & N_i
+    \end{cases}
+  \end{align*}
+  where
+  \begin{align*}
+    N_0 &=
+    \begin{cases}
+      \text{ if } s<r_j & p^{r_j-s}\Z/ p^{r_j} \Z \\
+      \text{ otherwise } & \Z / p^{r_j} \Z
+    \end{cases}
+  \end{align*}
+  and
+  \begin{align*}
+    N_1 &=
+    \begin{cases}
+      \text{ if } s<r_j & \Z/ p^s \Z \\
+      \text{ otherwise } & \Z / p^{r_j} \Z      
     \end{cases}
   \end{align*}
 \end{proof}
