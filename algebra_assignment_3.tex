@@ -175,15 +175,6 @@
     \dim(V/W) = \dim(V) - \dim(W)
   \end{align*}
   
-  
-  %% or for an $m \times n$ matrix $A$ that
-  %% \begin{align*}
-  %%   \dim(k^n) &= \dim(\ker(A)) + \dim(\im(A)) \\
-  %%   &= \dim(nullsp(A)) + \dim(colsp(A)) \\
-  %%   &= nullity(A) + rank(A)
-  %% \end{align*}
-
-  
   \begin{enumerate}
   \item
     We have 
@@ -640,5 +631,52 @@
       \text{ otherwise } & \Z / p^{r_j} \Z      
     \end{cases}
   \end{align*}
+\end{proof}
+\begin{exercise}
+  TBD
+\end{exercise}
+
+\begin{exercise}
+  Let $R=k[x,y]$ and write $k = k[x,y]/(x,y)$.
+  \begin{enumerate}
+  \item
+    Find a projective resolution of $k$ over $R$.
+  \item
+    Calculate $Ext_{R}^i(k,k)$ for all $i$.
+  \item
+    Now let $R=k[x_1, \dots, x_n]$. Determine  functions $f(n,i)$ and $g(n,i)$ where
+    \begin{align*}
+      Ext_R^i(k,k) &= k^{f(n,i)}, \\
+      Tor_R^{i}(k,k) &= k^{g(n,i)}
+    \end{align*}
+  \end{enumerate}
+\end{exercise}
+\begin{proof}
+  \begin{enumerate}
+  \item
+    We have the following projective resolution of $k$
+    \begin{align*}
+      \cdots \xrightarrow{id} R \xrightarrow{id} R \xrightarrow{id} R \xrightarrow{\varphi} R^2 \xrightarrow{\psi} R \xrightarrow{\pi_{(x,y)}} k \xrightarrow{0} 0,
+    \end{align*}
+    where
+    \begin{align*}
+      \varphi(f) = (fy,-fx)
+    \end{align*}
+    and
+    \begin{align*}
+      \psi(f,g) = xf + yg.
+    \end{align*}
+
+    We drop the $k$ term in the sequence and apply $\hom_R(-, k)$ to get
+    \begin{align*}
+      0 \xrightarrow{0_*} \hom_R(R,k) \xrightarrow{\psi_*} \hom_R(R^2,k) \xrightarrow{\varphi_*} \hom_R(R,k) \xrightarrow{id_*} \hom_R(R,k) \xrightarrow{id_*} \hom_R(R,k) \xrightarrow \dots,
+    \end{align*}
+    which is the same as
+    \begin{align*}
+      0 \xrightarrow{0_*} k \xrightarrow{\psi_*} k^2 \xrightarrow{\varphi_*} k \xrightarrow{id_*} k \xrightarrow{id_*} k \xrightarrow \dots,
+    \end{align*}
+  \item
+    
+  \end{enumerate}
 \end{proof}
 \end{document}
