@@ -1,10 +1,12 @@
 import itertools
+R.<x,y> = PolynomialRing(GF(5))
 
-R = GF(5)['x,y']
 x = R.gen(0)
 y = R.gen(1)
 
 d_2 = Matrix([[x^2, -2*x*y+y^2], [x*y, x^2 + -1*y^2], [-1*y^2, x*y + -2*y^2]])
+
+NB = sage.rings.ideal.FieldIdeal(R).normal_basis()
 
 A = Matrix([[x,x,1], [2*x, 2*x, 2], [3*x, 3*x, 3]])
 
@@ -23,12 +25,13 @@ def generateMonomials(deg):
 def combinations(ls):
     return list(map(sum,list(map(list ,list(itertools.product(*ls))))))
 
-
 def genPolynomials(deg):
-    result = []
-    for i in range(deg+1):
-        result.append(generateMonomials(deg))
-    return list(combinations(result))
+    NB = sage.rings.ideal.FieldIdeal(R).normal_basis()
+    return [sum(c*m for (c,m) in zip(C,NB)) for C in itertools.product(GF(5), repeat=len(NB))]
+    # result = []
+    # for i in range(deg+1):
+    #     result.append(generateMonomials(deg))
+    # return list(combinations(result))
 
 def mk2dvec(deg):
     vectors = []
@@ -37,6 +40,7 @@ def mk2dvec(deg):
         for p2 in polys:
             vectors.append(vector([p1,p2]))
     return vectors
+
 def getKernel(deg, A):
     vectors = mk2dvec(deg)
     result = [(0,0)]

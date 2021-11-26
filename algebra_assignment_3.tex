@@ -74,7 +74,7 @@
 \begin{exercise}
   Let $R = \mathbb{F}_5[x,y]$. Compute the homology of the following complex, i.e. find presentations for all the homology modules.
   \begin{align*}
-    0 \xrightarrow{0_1} R^2 \xrightarrow{d_1} R^3 \xrightarrow{d_2} R^1 \xrightarrow{0_2} 0 
+    0 \xrightarrow{0} R^2 \xrightarrow{d_1} R^3 \xrightarrow{d_2} R^1 \xrightarrow{0} 0 
   \end{align*}
   where
   \begin{align*}
@@ -94,15 +94,28 @@
   \end{align*}
 \end{exercise}
 \begin{proof}
-  We get the following homology modules
+  Using the Macaulay2 calculator one finds
   \begin{align*}
-    M_1 = \ker(d_2)/\im(0_1), \quad M_2 = \ker(d_3)/\im(d_2), \quad M_3 = \ker(0_2)/\im(d_3).
+    \ker(d_1) &= 0, \\
+    \ker(d_2) &= \im(d_1)
   \end{align*}
-
-  Using the Macaulay2 calculator, one finds that $ker(d_3) = im(d_2)$, so that $M_2 = 0$. Also, $M_3 = 0$ too as $ker(0_2)=R^1$ and $im(d_3) = R^1$.
-
-  Thus, this homology is trivial, i.e. all of the homology modules are zero. 
-
+  so that
+  \begin{align*}
+    H_0 &= \ker(d_1)/\im(0) \\
+    &= 0,
+  \end{align*}
+  \begin{align*}
+    H_1 &= \ker(d_2)/\im(d_1)  \\
+    &= 0
+  \end{align*}
+  and
+  \begin{align*}
+    H_2
+    &= \ker(0)/\im(d_2) \\
+    &= R/d_2R^3 \\
+    &= cok(d_2).
+  \end{align*}
+  
 \end{proof}
 
 \begin{exercise}
@@ -117,9 +130,13 @@
   Compute a free resolution of $M$.
 \end{exercise}
 \begin{proof}
-  We have the free resolution
+  We have that
   \begin{align*}
-    R^3 \xrightarrow{A} R^2 \xrightarrow{\pi_{AR^2}} M \xrightarrow{0} 0 
+    M \cong cok(A) = R/AR,
+  \end{align*}
+  which yields the following free resolution 
+  \begin{align*}
+    R^3 \xrightarrow{A} R^2 \xrightarrow{\pi_{AR^2}} M \xrightarrow{0} 0.
   \end{align*}
 \end{proof}
 \begin{exercise}
@@ -147,7 +164,7 @@
   \begin{align*}
     \dim(V) = dim(ker(T)) + dim(im(T)).
   \end{align*}
-  Thus, we have for $W \subseteq V$ a subspace and $\pi_W : V \to V/W$ the projection onto the quotient space that 
+  Thus, we have for $W \subseteq V$ a subspace and $\pi_W : V \to V/W$ the projection onto $W$ that 
   \begin{align*}
     \dim(V)
     &= \dim(\ker(\pi_W)) + \dim(\im(\pi_W)) \\
@@ -155,7 +172,7 @@
   \end{align*}
   so that in particular
   \begin{align*}
-    \dim(V/W) = \dim(V) -
+    \dim(V/W) = \dim(V) - \dim(W)
   \end{align*}
   
   
