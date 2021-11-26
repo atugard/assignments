@@ -119,7 +119,7 @@
 \begin{proof}
   We have the free resolution
   \begin{align*}
-    R^2 \xrightarrow{A} R^2 \xrightarrow{\pi_{AR^2}} M \xrightarrow{0} 0 
+    R^3 \xrightarrow{A} R^2 \xrightarrow{\pi_{AR^2}} M \xrightarrow{0} 0 
   \end{align*}
 \end{proof}
 \begin{exercise}
@@ -143,6 +143,30 @@
     \end{enumerate}
 \end{exercise}
 \begin{proof}
+  In what follows we're going to use that for a linear transformation of vector spaces $T:V \to W$, that 
+  \begin{align*}
+    \dim(V) = dim(ker(T)) + dim(im(T)).
+  \end{align*}
+  Thus, we have for $W \subseteq V$ a subspace and $\pi_W : V \to V/W$ the projection onto the quotient space that 
+  \begin{align*}
+    \dim(V)
+    &= \dim(\ker(\pi_W)) + \dim(\im(\pi_W)) \\
+    &= \dim(W) + \dim(V/W),
+  \end{align*}
+  so that in particular
+  \begin{align*}
+    \dim(V/W) = \dim(V) -
+  \end{align*}
+  
+  
+  %% or for an $m \times n$ matrix $A$ that
+  %% \begin{align*}
+  %%   \dim(k^n) &= \dim(\ker(A)) + \dim(\im(A)) \\
+  %%   &= \dim(nullsp(A)) + \dim(colsp(A)) \\
+  %%   &= nullity(A) + rank(A)
+  %% \end{align*}
+
+  
   \begin{enumerate}
   \item
     We have 
@@ -158,7 +182,15 @@
       \sum\limits_i (-1)^i h_i &= \sum\limits_i (-1)^i (c_i - r_i - r_{i+1})  \\
       &= (c_n - r_n - r_{n+1}) - (c_{n-1} - r_{n-1} - r_n) + \cdots + (-1)^n(c_0 - r_0 - r_1) \\
       &= \sum \limits_i (-1)^i c_i - r_{n+1} + (-1)^{n+1} r_0 \\
-      &= \sum \limits_i (-1)^i c_i
+      &= \sum \limits_i (-1)^i c_i,
+    \end{align*}
+    which holds since
+    \begin{align*}
+      r_0 = \dim(\im(0)) = 0,
+    \end{align*}
+    and
+    \begin{align*}
+      r_{n+1} = \dim(\im(0)) = 0.
     \end{align*}
   \end{enumerate}
 \end{proof}
@@ -221,7 +253,37 @@
   \item
     $Ext_{k[x]}^i(k[x]/(x^n), k[x]/(x^m))$:
     
-      &\cong k[x]/k[x]x^n
+    We have the following projective resolution of $k[x]/(x^n)$ as a $k[x]$ module:
+    \begin{align*}
+      0 \xrightarrow{0} k[x] \xrightarrow{x^n} k[x] \xrightarrow{\pi_{x^n}} k[x]/k[x]x^n \xrightarrow{0} 0 
+    \end{align*}
+    which we reverse the arrows of and apply the $hom(-, k[x]/(x^m))$ functor to and get
+    \begin{align*}
+      0 \xrightarrow{0_*} \hom(k[x], k[x]/k[x]x^m) \xrightarrow{x^n_*} \hom(k[x], k[x]/k[x]x^m) \xrightarrow{0_*} 0       
+    \end{align*}
+    which is isomorphic to
+    \begin{align*}
+      0 \xrightarrow{0} k[x]/k[x]x^m \xrightarrow{x^n} k[x]/k[x]x^m \xrightarrow{0} 0.
+    \end{align*}
+    The homology modules give us
+    \begin{align*}
+      Ext_{k[x]}^0
+      &= ker(x^n)/im(0) = ker(x^n) \\
+      &= 
+      \begin{cases}
+        \text{ if } n < m & k[x]x^{m-n}/k[x]x^m \\
+        \text{ otherwise } n \geq m & k[x]/k[x]x^m 
+      \end{cases}
+    \end{align*}
+    and
+    \begin{align*}
+      Ext_{k[x]}^1
+      &= ker(0)/im(x^n) \\
+      &= 
+      \begin{cases}
+        \text{ if } n < m & k[x]/k[x]x^n \\
+        \text{ otherwise } n \geq m & k[x]/k[x]x^m 
+      \end{cases}
     \end{align*}
   \item
     $Tor_{k[x]}^i(k[x]/(x^n), k[x]/(x^m)):$
