@@ -633,8 +633,22 @@
   \end{align*}
 \end{proof}
 \begin{exercise}
-  TBD
+  Let $k$ be a field and let $A$ be the algebra of upper triangular $2 \times 2$ matrices
+  \begin{align*}
+    A = \set{
+      \begin{pmatrix}
+        a & b \\
+        0 & c
+      \end{pmatrix}:
+      a,b,c \in k
+    }
+  \end{align*}
+  For this question it might be helpful to read about path algebras. Recall that any finite dimensional left $A$-module is a direct sum of three types of modules. Called $S_0, S_1, P_1$ of dimensions 1,1,2.
+  
 \end{exercise}
+\begin{proof}
+  Not sure what $S_1, S_2, P_1$ are, but $P_1$ is projective, $S_1,S_2$ are injective... 
+\end{proof}
 
 \begin{exercise}
   Let $R=k[x,y]$ and write $k = k[x,y]/(x,y)$.
@@ -654,9 +668,9 @@
 \begin{proof}
   \begin{enumerate}
   \item
-    We have the following projective resolution of $k$
+    We have the following projective resolution of $k$ (which we think of as an $R$-module by defining $f * a = \overline{f}a$ where the reduction is taken modulo $(x,y)$, $a \in k$, and $f \in R$)
     \begin{align*}
-      \cdots \xrightarrow{id} R \xrightarrow{id} R \xrightarrow{id} R \xrightarrow{\varphi} R^2 \xrightarrow{\psi} R \xrightarrow{\pi_{(x,y)}} k \xrightarrow{0} 0,
+      \cdots \xrightarrow{0} 0 \xrightarrow{0} R \xrightarrow{\varphi} R^2 \xrightarrow{\psi} R \xrightarrow{\pi_{(x,y)}} k \xrightarrow{0} 0,
     \end{align*}
     where
     \begin{align*}
@@ -667,16 +681,35 @@
       \psi(f,g) = xf + yg.
     \end{align*}
 
-    We drop the $k$ term in the sequence and apply $\hom_R(-, k)$ to get
+    We drop the $k$ term in the sequence and apply $\hom_R(-, k)$ to the reversed sequence to get
     \begin{align*}
-      0 \xrightarrow{0_*} \hom_R(R,k) \xrightarrow{\psi_*} \hom_R(R^2,k) \xrightarrow{\varphi_*} \hom_R(R,k) \xrightarrow{id_*} \hom_R(R,k) \xrightarrow{id_*} \hom_R(R,k) \xrightarrow \dots,
+      0 \xrightarrow{0_*} \hom_R(R,k) \xrightarrow{\psi_*} \hom_R(R^2,k) \xrightarrow{\varphi_*} \hom_R(R,k) \xrightarrow{0} 0 \xrightarrow{0} 0 \xrightarrow{0} \dots,
     \end{align*}
-    which is the same as
+
+    Now for all $\alpha \in \hom_R(R,k)$ and $(f,g) \in R^2$ we have 
     \begin{align*}
-      0 \xrightarrow{0_*} k \xrightarrow{\psi_*} k^2 \xrightarrow{\varphi_*} k \xrightarrow{id_*} k \xrightarrow{id_*} k \xrightarrow \dots,
+      \psi_*(\alpha(f,g))
+      &= \alpha(\psi(f,g)) = \alpha(xf+yg) = (xf+yg)*\alpha(1) \\
+      &= (\overline{xf+yg}) \alpha(1) = 0 \alpha(1) = 0,
     \end{align*}
-  \item
-    
+    so that $ker(\psi_*) = \hom_R(R,k) \cong k$ and $\im(\psi_*) = 0$. We have our first result
+    \begin{align*}
+      Ext_R^0(k,k) = \ker(\psi_*)/\im(0) =  k.
+    \end{align*}
+    Next, for $\beta \in \hom_R(R^2, k), f \in R$ we have 
+    \begin{align*}
+      \varphi_*(\beta)(f)
+      &= \beta(\varphi(f)) = \beta(fy,-fx) = \overline{f}\beta(y(1,0) -x(0,1)) \\
+      &= \overline{f}(\overline{y} \beta(1,0) - \overline{x}\beta(0,1)) \\
+      &= 0 
+    \end{align*}
+    So that $\ker(\varphi_*) = \hom_R(R^2,k) \cong k^2$ and $\im(\varphi_*) = 0$. We have then
+    \begin{align*}
+      Ext_R^1(k,k) = k^2
+    \end{align*}
+    For $i>1$ we have $Ext_R^i(k,k) = 0$.
+
+
   \end{enumerate}
 \end{proof}
 \end{document}
