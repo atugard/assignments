@@ -255,7 +255,21 @@
   \begin{align*}
     x^3 - 2x^2 + x - y^2  \in \ker(\varphi^*).
   \end{align*}
-
+  Checking with the Macaulay2 calculator, we find that this polynomial generates the kernel
+  \begin{align*}
+    \ker(\varphi^*) = (x^3 - 2x^2 + x - y^2).
+  \end{align*}
+  We have
+  \begin{align*}
+    V(y) = \set{(a,0) : a \in \mathbb{A}},
+  \end{align*}
+  and so
+  \begin{align*}
+    \varphi^{-1}(V(y))
+    &= \set{t : t^3-t = 0} \\
+    &
+    = \set{-1,0,1}.
+  \end{align*}
 \end{proof}
 \begin{exercise}
   \begin{enumerate}
