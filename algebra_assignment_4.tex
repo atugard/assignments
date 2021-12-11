@@ -105,7 +105,7 @@
 
   Hence, we have $J \subseteq I$.
 
-  $I \subseteq J$ is not true since it's impossible for example to write $y$ as a linear combination of the generators of $J$
+  $I \not \subseteq J$, since it's impossible for example to write $y$ as a linear combination of the generators of $J$
 
 \end{proof}
 
@@ -243,7 +243,19 @@
   Let $\varphi: \mathbb{A}^1 \to \mathbb{A}^2$ be the corresponding map on affine spaces. Find $\varphi^{-1}(V(y))$.
 \end{exercise}
 \begin{proof}
-  
+  We have
+  \begin{align*}
+    \varphi^*(y^2) 
+    &= (t^3-t)^2 \\
+    &= t^6 - 2t^4 + t^2 \\
+    &= \varphi^*(x^3) -  2\varphi^*(x^2) + \varphi^*(x) \\
+    &= \varphi^*(x^3 - 2x^2 + x)
+  \end{align*}
+  and so
+  \begin{align*}
+    x^3 - 2x^2 + x - y^2  \in \ker(\varphi^*).
+  \end{align*}
+
 \end{proof}
 \begin{exercise}
   \begin{enumerate}
@@ -261,7 +273,5 @@
     Find the ideal of the image.
   \end{enumerate}
 \end{exercise}
-\begin{proof}
-  
-\end{proof}
+
 \end{document}
