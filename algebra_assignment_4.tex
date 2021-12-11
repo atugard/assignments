@@ -179,7 +179,89 @@
     a^2 + b^2 + c^2 = 2c^2 = 2,
   \end{align*}
   so that $c = \pm 1$; and we get circles of radius 1 on the $x,y$ plane at $z=-1$ and $z=1$.
+
+  Using Macaulay2, this simplifies to
+  \begin{align*}
+    S \cup C = V(x^4+2x^2y^2 + y^4 - z^4 - 2x^2 - 2y^2 + 2z^2)
+  \end{align*}
 \end{proof}
 
-e
+\begin{exercise}
+  Find the ideal in $\C[x,y]$ corresponding to the variety that is the hyperbola $xy=-1$ union the point $(-1,-1)$ in $\C^2$.
+\end{exercise}
+\begin{proof}
+  The hyperbola is 
+  \begin{align*}
+    H = V(xy+1)
+  \end{align*}
+  and the point is
+  \begin{align*}
+    P = V((x+1,y+1))
+  \end{align*}
+  Then what we're after is
+  \begin{align*}
+    H \cup P = V((xy+1) \cap (x+1,y+1)).
+  \end{align*}
+  Using the Macaulay2 calculator, this simplifies to
+  \begin{align*}
+    H \cup P = V(xy^2 + xy + y + 1, x^2y + xy + x + 1)
+  \end{align*}
+\end{proof}
+\begin{exercise}
+  Let
+  \begin{align*}
+    \Z_{(3)} &= \set{a/b: a,b \in \Z, b \not \in 3\Z}, \\
+    \C[x]_{(x)} &= \set{f/g: f,g \in \C[x], g(0) \neq 0}
+  \end{align*}
+  Show that these are local rings.
+\end{exercise}
+
+\begin{proof}
+  It suffices to check that these have unique maximal ideals.
+
+  The ideals to consider are 
+  \begin{align*}
+    \mathfrak{m}_1 = 3\Z_{(3)}
+  \end{align*}
+  and 
+  \begin{align*}
+    \mathfrak{m}_2 = x \C[x]_{(x)}.
+  \end{align*}
+  We take for granted that these are indeed ideals, and just check that they're maximal and unique. Suppose that
+  \begin{align*}
+    \mathfrak{m}_1 \subsetneq I \triangleleft 3 \Z_{(3)}.
+  \end{align*}
+  Let $a/b \in I \setminus \mathfrak{m}_1$.
+\end{proof}
+
+\begin{exercise}
+  Find generators of the kernel of the map $\varphi^*: \C[x,y] \to \C[t]$ given by
+  \begin{align*}
+    \varphi^*(x) &= t^2, \\
+    \varphi^*(y) &= t^3-t.
+  \end{align*}
+  Let $\varphi: \mathbb{A}^1 \to \mathbb{A}^2$ be the corresponding map on affine spaces. Find $\varphi^{-1}(V(y))$.
+\end{exercise}
+\begin{proof}
+  
+\end{proof}
+\begin{exercise}
+  \begin{enumerate}
+  \item
+    Let $\nu: \mathbb{A}^2 \to \mathbb{A}^4$ be the polynomial mapping given by
+    \begin{align*}
+      \nu(x,y) = (x^3, x^2y, xy^2, y^3).
+    \end{align*}
+    Find the ideal of the image of $\nu$, i.e. $I(\nu(\mathbb{C}^2))$.
+  \item
+    Let $\sigma = xy + yz + zx.$ We define a map $p: \mathbb{A}^3 \to \mathbb{A}^4$ as
+    \begin{align*}
+      p(x,y,z)=(x\sigma, y\sigma, z\sigma, -xyz)
+    \end{align*}
+    Find the ideal of the image.
+  \end{enumerate}
+\end{exercise}
+\begin{proof}
+  
+\end{proof}
 \end{document}
