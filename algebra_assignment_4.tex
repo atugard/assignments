@@ -227,11 +227,30 @@
   \begin{align*}
     \mathfrak{m}_2 = x \C[x]_{(x)}.
   \end{align*}
-  We take for granted that these are indeed ideals, and just check that they're maximal and unique. Suppose that
-  \begin{align*}
-    \mathfrak{m}_1 \subsetneq I \triangleleft 3 \Z_{(3)}.
-  \end{align*}
-  Let $a/b \in I \setminus \mathfrak{m}_1$.
+
+  Suppose $\mathfrak{m}_1 \subsetneq I$ for $I$ an ideal of $\Z_{(3)}$. If $a/s \in I \setminus \mathfrak{m}_1$, then $a \not \in 3\Z$. We have that $s/a \in \Z_{(3)}$ and 
+  \begin{align}
+    1 = \cfrac{s}{a} \cfrac{a}{s} \in I,
+  \end{align}
+  so that $I = \Z_{(3)}$, and $\mathfrak{m}_1$ is maximal.
+
+  Suppose that there's some maximal ideal $\mathfrak{n}_1 \triangleleft \Z_{(3)}$ such that $\mathfrak{n}_1 \neq \mathfrak{m}_1$. Then there's some $a/s \in \mathfrak{n}_1 \setminus \mathfrak{m}_1$,
+  and, again, the numerator is not a multiple of $3$, so that $a/s$ is a unit. We get $1 \in \mathfrak{n}_1$, and $\mathfrak{n}_1 = \Z_{(3)}$, which contradicts that $\mathfrak{n}_1$ is maximal (because it's not proper).
+
+  We find that $\mathfrak{m}_1$ is maximal and unique, or $\Z_{(3)}$ is local.
+
+  The exact same argument works for the case of $\mathfrak{m}_2$... 
+
+  Suppose $\mathfrak{m}_2 \subsetneq J$ for $J$ an ideal of $\C[x]_{(x)}$. If $f/g \in J \setminus \mathfrak{m}_2$, then $f \not \in x\C[x]$. We have that $g/f \in \Z_{(3)}$ and 
+  \begin{align}
+    1 = \cfrac{g}{f} \cfrac{f}{g} \in J,
+  \end{align}
+  so that $J = \C[x]_{(x)}$, and $\mathfrak{m}_2$ is maximal.
+  
+  Suppose that there's some maximal ideal $\mathfrak{n}_2 \triangleleft \C[x]_{(x)}$ such that $\mathfrak{n}_2 \neq \mathfrak{m}_2$. Then there's some $f/g \in \mathfrak{n}_2 \setminus \mathfrak{m}_2$,
+  and, again, the numerator is not a multiple of $x$, so that $f/g$ is a unit. We get $1 \in \mathfrak{n}_1$, and $\mathfrak{n}_2 = \C[x]_{(x)}$, which contradicts that $\mathfrak{n}_2$ is maximal (because it's not proper).
+
+  We find that $\mathfrak{m}_2$ is maximal and unique, or $\C[x]_{(x2)}$ is local.
 \end{proof}
 
 \begin{exercise}
@@ -276,16 +295,47 @@
   \item
     Let $\nu: \mathbb{A}^2 \to \mathbb{A}^4$ be the polynomial mapping given by
     \begin{align*}
-      \nu(x,y) = (x^3, x^2y, xy^2, y^3).
+      \nu(s,t) = (s^3, s^2t, st^2, t^3).
     \end{align*}
-    Find the ideal of the image of $\nu$, i.e. $I(\nu(\mathbb{C}^2))$.
+    Find the ideal of the image of $\nu$, i.e. $I(\nu(\mathbb{A}^2))$.
   \item
-    Let $\sigma = xy + yz + zx.$ We define a map $p: \mathbb{A}^3 \to \mathbb{A}^4$ as
+    Let $\sigma = st + tu + us.$ We define a map $p: \mathbb{A}^3 \to \mathbb{A}^4$ as
     \begin{align*}
-      p(x,y,z)=(x\sigma, y\sigma, z\sigma, -xyz)
+      p(s,t,u)=(s\sigma, t\sigma, u\sigma, -stu)
     \end{align*}
     Find the ideal of the image.
   \end{enumerate}
 \end{exercise}
+\begin{proof}
+  \begin{enumerate}
+  \item
+    We have $\nu^*: k[x,y,z,w] \to k[s,t]$ given by
+    \begin{align*}
+      \nu^*(x) &= s^3 \\
+      \nu^*(y) &= s^2t \\
+      \nu^*(z) &= st^2 \\
+      \nu^*(w) &= t^3,
+    \end{align*}
+    and use Macaulay2 to compute it's kernel:
+    \begin{align*}
+      \ker(\nu^*) = (z^2-yw, yz-xw, y^2-xz).
+    \end{align*}
+    $I(\nu(\mathbb{A}^2)) = \ker(\nu^*)$, and so we're done.
+  \item
+    We have $p^*: k[x,y,z,w] \to k[s,t,u]$ given by
+    \begin{align*}
+      p^*(x) &= s\sigma \\
+      p^*(y) &= t\sigma \\
+      p^*(z) &= u\sigma \\
+      p^*(w) &= -stu.
+    \end{align*}
+    We use Macaulay2 to compute the kernel of this map:
+    \begin{align*}
+      \ker(p^*) = (x^3y^3z^3+x^2y^2w^3 + 2x^2yzw^3 + 2xy^2zw^3+x^2z^2w^3+2xyz^2w^3+y^2z^2w^2),
+    \end{align*}
+    and so $I(p(\mathbb{A}^3)) = \ker(p^*)$.
+  \end{enumerate}
+\end{proof}
+
 
 \end{document}
