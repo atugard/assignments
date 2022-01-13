@@ -194,17 +194,19 @@
   \item
     $(R^X, +, 0)$ is a subgroup of $(R,+,0)$:
 
-    By definition of automorphisms $\sigma(0)=0$, so that $0 \in R^X$ and $R^X$ is non empty. If $a,b \in R^X$ then $\sigma(a)=a$ and $\sigma(b)=b$ so that $\sigma(a+b) = \sigma(a) + \sigma(b) = a + b$, and $a+b \in R^X$.
+    By the definition of a ring morphism we know that $\sigma(0)=0$, so $0 \in R^X$ and $R^X$ is non empty. 
+
+    If $a,b \in R^X$ then $\sigma(a)=a$ and $\sigma(b)=b$ so that $\sigma(a+b) = \sigma(a) + \sigma(b) = a + b$, and $a+b \in R^X$.
 
     If $a \in R^X$ then $\sigma(a)=a$, so that $\sigma(-a) = \sigma(-1)\sigma(a) = -1 \cdot a = -a$, and $-a \in R^X$.
 
     This is sufficient for $(R^X,+,0)$ to be a subgroup of $(R,+,0)$. \footnote{https://en.wikipedia.org/wiki/Subgroup}
   \item
-    $(R^X, *, 1)$ is a submonoid of $(R,*,1)$:
+    $(R^X, \cdot, 1)$ is a submonoid of $(R,\cdot,1)$:
 
     For $a,b \in R^X$, we have $\sigma(ab) = \sigma(a)\sigma(b) = ab$, so that $ab \in R^X$; also $\sigma(1) = 1$ so that $1 \in R^X$.
 
-    This is sufficient for $(R^X,*,1)$ to be a submonoid of $(R,+,0)$. \footnote{https://en.wikipedia.org/wiki/Monoid#Submonoids}
+    This is sufficient for $(R^X,\cdot,1)$ to be a submonoid of $(R,\cdot,1)$. \footnote{https://en.wikipedia.org/wiki/Monoid#Submonoids}
   \end{itemize}
   Hence, $R^X$ is a subring of $R$. \footnote{https://en.wikipedia.org/wiki/Subring#Definition}
 
@@ -216,6 +218,40 @@
   \end{align*}
 \end{exercise}
 \begin{proof}
-  
+  I'm going to use induction and the recurrence relations in the proof of Proposition 1.4.1 in the course notes \footnote{https://alistairsavage.ca/symfunc/notes/Savage-SymmetricFunctions.pdf}.
+
+  We let $a_0 = 1$, $a_1 = -a$, and $a_k = 0$ for $k > 1$; and we wish to solve for $b_n$ in 
+
+  \begin{align*}
+    (1-at)^{-1} = \sum\limits_{n=0}^{\infty} b_n t^n.
+  \end{align*}
+
+  We have for $n=0$
+
+  \begin{align*}
+    b_0 = a_0 = 1^{-1} = 1.
+  \end{align*}
+
+  For $n=1$:
+
+
+  \begin{align*}
+    b_1 = -a_0^{-1}(a_1 b_0) = -1 (-a*1) = a;
+  \end{align*}
+
+  and for $n \geq 1$
+  \begin{align*}
+    b_n
+    &= -a_0^{-1}\sum\limits_{i=1}^n a_i b_{n-i} \\
+    &= -1 (a_1\cdot b_{n-1} + a_2 \cdot b_{n-2} + a_3 \cdot b_{n-3} + \dots + a_n \cdot b_0) \\
+    &= -1 (-a \cdot a^{n-1} + 0 \cdot a^{n-2} + 0 \cdot a^{n-3} + \dots + 0 \cdot1) \\
+    &= a^n,
+  \end{align*}
+
+  so that
+    \begin{align*}
+    (1-at)^{-1} = \sum\limits_{n=0}^{\infty} a^n t^n.
+  \end{align*}
+
 \end{proof}
 \end{document}
