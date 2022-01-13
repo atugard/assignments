@@ -1,0 +1,221 @@
+\documentclass[12pt]{extarticle}
+%Some packages I commonly use.
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{framed}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage[utf8]{inputenc}
+\usepackage[top=1 in,bottom=1in, left=1 in, right=1 in]{geometry}
+
+%A bunch of definitions that make my life easier
+\newcommand{\matlab}{{\sc Matlab} }
+\newcommand{\abs}[1]{|#1|}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\cvec}[1]{{\mathbf #1}}
+\newcommand{\rvec}[1]{\vec{\mathbf #1}}
+\newcommand{\ihat}{\hat{\textbf{\i}}}
+\newcommand{\jhat}{\hat{\textbf{\j}}}
+\newcommand{\khat}{\hat{\textbf{k}}}
+\newcommand{\minor}{{\rm minor}}
+\newcommand{\trace}{{\rm trace}}
+\newcommand{\spn}{{\rm Span}}
+\newcommand{\rem}{{\rm rem}}
+\newcommand{\ran}{{\rm range}}
+\newcommand{\range}{{\rm range}}
+\newcommand{\mdiv}{{\rm div}}
+\newcommand{\proj}{{\rm proj}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\attn}[1]{\textbf{#1}}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{prob}{Problem}
+\newtheorem{corollary}{Corollary}
+\newtheorem*{definition}{Definition}
+\newtheorem*{example}{Example}
+\newtheorem*{note}{Note}
+\newtheorem{exercise}{Exercise}
+\newcommand{\bproof}{\bigskip {\bf Proof. }}
+\newcommand{\eproof}{\hfill\qedsymbol}
+\newcommand{\Disp}{\displaystyle}
+\newcommand{\qe}{\hfill\(\bigtriangledown\)}
+\setlength{\columnseprule}{1 pt}
+
+
+\title{ Math 4995/5327
+  \\
+  Assignment 1}
+\author{David Draguta}
+
+\begin{document}
+
+\maketitle
+
+\begin{exercise}
+  Prove that for $n \leq 5$ the dominance partial ordering on $\text{Par}(n)$ is a \textit{total} ordering. 
+\end{exercise}
+\begin{proof}
+  First, for $\lambda = (\lambda_1, \lambda_2, \dots)$ such that $\lambda \vdash n$, we have for all $k \geq 1$
+  \begin{align*}
+    \sum\limits_{i=1}^k \lambda_i \leq \sum\limits_{i=1}^k \lambda_i,
+  \end{align*}
+  so that the relation is reflexive.
+
+  For $n=1$ we have
+  \begin{align*}
+    \text{Par}(n) = \set{(1)}
+  \end{align*}
+  and so the result holds since the relation is reflexive.
+
+  For $n=2$:
+  \begin{align*}
+    \text{Par}(n) = \set{(2), (1,1)},
+  \end{align*}
+  and $(1,1) \leq (2)$ since $ 1 \leq 2$ and $ 1 + 1 \leq 2 + 0$, so for $n=2$ the dominance partial ordering is total.
+  
+  For $n=3$:
+  \begin{align*}
+    \text{Par}(n) = \set{(3), (2,1), (1,1,1)},
+  \end{align*}
+  and all partitions of $n$ are comparable: 
+
+  $(2,1) \leq (3)$, since $2 \leq 3$ and $2 + 1 \leq 3 + 0$;
+
+  $(1,1,1) \leq (3)$ as $ 1 \leq 3$, $1 + 1 =2 \leq 3 $, and $1+1+1 = 3 \leq 3$; and
+
+  $(1,1,1) \leq (2,1)$, since $1 \leq 2$, $1 + 1 = 2 \leq 3 = 2+1$, and $1+1+1=3 \leq 2+1+0 = 3$.
+
+  For n=4:
+  \begin{align*}
+    \text{Par}(n) = \set{(4), (3,1), (2,2), (2,1,1), (1,1,1,1)}
+  \end{align*}
+  and again all partitions of $n$ are comparable:
+
+  $(3,1) \leq (4)$, since $3 \leq 4$ and $3 + 1 = 4 \leq 4$;
+
+  $(2,2) \leq (4)$, since $2 \leq 4$ and $2+2 = 4 \leq 4$;
+
+  $(2,1,1) \leq (4)$, since $ 2 \leq 4 $, $2+1=3 \leq 4$, and $2+1+1 = 4 \leq 4$;
+
+  $(1,1,1,1) \leq (4)$, since $1 \leq 4$, $1+1=2 \leq 4$, $1+1+1=3 \leq 4$, and $1+1+1+1 = 4\leq 4$;
+
+  $(2,2) \leq (3,1)$, since $ 2 \leq 3$ and $2+2=4 \leq 3+1=4 $;
+
+  $(2,1,1) \leq (3,1)$, since $2 \leq 3$, $2+1=3 \leq 3+1 = 4$, and $2+1+1 = 4 \leq 3+1+0 = 4$;
+
+  $(1,1,1,1) \leq (3,1)$, since $1 \leq 3$, $1+1=2 \leq 3+1=4$, $1+1+1 \leq 3+1+0$, and $1+1+1+1 = 4 \leq 3+1+0+0 = 4$;
+
+  $(2,1,1) \leq (2,2)$, since $ 2 \leq 2$, $2+1 = 3 \leq 2+2 = 4$, and $2+1+1 = 3 \leq 2+2+0=4$;
+
+  $(1,1,1,1) \leq (2,2)$, since $1 \leq 2$, $1+1 = 2 \leq 2+2=4$, $1+1+1 = 3 \\leq 2+2+0 = 4$, and $1+1+1+1 = 4 \leq 2+2+0+0=4$;
+
+  $(1,1,1,1) \leq (2,1,1)$, since $1 \leq 2$, $1+1=2 \leq 2+1=3$, $1+1+1=3 \leq 2+1+1=4$, and $1+1+1+1=4 \leq 2+1+1+0 = 4$,
+
+  so that the relation is total.
+
+  For n = 5:
+  \begin{align*}
+    \text{Par}(n) = \set{(5), (4,1), (3,2), (3,1,1), (2,2,1), (2,1,1,1), (1,1,1,1,1)}
+  \end{align*}
+  and the relation is total since:
+
+  $(4,1) \leq (5)$, since $ 4 \leq 5$ and $4 + 1 = 5 \leq 5 $;
+
+  $(3,2) \leq (5)$, since $4 \leq 5$ and $3+2=5 \leq 5$;
+
+  $(3,1,1) \leq (5)$, since $3 \leq 5$, $3+1=4 \leq 5$, and $3+1+1=5 \leq 5$;
+
+  $(2,2,1) \leq (5)$, since $2 \leq 5$, $2+2=4 \leq 5$, and $2+2+1 = 5 \leq 5$;
+
+  $(2,1,1,1) \leq (5)$, since $2 \leq 5$, $2+1=3 \leq 5$, $2+1+1=4 \leq 5$, and $2+1+1+1 = 5 \leq 5$;
+
+  $(1,1,1,1,1) \leq (5)$, since $1 \leq 5$, $1+1=2 \leq 5$, $1+1+1 = 3 \leq 5$, $1+1+1+1 = 4 \leq 5$, and $1+1+1+1+1 = 5 \leq 5$;
+
+  $(3,2) \leq (4,1)$, since $ 3 \leq 4$, and $3 + 2 = 5 \leq 4+1 = 5$;
+
+  $(3,1,1) \leq (4,1)$, since $ 3 \leq 4$, $3 + 1 = 4 \leq 4 + 1 = 5$, and $3+1+1 = 5 \leq 4+1+0=5$;
+
+  $(2,2,1) \leq (4,1)$, since $ 2 \leq 4$, $2+2=4 \leq 4+1=5$, and $2+2+1 = 5 \leq 4+1+0 = 5$;
+
+  $(2,1,1,1) \leq (4,1)$, since $ 2 \leq 4$, $2+1=3 \leq 4+1=5$, $2+1+1=4 \leq 4+1 = 5$, and $2+1+1+1 = 5 \leq 4+1 = 5$;
+
+  $(1,1,1,1,1) \leq (4,1)$, since $1 \leq 4$, $1+1=2 \leq 4+1=5$, $1+1+1 = 3 \leq 4+1=5$, $1+1+1+1=4 \leq 4+1=5$, and $1+1+1+1+1 = 5 \leq 5$;
+
+  $(3,1,1) \leq (3,2)$, since $ 3 \leq 3$, $3+1=4 \leq 3+2=5$, and $3+1+1 = 5 \leq 3+2 = 5$;
+
+  $(2,2,1) \leq (3,2)$, since $2 \leq 3$, $2+2=4 \leq 3+2=5$, and $2+2+1=5 \leq 3+2=5$;
+
+  $(2,1,1,1) \leq (3,2)$, since $ 2 \leq 3$, $2 + 1 = 3 \leq 3 + 2 = 5$, $2+1+1 = 4 \leq 3+2 = 5$, and $2+1+1+1 = 5 \leq 3+2=5$;
+
+  $(1,1,1,1,1) \leq (3,2)$, since $1 \leq 3$, $1+1=2 \leq 3+2=5$, $1+1+1=3 \leq 3+2=5$, $1+1+1+1=4 \leq 3+2=5$, and $1+1+1+1+1=5 \leq 3+2=5$;
+
+  $(2,2,1) \leq (3,1,1)$, since $ 2 \leq 3$, $2+2=4 \leq 3+1=4$, and $2+2+1 \leq 3+1+1=5$;
+
+  $(2,1,1,1) \leq (3,1,1)$, since $2 \leq 3$, $2+1=3 \leq 3+1=4$, $2+1+1=4 \leq 3+1+1=5$, and $2+1+1+1=5 \leq 3+1+1=5$;
+
+  $(1,1,1,1,1) \leq (3,1,1)$, since $1 \leq 3$, $1+1=2 \leq 3+1=4$, $1+1+1=3 \leq 3+1+1=5$, $1+1+1+1=4 \leq 3+1+1=5$, and $1+1+1+1+1=5 \leq 3+1+1=5$;
+
+  $(1,1,1,1,1) \leq (2,2,1)$, since $1 \leq 2$, $1+1=2 \leq 2+2=4$, $1+1+1 = 3 \leq 2+2+1 = 5$, $1+1+1+1=4 \leq 2+2+1=5$, $1+1+1+1+1 = 5 \leq 2+2+1=5$;
+
+  $(1,1,1,1,1) \leq (2,1,1,1)$, since $1 \leq 2$, $1+1=2 \leq 2+1=3$, $1+1+1=3 \leq 2+1+1=4$, $1+1+1+1=4 \leq 2+1+1+1=5$, and $1+1+1+1+1 = 5 \leq 2+1+1+1=5$.
+
+  Hence, for $n=1,2,3,4,5$ the dominance relation is a total order. 
+
+\end{proof}
+\begin{exercise}
+  Suppose $R$ is a ring and $X$ is a set of ring automorphisms. Show that
+  \begin{align*}
+    R^X := \set{r \in R: \sigma(r)=r \text{ for all } \sigma \in X}
+  \end{align*}
+  is a subring of $R$. 
+\end{exercise}
+\begin{proof}
+  First thing,
+  \begin{align*}
+    1 = \sigma(-1 \cdot -1) = \sigma(-1) \cdot \sigma(-1) = \sigma(-1)^2,
+  \end{align*}
+  so that
+  \begin{align*}
+    \sigma(-1) = \pm 1.
+  \end{align*}
+  Since $\sigma$ is an automorphism, it's injective. Since $\sigma(1) = 1$, it can't be that $\sigma(-1)=1$ too; so it must be that $\sigma(-1)=-1$. I'm only stating this here because I'll use it below. 
+  
+  \begin{itemize}
+  \item
+    $(R^X, +, 0)$ is a subgroup of $(R,+,0)$:
+
+    By definition of automorphisms $\sigma(0)=0$, so that $0 \in R^X$ and $R^X$ is non empty. If $a,b \in R^X$ then $\sigma(a)=a$ and $\sigma(b)=b$ so that $\sigma(a+b) = \sigma(a) + \sigma(b) = a + b$, and $a+b \in R^X$.
+
+    If $a \in R^X$ then $\sigma(a)=a$, so that $\sigma(-a) = \sigma(-1)\sigma(a) = -1 \cdot a = -a$, and $-a \in R^X$.
+
+    This is sufficient for $(R^X,+,0)$ to be a subgroup of $(R,+,0)$. \footnote{https://en.wikipedia.org/wiki/Subgroup}
+  \item
+    $(R^X, *, 1)$ is a submonoid of $(R,*,1)$:
+
+    For $a,b \in R^X$, we have $\sigma(ab) = \sigma(a)\sigma(b) = ab$, so that $ab \in R^X$; also $\sigma(1) = 1$ so that $1 \in R^X$.
+
+    This is sufficient for $(R^X,*,1)$ to be a submonoid of $(R,+,0)$. \footnote{https://en.wikipedia.org/wiki/Monoid#Submonoids}
+  \end{itemize}
+  Hence, $R^X$ is a subring of $R$. \footnote{https://en.wikipedia.org/wiki/Subring#Definition}
+
+\end{proof}
+\begin{exercise}
+  Suppose $R$ is a commutative ring and $a \in R$. Prove that
+  \begin{align*}
+    (1-at)^{-1} = \sum\limits_{n=0}^{\infty} a^n t^n.
+  \end{align*}
+\end{exercise}
+\begin{proof}
+  
+\end{proof}
+\end{document}
