@@ -69,25 +69,29 @@
   \begin{align*}
     \sum\limits_{i=1}^k \lambda_i \leq \sum\limits_{i=1}^k \lambda_i,
   \end{align*}
-  so that the relation is reflexive.
+  so that the relation is reflexive. This is also true for the empty partition \emptyset = (0,0,\dots). 
 
-  For $n=1$ we have
+  For $n=0,1$, we have
   \begin{align*}
-    \text{Par}(n) = \set{(1)}
+    \text{Par}(n) = \set{\emptyset}
   \end{align*}
-  and so the result holds since the relation is reflexive.
-
+  and
+  \begin{align*}
+    \text{Par}(n) = \set{(1)},
+  \end{align*}
+  respectively, and so the result holds since the relation is reflexive.
+  
   For $n=2$:
   \begin{align*}
     \text{Par}(n) = \set{(2), (1,1)},
   \end{align*}
-  and $(1,1) \leq (2)$ since $ 1 \leq 2$ and $ 1 + 1 \leq 2 + 0$, so for $n=2$ the dominance partial ordering is total.
+  and $(1,1) \leq (2)$ since $ 1 \leq 2$ and $ 1 + 1 \leq 2 + 0$, so the result holds.
   
   For $n=3$:
   \begin{align*}
     \text{Par}(n) = \set{(3), (2,1), (1,1,1)},
   \end{align*}
-  and all partitions of $n$ are comparable: 
+  and all partitions of $n$ (omiting relating a partition to itself) are relatable: 
 
   $(2,1) \leq (3)$, since $2 \leq 3$ and $2 + 1 \leq 3 + 0$;
 
@@ -99,7 +103,7 @@
   \begin{align*}
     \text{Par}(n) = \set{(4), (3,1), (2,2), (2,1,1), (1,1,1,1)}
   \end{align*}
-  and again all partitions of $n$ are comparable:
+  and again all partitions of $n$ (omiting relating a partition to itself) are relatable:
 
   $(3,1) \leq (4)$, since $3 \leq 4$ and $3 + 1 = 4 \leq 4$;
 
@@ -127,7 +131,7 @@
   \begin{align*}
     \text{Par}(n) = \set{(5), (4,1), (3,2), (3,1,1), (2,2,1), (2,1,1,1), (1,1,1,1,1)}
   \end{align*}
-  and the relation is total since:
+  and the relation is total since (omitting relating partitions to themselves):
 
   $(4,1) \leq (5)$, since $ 4 \leq 5$ and $4 + 1 = 5 \leq 5 $;
 
@@ -169,7 +173,7 @@
 
   $(1,1,1,1,1) \leq (2,1,1,1)$, since $1 \leq 2$, $1+1=2 \leq 2+1=3$, $1+1+1=3 \leq 2+1+1=4$, $1+1+1+1=4 \leq 2+1+1+1=5$, and $1+1+1+1+1 = 5 \leq 2+1+1+1=5$.
 
-  Hence, for $n=1,2,3,4,5$ the dominance relation is a total order. 
+  Hence, for $n \leq 5$ the dominance relation is a total order. 
 
 \end{proof}
 \begin{exercise}
@@ -188,7 +192,7 @@
   \begin{align*}
     \sigma(-1) = \pm 1.
   \end{align*}
-  Since $\sigma$ is an automorphism, it's injective. Since $\sigma(1) = 1$, it can't be that $\sigma(-1)=1$ too; so it must be that $\sigma(-1)=-1$. I'm only stating this here because I'll use it below. 
+  Since $\sigma$ is an automorphism, it's injective. Since $\sigma(1) = 1$, it can't be that $\sigma(-1)=1$ too; so it must be that $\sigma(-1)=-1$. I'm only stating this here because I'll use it below. Also, $R^X \subseteq R$ is immediate from the definition, and so we don't check that below.
   
   \begin{itemize}
   \item
@@ -218,23 +222,29 @@
   \end{align*}
 \end{exercise}
 \begin{proof}
-  I'm going to use induction and the recurrence relations in the proof of Proposition 1.4.1 in the course notes \footnote{https://alistairsavage.ca/symfunc/notes/Savage-SymmetricFunctions.pdf}.
+  I'm going to use induction on the index of the coefficients of the inverse and the recurrence relations in the proof of Proposition 1.4.1 in the course notes \footnote{https://alistairsavage.ca/symfunc/notes/Savage-SymmetricFunctions.pdf}.
 
-  We let $a_0 = 1$, $a_1 = -a$, and $a_k = 0$ for $k > 1$; and we wish to solve for $b_n$ in 
+  We first define
+  \begin{align*}
+   \sum\limits_{n=0}^{\infty} a_nt^n :=  1-at
+  \end{align*}
+  where $a_0 = 1$, $a_1 = -a$, and $a_n = 0$ for $n > 1$; and we wish to solve for $b_n$ in 
+  \begin{align*}
+    (\sum\limits_{i=0}^{\infty} a_nt^n)^{-1}  = \sum\limits_{n=0}^{\infty} b_n t^n.
+  \end{align*}
+  using the recurrence relations
 
   \begin{align*}
-    (1-at)^{-1} = \sum\limits_{n=0}^{\infty} b_n t^n.
+    b_0 = a_0^{-1}, \quad b_n = -a_0^{-1} \sum\limits_{i=1}^{\infty}a_i b_{n-i}, \quad n \geq 1.
   \end{align*}
 
   We have for $n=0$
 
   \begin{align*}
-    b_0 = a_0^{-1}= 1^{-1} = 1.
+    b_0 = a_0^{-1}= 1^{-1} = 1 = a^0.
   \end{align*}
 
   For $n=1$:
-
-
   \begin{align*}
     b_1 = -a_0^{-1}(a_1 b_0) = -1 (-a*1) = a;
   \end{align*}
