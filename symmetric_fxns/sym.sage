@@ -1,6 +1,9 @@
 def makeSn(n):
     return groups.permutation.Symmetric(n).list()
 
+def removeDuplicates(l):
+    return list(set(l))
+
 def padZeros(p,n):
     p = list(p)
     while len(p) < n:
@@ -15,11 +18,12 @@ def isPartition(p):
             return False
     return True
 
-def removeDuplicates(ls):
-    return list(set(ls))
-
 def symAct(p,n):
-    if not isPartition(p):
+    if (not isPartition(p)):
+        print("Argument must be a partition!")
+        return []
+    if (len(p)>n):
+        print("The partition must be at least as long as the number of variables!")
         return []
     
     p = padZeros(p,n)
@@ -33,6 +37,7 @@ def symAct(p,n):
         result.append(tuple(p_new))
         
     return removeDuplicates(result)
+
 
 
 
