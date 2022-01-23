@@ -49,6 +49,12 @@
 \newcommand{\eproof}{\hfill\qedsymbol}
 \newcommand{\Disp}{\displaystyle}
 \newcommand{\qe}{\hfill\(\bigtriangledown\)}
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
 \setlength{\columnseprule}{1 pt}
 
 
@@ -115,10 +121,23 @@
     \pi(i) = \sigma^{-1}(i),
   \end{align*}
   i.e. $\pi = \sigma^{-1} \in H$, $G(Pol_n^H) \subseteq H$, $G(Pol_n^H) = H$.
-
 \end{proof}
 
 \begin{exercise}
   Prove Lemma 2.2.3 in the lecture notes. Furthermore, prove that $\rho_{m,n}^k$ is \emph{not} bijective if $m>n$ and $k>n$.
 \end{exercise}
+\begin{proof}
+  Let $g \in Sym_n^k$, then $g \in Sym_n$. As $\rho_{m,n}$ is surjective, there exists an $f \in Sym_m$ such that $\rho_{m,n}(f) = g$. We decompose $f$ into it's homogeneous components as $f = \sum\limits_{i} f_i$, and write
+  \footnote{$f = \sum\limits_{0 \leq i \leq d} f_i$ is of bounded degree, but just to keep notation clean I left that out.}
+  \begin{align*}
+    \sum\limits_i \rho_{m,n}(f_i) =  \rho_{m,n}(f) = g
+  \end{align*}
+  By definition of graded ring morphism, $\rho_{m,n}(f_i) \in Sym_n^i$, and as $g$ is homogeneous of degree $k$ and the sum is direct, it must be that $\rho_{m,n}(f_i) = 0$ for $i \neq k$ and $\rho_{m,n}(f_i) = g$ for $i=k$, i.e.
+  \begin{align*}
+    \rho_{m,n}^k(f_k) = \restr{\rho_{m,n}}{Sym_m^k}(f_k) = \rho_{m,n}(f_k) = g,
+  \end{align*}
+  and $\rho_{m,n}^k$ is surjective.
+
+  
+\end{proof}
 \end{document}
