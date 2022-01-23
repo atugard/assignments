@@ -1,3 +1,4 @@
+Z.<x,y> = PolynomialRing(ZZ)
 def makeSn(n):
     return groups.permutation.Symmetric(n).list()
 
@@ -23,7 +24,7 @@ def symAct(p,n):
         print("Argument must be a partition!")
         return []
     if (len(p)>n):
-        print("The partition must be at least as long as the number of variables!")
+        print("The partition must not be longer than the number of variables!")
         return []
     
     p = padZeros(p,n)

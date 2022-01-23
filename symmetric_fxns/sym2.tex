@@ -1,0 +1,94 @@
+\documentclass[12pt]{extarticle}
+%Some packages I commonly use.
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{framed}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage[utf8]{inputenc}
+\usepackage[top=1 in,bottom=1in, left=1 in, right=1 in]{geometry}
+
+%A bunch of definitions that make my life easier
+\newcommand{\matlab}{{\sc Matlab} }
+\newcommand{\abs}[1]{|#1|}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\cvec}[1]{{\mathbf #1}}
+\newcommand{\rvec}[1]{\vec{\mathbf #1}}
+\newcommand{\ihat}{\hat{\textbf{\i}}}
+\newcommand{\jhat}{\hat{\textbf{\j}}}
+\newcommand{\khat}{\hat{\textbf{k}}}
+\newcommand{\minor}{{\rm minor}}
+\newcommand{\trace}{{\rm trace}}
+\newcommand{\spn}{{\rm Span}}
+\newcommand{\rem}{{\rm rem}}
+\newcommand{\ran}{{\rm range}}
+\newcommand{\range}{{\rm range}}
+\newcommand{\mdiv}{{\rm div}}
+\newcommand{\proj}{{\rm proj}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\attn}[1]{\textbf{#1}}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{prob}{Problem}
+\newtheorem{corollary}{Corollary}
+\newtheorem*{definition}{Definition}
+\newtheorem*{example}{Example}
+\newtheorem*{note}{Note}
+\newtheorem{exercise}{Exercise}
+\newcommand{\bproof}{\bigskip {\bf Proof. }}
+\newcommand{\eproof}{\hfill\qedsymbol}
+\newcommand{\Disp}{\displaystyle}
+\newcommand{\qe}{\hfill\(\bigtriangledown\)}
+\setlength{\columnseprule}{1 pt}
+
+
+\title{ Math 4995/5327
+  \\
+  Assignment 1}
+\author{David Draguta}
+
+\begin{document}
+
+\maketitle
+
+\begin{exercise}
+  For a subset $X \subseteq \mathfrak{S}_n$, define
+  \begin{align*}
+    Pol_n^{X} = \set{f \in Pol_n: f^{\pi} = f \text{ for all } \pi \in X}.
+  \end{align*}
+  For a subset $P \subseteq Pol_n$, define
+  \begin{align*}
+    G(P) = \set{\pi \in \mathfrak{S}_n: f^{\pi} = f \text{ for all } f \in P}.
+  \end{align*}
+  Is it true that $G(Pol_n^H)$ for all subgroups $H \subseteq \mathfrak{S}_n$, $n \in \N$? Prove or give a counter example. 
+\end{exercise}
+
+\begin{proof}
+  If $\pi \in H$, then for any $f \in Pol_n^H$, $f^{\pi} = f$, so that $\pi \in G(Pol_n^H)$, $H \subseteq G(Pol_n^H)$.
+
+  We note that $\sum\limits_{\alpha \in \lambda H} x^{\alpha} \in Pol_n^H$, for all partitions $\lambda \in Par_n$, and in particular for $\lambda = (n, n-1, \dots, 1)$.
+  
+  Let $\pi \in G(Pol_n^H)$, then there exists some $\sigma \in H$ such that
+  \begin{align*}
+    {(x^{\lambda})}^{\pi} = x_{\pi(1)}^nx_{\pi(2)}^{n-1} \cdots x_{\pi(n)} = x_{\sigma(1)}^nx_{\sigma(2)}^{n-1} \cdots x_{\sigma(n)} = {(x^{\lambda})}^{\sigma},
+  \end{align*}
+  and so $\pi = \sigma \in H$, $G(Pol_n^H) \subseteq H$.
+
+  We've shown $H = G(Pol_n^H)$.
+
+\end{proof}
+
+\begin{exercise}
+  Prove Lemma 2.2.3 in the lecture notes. Furthermore, prove that $\rho_{m,n}^k$ is \emph{not} bijective if $m>n$ and $k>n$.
+\end{exercise}
+\end{document}
