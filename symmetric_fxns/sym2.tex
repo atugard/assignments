@@ -149,8 +149,13 @@
   \end{align*}
   and as the monomial symmetric polynomials $m_{\lambda_i}(x_1, \dots, x_n) \in Sym_n^k$ are linearly independent
   \footnote{
-  Again, by Corollary 2.1.3 as $n \geq k$, for $\lambda \in Par(k)$, $m_{\lambda}(x_1, \dots, x_n)$ form a basis of $Sym_n^k$, and particularly are linearly independent over $\Z$.
+  Again, by Corollary 2.1.3 (b) as $n \geq k$, for $\lambda \in Par(k)$, $m_{\lambda}(x_1, \dots, x_n)$ form a basis of $Sym_n^k$, and particularly are linearly independent over $\Z$.
   }
   , we have $a_{\lambda_i}=0$ for each $i$, i.e. $f=0$ and $\rho_{m,n}^k$ is injective.
+
+  %gotta be more careful here...
+  Let $m>n$,$k>n$.
+
+  If $m \leq k$, then choose $\lambda \in Par_m(k)$ and if $m > k$ choose $\lambda \in Par_k(k)$. With this choice of $\lambda$, $m_{\lambda}(x_1, \dots, x_m) \neq 0$, since $\ell(\lambda) \leq m$, and $\rho_{m,n}^k(m_{\lambda}(x_1, \dots, x_m)) =  m_{\lambda}(x_1, \dots, x_n) = 0$, since $\ell(\lambda) > n$. Hence, \rho_{m,n}^k$ is not injective, so not bijective. 
 \end{proof}
 \end{document}
