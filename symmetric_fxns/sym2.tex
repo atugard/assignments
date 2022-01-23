@@ -138,6 +138,19 @@
   \end{align*}
   and $\rho_{m,n}^k$ is surjective.
 
-  
+  Suppose $\rho_{m,n}^k(f) = 0$. Write $f = \sum\limits_{i=1}^{p(k)} a_{\lambda_i} m_{\lambda_i}(x_1, \dots, x_m)$
+  , for $\lambda_i \in Par(k)$, $a_{\lambda_i} \in \Z$.
+  \footnote{
+  By Corollary 2.1.3 (b) since $m \geq k$ the mononial symmetric polynomials $m_{\lambda}(x_1, \dots, x_m)$ form a basis of $Sym_m^k$ for $\lambda \in Par(k)$.
+  }
+  Then
+  \begin{align*}
+   \sum\limits_{i=1}^{p(k)} a_{\lambda_i} m_{\lambda_i}(x_1, \dots, x_n) =  \rho_{m,n}^k(f) = 0,
+  \end{align*}
+  and as the monomial symmetric polynomials $m_{\lambda_i}(x_1, \dots, x_n) \in Sym_n^k$ are linearly independent
+  \footnote{
+  Again, by Corollary 2.1.3 as $n \geq k$, for $\lambda \in Par(k)$, $m_{\lambda}(x_1, \dots, x_n)$ form a basis of $Sym_n^k$, and particularly are linearly independent over $\Z$.
+  }
+  , we have $a_{\lambda_i}=0$ for each $i$, i.e. $f=0$ and $\rho_{m,n}^k$ is injective.
 \end{proof}
 \end{document}
