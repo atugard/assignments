@@ -70,11 +70,13 @@
   \begin{align*}
     G(P) = \set{\pi \in \mathfrak{S}_n: f^{\pi} = f \text{ for all } f \in P}.
   \end{align*}
-  Is it true that $G(Pol_n^H)$ for all subgroups $H \subseteq \mathfrak{S}_n$, $n \in \N$? Prove or give a counter example. 
+  Is it true that $G(Pol_n^H) = H$ for all subgroups $H \subseteq \mathfrak{S}_n$, $n \in \N$? Prove or give a counter example. 
 \end{exercise}
 
 \begin{proof}
-  If $\pi \in H$, then for any $f \in Pol_n^H$, $f^{\pi} = f$, so that $\pi \in G(Pol_n^H)$, $H \subseteq G(Pol_n^H)$.
+  It's true.
+
+  Let $\pi \in H$, then for any $f \in Pol_n^H$, $f^{\pi} = f$, so that $\pi \in G(Pol_n^H)$, $H \subseteq G(Pol_n^H)$.
 
   We note that $f_{\lambda} := \sum\limits_{\alpha \in \lambda H} x^{\alpha} \in Pol_n^H$, for all partitions $\lambda \in Par_n$.
   \footnote{Let $x^\alpha$ be a term in $f_{\lambda}$, where $\alpha = \lambda^{\sigma}$ for some $\sigma \in H$; then for $\pi \in H$ we have
@@ -86,25 +88,23 @@
     &= x^{{\lambda^{\sigma}}^{\pi^{-1}}}.
   \end{align*}
 
-  As $\pi^{-1} \in H$, $H\pi^{-1} = H$, and so 
+  As $\pi^{-1} \in H$, $H\pi^{-1} = H$, so 
   
   \begin{align*}
     \set{\lambda^{\sigma \pi^{-1}}: \sigma \in H} = \lambda(H \pi^{-1}) = \lambda H,
   \end{align*}
   and we end up with the same index set $\lambda H$.
 
-  We conclude that $\pi$ fixes $f_{\lambda}$.
-
   }
 
+  Let $\pi \in G(Pol_n^H)$. Fix $\lambda = (n, n-1, \dots, 1)$, and let $\lambda^{\sigma} \in \lambda H$ be such that ${(x^{\lambda})}^{\pi} = x^{\lambda^{\sigma}}$. \footnote{Such a $\sigma$ exists since $\pi$ fixes $f_{\lambda}$, and ${(x^\lambda)}^{\pi}$ is a term in $f_{\lambda}$.}
   
-
   We have:
   \begin{align*}
     x_{\pi(1)}^nx_{\pi(2)}^{n-1} \cdots x_{\pi(n)}
     &= x_1^{\lambda_{\sigma(1)}} x_2^{\lambda_{\sigma(2)}} \cdots x_n^{\lambda_{\sigma(n)}} \\
     &= x_{\sigma^{-1}(1)}^{\lambda_1} x_{\sigma^{-1}(2)}^{\lambda_2} \cdots x_{\sigma^{-1}(n)}^{\lambda_n} \\
-    &= x_{\sigma^{-1}(1)}^{n} x_{\sigma^{-1}(2)}^{n-1} \cdots x_{\sigma^{-1}(n)}^{1} \\
+    &= x_{\sigma^{-1}(1)}^{n} x_{\sigma^{-1}(2)}^{n-1} \cdots x_{\sigma^{-1}(n)}^{1}.
   \end{align*}
   As the parts of the partition are all distinct, we must have for each $1 \leq i \leq n$,
   \begin{align*}
