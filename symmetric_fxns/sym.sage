@@ -1,4 +1,3 @@
-Z.<x,y> = PolynomialRing(ZZ)
 def makeSn(n):
     return groups.permutation.Symmetric(n).list()
 
@@ -19,7 +18,8 @@ def isPartition(p):
             return False
     return True
 
-def symAct(p,n):
+#generates all permutations of the partition p.
+def genWC(p,n):
     if (not isPartition(p)):
         print("Argument must be a partition!")
         return []
@@ -38,6 +38,20 @@ def symAct(p,n):
         result.append(tuple(p_new))
         
     return removeDuplicates(result)
+
+#takes a weak composition wc and returns the corresponding monomial. 
+def genMon(wc):
+    return True
+#takes a list of monomials, and returns their sum
+def sumMon(ms):
+    return True
+
+#takes a partition and a number of variables, and returns the corresponding monomial symmetric polynomial 
+def genSymPoly(p,n):
+    wc = genWC(p,n)
+    ms = genMon(wc)
+    return sumMon(ms)
+
 
 
 
