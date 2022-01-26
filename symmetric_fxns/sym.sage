@@ -1,4 +1,7 @@
-def makeSn(n):
+def mkPartition(wc):
+    return sorted(wc, reverse=True)
+
+def mkSn(n):
     return groups.permutation.Symmetric(n).list()
 
 def removeDuplicates(l):
@@ -28,7 +31,7 @@ def genWC(p,n):
         return []
     
     p = padZeros(p,n)
-    gp = makeSn(n)
+    gp = mkSn(n)
     result = []
     
     for g in gp:
@@ -39,20 +42,24 @@ def genWC(p,n):
         
     return removeDuplicates(result)
 
-#takes a weak composition wc and returns the corresponding monomial. 
-def genMon(wc):
-    return True
-#takes a list of monomials, and returns their sum
-def sumMon(ms):
-    return True
-
 #takes a partition and a number of variables, and returns the corresponding monomial symmetric polynomial 
 def genSymPoly(p,n):
-    wc = genWC(p,n)
-    ms = genMon(wc)
-    return sumMon(ms)
+    m = SymmetricFunctions(ZZ).m()
+    return m(p).expand(n)
 
-
-
+#check m_(k)*m_l = m_(k+l) + m_(k,l), for m in n variables
+def check1(k,l,n):
+    m = genSymPoly([k],n)*genSymPoly([l],n)
+    if k != l:
+        return m  == genSymPoly([k+l],n) + genSymPoly(mkPartition([k,l]),n)
+    else:
+        return m == genSymPoly([k+l],n) + 2*genSymPoly(mkPartition([k,l]),n)
+    
+#check m_(a,b) * m_(c) = m_(a+b,c) + m_(a,b+c) + m_(a,b,c)
+def check2(a,b,c,n):
+    m1 = genSymPoly(mkPartition([a,b]),n)*genSymPoly([c],n)
+    m2 = genSymPoly(mkPartition([a+c,b]),n) + genSymPoly(mkPartition([a,b+c]),n) + genSymPoly(mkPartition([a,b,c]),n)
+    print (m1 == m2)
+    return [m1,m2]
 
 

@@ -1,0 +1,146 @@
+\documentclass[12pt]{extarticle}
+%Some packages I commonly use.
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{framed}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage{ytableau}
+\usepackage[utf8]{inputenc}
+\usepackage[top=1 in,bottom=1in, left=1 in, right=1 in]{geometry}
+
+%A bunch of definitions that make my life easier
+\newcommand{\matlab}{{\sc Matlab} }
+\newcommand{\abs}[1]{|#1|}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\cvec}[1]{{\mathbf #1}}
+\newcommand{\rvec}[1]{\vec{\mathbf #1}}
+\newcommand{\ihat}{\hat{\textbf{\i}}}
+\newcommand{\jhat}{\hat{\textbf{\j}}}
+\newcommand{\khat}{\hat{\textbf{k}}}
+\newcommand{\minor}{{\rm minor}}
+\newcommand{\trace}{{\rm trace}}
+\newcommand{\spn}{{\rm Span}}
+\newcommand{\rem}{{\rm rem}}
+\newcommand{\ran}{{\rm range}}
+\newcommand{\range}{{\rm range}}
+\newcommand{\mdiv}{{\rm div}}
+\newcommand{\proj}{{\rm proj}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\attn}[1]{\textbf{#1}}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{prob}{Problem}
+\newtheorem{corollary}{Corollary}
+\newtheorem*{definition}{Definition}
+\newtheorem*{example}{Example}
+\newtheorem*{note}{Note}
+\newtheorem{exercise}{Exercise}
+\newcommand{\bproof}{\bigskip {\bf Proof. }}
+\newcommand{\eproof}{\hfill\qedsymbol}
+\newcommand{\Disp}{\displaystyle}
+\newcommand{\qe}{\hfill\(\bigtriangledown\)}
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+\setlength{\columnseprule}{1 pt}
+
+
+\title{ Math 4995/5327
+  \\
+  Assignment 3}
+\author{David Draguta}
+
+\begin{document}
+
+\maketitle
+
+
+
+
+
+%% \ytableausetup
+%% {mathmode, boxframe=normal, boxsize=2em}
+%% \begin{ytableau}
+%% 1 & 2 & 3 & \none[\dots]
+%% & \scriptstyle 2n - 1 & 2n \\
+%% 2 & 3 & 4 & \none[\dots]
+%% & 2n \\
+%% \none[\vdots] & \none[\vdots]
+%% & \none[\vdots] \\
+%% \scriptstyle 2n - 1 & 2n \\
+%% 2n
+%% \end{ytableau}
+%% \ytableausetup{centertableaux}
+
+
+
+\begin{exercise}
+  Find and prove a formula for $M_{\lambda, (n-1,1)}(e,m)$, where $\lambda \vdash n$.
+\end{exercise}
+\begin{proof}
+  We require that $\mu = (n-1,1)$ is a partition, so $n-1 \geq 1$, or $n \geq 2$. The only choice of shape for the tableaux is $\lambda = (2, 1^{n-2})$ or $\lambda = (1^n)$ .
+
+  In the case of $\lambda = (2, 1^{n-2})$, the only possible tableau is 
+  \begin{align*}
+    \begin{ytableau}
+      1 & 2 \\
+      1 \\
+      \none[ \vdots ] \\
+      1
+    \end{ytableau}
+  \end{align*}
+  since we must put a 1 in the top-left box, and since it's row strict, we must put a 2 in the second box of the first row; but now there are no further choices for the remaining boxes -- they must be 1s.
+
+  For $\lambda = (1^n)$, we have the following $n$ possible tableaux
+    \begin{align*}
+    \begin{ytableau}
+      2 \\
+      1 \\
+      \none[ \vdots ] \\
+      1
+    \end{ytableau}\quad , \quad
+    \begin{ytableau}
+      1 \\
+      2 \\
+      \none[ \vdots ] \\
+      1
+    \end{ytableau}\quad , \quad \dots, \quad
+        \begin{ytableau}
+      1 \\
+      1 \\
+      \none[ \vdots ] \\
+      2
+    \end{ytableau} \quad,
+  \end{align*}
+    since exactly one $2$ must be placed somewhere, after which placement no further choice remains.
+    
+    We conclude that
+    \begin{align*}
+      M_{\lambda, \mu}(e,m) =
+      \begin{cases}
+        1 & \text{ if } \lambda = (2, 1^{n-2}) \\
+        n & \text{ if } \lambda = (1^n)
+      \end{cases}
+    \end{align*}
+\end{proof}
+\begin{exercise}
+  Find and prove a formula for $M_{\lambda, (n-1,1)}(h,m)$, where $\lambda \vdash n$.
+\end{exercise}
+\begin{exercise}
+  Find and prove a formula for $M_{\lambda, (1^n)}(p,m)$, where $\lambda \vdash n$.
+\end{exercise}
+\end{document}
