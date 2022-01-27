@@ -118,7 +118,7 @@
       2 \\
       \none[ \vdots ] \\
       1
-    \end{ytableau}\quad , \quad \dots, \quad
+    \end{ytableau}\quad , \quad \dots \quad , \quad
         \begin{ytableau}
       1 \\
       1 \\
@@ -140,6 +140,49 @@
 \begin{exercise}
   Find and prove a formula for $M_{\lambda, (n-1,1)}(h,m)$, where $\lambda \vdash n$.
 \end{exercise}
+\begin{proof}
+  As the content is $\mu = (n-1,1)$, whatever the shape of the tableau we can only have one 2 in its filling, and so the 2 must be placed in the rightmost box of any row.
+  \footnote{
+    Because there can only be exactly one $2$ and the rows are row weak, so once you commit to placing a $2$ you can only place numbers $\geq$ 2 in boxes to the right of this box. 
+  }
+  Once this choice of placement of 2 is made, the remaining $n-1$ boxes must be filled with ones. The only choice then is of where to place this $2$. There are $\ell(\lambda)$ such choices, for a tableau of shape $\lambda$, corresponding to the rightmost boxes of the $\ell(\lambda)$ rows:
+
+  \begin{align*}
+    \begin{ytableau}
+      1 & 1 & \none[\dots] & 2 \\
+      1 & 1 & \none[\dots] & 1 \\
+      \none[\vdots]
+      & \none[\vdots] \\
+      1 & 1 \\
+      1
+    \end{ytableau}\quad,\quad
+    \begin{ytableau}
+      1 & 1 & \none[\dots] & 1 \\
+      1 & 1 & \none[\dots] & 2 \\
+      \none[\vdots]
+      & \none[\vdots] \\
+      1 & 1 \\
+      1
+    \end{ytableau}\quad,\quad \dots \quad , \quad
+    \begin{ytableau}
+      1 & 1 & \none[\dots] & 1 \\
+      1 & 1 & \none[\dots] & 1 \\
+      \none[\vdots]
+      & \none[\vdots] \\
+      1 & 2 \\
+      1
+    \end{ytableau}\quad, \quad
+    \begin{ytableau}
+      1 & 1 & \none[\dots] & 1 \\
+      1 & 1 & \none[\dots] & 1 \\
+      \none[\vdots]
+      & \none[\vdots] \\
+      1 & 1 \\
+      2
+    \end{ytableau}\quad.
+  \end{align*}
+  Thus, $M_{\lambda, (n-1,1)}(h,m) = \ell(\lambda)$.
+\end{proof}
 \begin{exercise}
   Find and prove a formula for $M_{\lambda, (1^n)}(p,m)$, where $\lambda \vdash n$.
 \end{exercise}
