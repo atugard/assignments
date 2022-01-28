@@ -188,7 +188,8 @@
 \end{exercise}
 
 \begin{proof}
-  We require that the rows have constant entries in the filled tableaux, but our weight requires that we have exactly one of each entry, so we must have
+  We require that the rows have constant entries in the filled tableaux, but our weight requires that we have exactly one of each entry, so $\lambda = (1^n)$ is the only possible shape for the tableau.
+  We then have $n$ choices for the first row, $n-1$ choices for the second, and so on, until finally $1$ choice remains for the $n$th row. Thus, we have $n!$ such fillings, and we conclude:
   \begin{align*}
     M_{\lambda, (1^n)}(p,m) =
     \begin{cases}
