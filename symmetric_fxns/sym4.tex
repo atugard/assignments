@@ -1,0 +1,96 @@
+\documentclass[12pt]{extarticle}
+%Some packages I commonly use.
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{framed}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage{ytableau}
+\usepackage[utf8]{inputenc}
+\usepackage[top=1 in,bottom=1in, left=1 in, right=1 in]{geometry}
+
+%A bunch of definitions that make my life easier
+\newcommand{\matlab}{{\sc Matlab} }
+\newcommand{\abs}[1]{|#1|}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\cvec}[1]{{\mathbf #1}}
+\newcommand{\rvec}[1]{\vec{\mathbf #1}}
+\newcommand{\ihat}{\hat{\textbf{\i}}}
+\newcommand{\jhat}{\hat{\textbf{\j}}}
+\newcommand{\khat}{\hat{\textbf{k}}}
+\newcommand{\minor}{{\rm minor}}
+\newcommand{\trace}{{\rm trace}}
+\newcommand{\spn}{{\rm Span}}
+\newcommand{\rem}{{\rm rem}}
+\newcommand{\ran}{{\rm range}}
+\newcommand{\range}{{\rm range}}
+\newcommand{\mdiv}{{\rm div}}
+\newcommand{\proj}{{\rm proj}}
+\newcommand{\sgn}{\text{sgn}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\attn}[1]{\textbf{#1}}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{prob}{Problem}
+\newtheorem{corollary}{Corollary}
+\newtheorem*{definition}{Definition}
+\newtheorem*{example}{Example}
+\newtheorem*{note}{Note}
+\newtheorem{exercise}{Exercise}
+\newcommand{\bproof}{\bigskip {\bf Proof. }}
+\newcommand{\eproof}{\hfill\qedsymbol}
+\newcommand{\Disp}{\displaystyle}
+\newcommand{\qe}{\hfill\(\bigtriangledown\)}
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+\setlength{\columnseprule}{1 pt}
+
+
+\title{ Math 4995/5327
+  \\
+  Assignment 3}
+\author{David Draguta}
+
+\begin{document}
+
+\maketitle
+
+\begin{exercise}
+  Show that for all $\alpha \in WComp_n$, the polynomial
+  \begin{align*}
+    a_{\alpha} = a_{\alpha}(x_1, \dots, x_n) := \sum\limits_{\pi \in \mathfrak{S}_n} \sgn(\pi) x^{\alpha^{\pi}}
+  \end{align*}
+  is alternating.
+\end{exercise}
+\begin{proof}
+  \begin{align*}
+    a_{\alpha}^{\sigma}
+    &= (\sum\limits_{\pi \in \mathfrak{S_n}} \sgn(\pi) x^{\alpha^{\pi}})^{\sigma} \\ 
+    &= \sum\limits_{\pi \in \mathfrak{S_n}} \sgn(\pi) (x^{\alpha^{\pi}})^{\sigma} \\
+    &= \sum\limits_{\pi \in \mathfrak{S_n}} \sgn(\pi) (x_1^{\alpha_{\pi(1)}} \cdots x_n^{\alpha_{\pi(n)}})^{\sigma} \\
+    &= \sum\limits_{\pi \in \mathfrak{S_n}} \sgn(\pi) x_{\sigma(1)}^{\alpha_{\pi(1)}} \cdots x_{\sigma(n)}^{\alpha_{\pi(n)}} \\
+    &= \sum\limits_{\pi \in \mathfrak{S_n}} \sgn(\pi) x_{1}^{\alpha_{\pi(\sigma^{-1}(1))}} \cdots x_{n}^{\alpha_{\pi(\sigma^{-1}(n))}} \\
+    &= \sum\limits_{\pi \in \mathfrak{S_n}} \sgn(\pi) x^{\alpha^{\pi\sigma^{-1}}} \\
+    &= \sgn(\sigma)\sum\limits_{\pi \in \mathfrak{S_n}} \sgn(\pi\sigma^{-1}) x^{\alpha^{\pi\sigma^{-1}}} \\
+    &= \sgn(\sigma)\sum\limits_{\rho \in \mathfrak{S_n}\sigma^{-1}} \sgn(\rho) x^{\alpha^{\rho}} \\
+    &= \sgn(\sigma)\sum\limits_{\rho \in \mathfrak{S_n}} \sgn(\rho) x^{\alpha^{\rho}} \\
+    &= \sgn(\sigma)a_{\alpha},
+  \end{align*}
+  where we used the group morphism properties of $\sgn: \mathfrak{S_n} \to \set{-1,1}$, specifically that
+  $\sgn(\pi) = \sgn(\pi \sigma^{-1} \sigma) = \sgn(\pi \sigma^{-1}) \sgn(\sigma)$.
+\end{proof}
+\end{document}
