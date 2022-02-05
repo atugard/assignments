@@ -93,4 +93,60 @@
   where we used the group morphism properties of $\sgn: \mathfrak{S_n} \to \set{-1,1}$, specifically that
   $\sgn(\pi) = \sgn(\pi \sigma^{-1} \sigma) = \sgn(\pi \sigma^{-1}) \sgn(\sigma)$.
 \end{proof}
+\begin{exercise}
+  Using only results from Section 3.2 and earlier in the lecture notes, write the Schur function $s_{(3,1)}$ as a linear combination of the complete homogeneous symmetric functions, the elementary symmetric functions, and the monomial symmetric functions. \emph{Hint}: Use your expression in terms of the complete homogeneous symmetric functions or the elementary symmetric functions to deduce an expression in terms of the monomial symmetric functions. 
+\end{exercise}
+\begin{proof}
+  We use equation 3.10 in the lecture notes to get the schur function as a linear combination of the complete homogeneous symmetric functions:
+  \begin{align*}
+    s_{(3,1)} &
+    = 
+    \begin{vmatrix}
+      h_3 & h_4 \\
+      1 & h_1 
+    \end{vmatrix} \\
+    &=
+    h_3h_1 - h_4 \\
+    &= h_{(3,1)} - h_{(4)}.
+  \end{align*}
+  Next, using equation 3.11, we get 
+  \begin{align*}
+    s_{(3,1)} 
+    &= 
+    \begin{vmatrix}
+      e_2 & e_3 & e_4 \\
+      1 & e_1 & e_2 \\
+      0 & 1 & e_1
+    \end{vmatrix} \\
+    &= e_2
+    \begin{vmatrix}
+      e_1 & e_2 \\
+      1 & e_1
+    \end{vmatrix}
+    -
+    \begin{vmatrix}
+      e_3 & e_4 \\
+      1 & e_1
+    \end{vmatrix}
+    \\
+    &= e_2(e_1^2 - e_2) - (e_3e_1 - e_4) \\
+    &= e_2e_1^2 - e_2^2 - e_3e_1 + e_4 \\
+    &= e_{(2,1,1)} - e_{(2,2)} - e_{(3,1)} + e_4 
+  \end{align*}
+  Lastly, from equation 2.32 in the lecture notes, we get
+  \begin{align*}
+    h_{(3,1)} = m_{(4)} + 2m_{(3,1)} + 2m_{(2,2)} + 3m_{(2,1,1)} + 4m_{(1^4)}
+  \end{align*}
+  and
+  \begin{align*}
+    h_4 = m_{(4)},
+  \end{align*}
+  so that 
+  \begin{align*}
+    s_{(3,1)} 
+    &= h_{(3,1)} - h_4 \\
+    &= (m_{(4)} + 2m_{(3,1)} + 2m_{(2,2)} + 3m_{(2,1,1)} + 4m_{(1^4)}) - m_{(4)} \\
+    &= 2m_{(3,1)} + 2m_{(2,2)} + 3m_{(2,1,1)} + 4m_{(1^4)}.
+  \end{align*}
+\end{proof}
 \end{document}
