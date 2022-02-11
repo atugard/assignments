@@ -1,0 +1,128 @@
+\documentclass[12pt]{extarticle}
+%Some packages I commonly use.
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{framed}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage{ytableau}
+\usepackage[utf8]{inputenc}
+\usepackage[top=1 in,bottom=1in, left=1 in, right=1 in]{geometry}
+
+%A bunch of definitions that make my life easier
+\newcommand{\matlab}{{\sc Matlab} }
+\newcommand{\abs}[1]{|#1|}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\cvec}[1]{{\mathbf #1}}
+\newcommand{\rvec}[1]{\vec{\mathbf #1}}
+\newcommand{\ihat}{\hat{\textbf{\i}}}
+\newcommand{\jhat}{\hat{\textbf{\j}}}
+\newcommand{\khat}{\hat{\textbf{k}}}
+\newcommand{\minor}{{\rm minor}}
+\newcommand{\trace}{{\rm trace}}
+\newcommand{\spn}{{\rm Span}}
+\newcommand{\rem}{{\rm rem}}
+\newcommand{\ran}{{\rm range}}
+\newcommand{\range}{{\rm range}}
+\newcommand{\mdiv}{{\rm div}}
+\newcommand{\proj}{{\rm proj}}
+\newcommand{\sgn}{\text{sgn}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\attn}[1]{\textbf{#1}}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{prob}{Problem}
+\newtheorem{corollary}{Corollary}
+\newtheorem*{definition}{Definition}
+\newtheorem*{example}{Example}
+\newtheorem*{note}{Note}
+\newtheorem{exercise}{Exercise}
+\newcommand{\bproof}{\bigskip {\bf Proof. }}
+\newcommand{\eproof}{\hfill\qedsymbol}
+\newcommand{\Disp}{\displaystyle}
+\newcommand{\qe}{\hfill\(\bigtriangledown\)}
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+\setlength{\columnseprule}{1 pt}
+
+
+\title{ Math 4995/5327
+  \\
+  Assignment 5}
+\author{David Draguta}
+
+\begin{document}
+
+\maketitle
+
+\begin{exercise}
+  Give a combinatorial formula for $\< h_{\lambda}, h_{\mu} \>$, $\lambda, \mu \in \text{Par}$. More precisely, show that $\<h_{\lambda}, h_{\mu}\>$ is equal to the number of Young tableaux satisfying certain conditions. 
+\end{exercise}
+\begin{proof}
+  We have by Prop 2.5.5.
+  \begin{align*}
+    h_{\lambda} = \sum\limits_{\nu \vdash \abs{\lambda}} M_{\lambda, \nu}(h,m)m_{\nu},
+  \end{align*}
+   for $M_{\lambda, \nu}(h,m)$ the number of row non-decreasing tableaux of shape $\lambda$ and weight $\nu$, and so
+  \begin{align*}
+    \< h_{\lambda}, h_{\mu} \>
+    &= \< \sum\limits_{\nu \vdash \abs{\lambda}} M_{\lambda, \nu}(h,m)m_{\nu}, h_{\mu} \> \\
+    &= \sum\limits_{\nu \vdash \abs{\lambda}} M_{\lambda, \nu}(h,m) \< m_{\nu}, h_{\mu} \> \\
+    &= \sum\limits_{\nu \vdash \abs{\lambda}} M_{\lambda, \nu}(h,m) \< h_{\mu}, m_{\nu}\> \\
+    &= \sum\limits_{\nu \vdash \abs{\lambda}} M_{\lambda, \nu}(h,m) \delta_{\mu \nu} \\
+    &= M_{\lambda, \mu}(h,m),
+  \end{align*}
+  where we used the bilinearity and symmetry of the inner product, and it's definition.
+\end{proof}
+\begin{exercise}
+  Write the skew Schur function $s_{(3,3,1)/(2,1)}$ as a linear combination of monomial symmetric functions. 
+\end{exercise}
+\begin{proof}
+  By Proposition 3.4.15, we have
+  \begin{align*}
+    s_{(3,3,1)/(2,1)} = \sum\limits_{\nu \in Par} K_{(3,3,1)/(2,1), \nu} m_{\nu}
+  \end{align*}
+\end{proof}
+
+\begin{exercise}
+  Suppose $\lambda, \mu, \nu \in Par$ with $\lambda \supseteq \mu$. Show that
+  \begin{align*}
+    \< s_{\lambda / \mu}, h_{\nu}, \> = K_{\lambda/\mu, \nu}
+  \end{align*}
+  and
+  \begin{align*}
+    \< s_{\lambda / \mu}, e_{\nu} \> = K_{\lambda' / \mu', \nu}.
+  \end{align*}
+\end{exercise}
+\begin{proof}
+  \begin{align*}
+    \< s_{\lambda / \mu}, h_{\nu} \>
+    &= \< \sum\limits_{\rho \in Par} K_{\lambda/\mu, \rho} m_{\rho} , h_{\nu} \> \\
+    &= \sum\limits_{\rho \in Par} K_{\lambda/\mu, \rho} \< m_{\rho} , h_{\nu} \> \\
+    &= \sum\limits_{\rho \in Par} K_{\lambda/\mu, \rho} \< h_{\nu},  m_{\rho} \> \\
+    &= \sum\limits_{\rho \in Par} K_{\lambda/\mu, \rho} \delta_{\nu \rho} \\
+    &= K_{\lambda/\mu, \nu}, \\    
+  \end{align*}
+  and
+  \begin{align*}
+    \< s_{\lambda / \mu}, e_{\nu} \>
+    &= \< \omega(s_{\lambda / \mu}), \omega(e_{\nu}) \> \\
+    &= \< s_{\lambda' / \mu'}, h_{\nu} \> \\
+    &= K_{\lambda' / \mu', \nu}.
+  \end{align*}
+\end{proof}
+\end{document}
