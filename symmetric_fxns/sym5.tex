@@ -84,7 +84,11 @@
     &= \sum\limits_{\nu \vdash \abs{\lambda}} M_{\lambda, \nu}(h,m) \< m_{\nu}, h_{\mu} \> \\
     &= \sum\limits_{\nu \vdash \abs{\lambda}} M_{\lambda, \nu}(h,m) \< h_{\mu}, m_{\nu}\> \\
     &= \sum\limits_{\nu \vdash \abs{\lambda}} M_{\lambda, \nu}(h,m) \delta_{\mu \nu} \\
-    &= M_{\lambda, \mu}(h,m),
+    &= 
+    \begin{cases}
+      M_{\lambda, \mu}(h,m) \quad & \text{ if } \mu \vdash \abs{\lambda} \\
+      0 \quad & \text { otherwise }
+    \end{cases},
   \end{align*}
   where we used the bilinearity and symmetry of the inner product, and it's definition.
 \end{proof}
