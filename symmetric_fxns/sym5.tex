@@ -210,7 +210,7 @@
   \end{align*}
 \end{exercise}
 \begin{proof}
-  By prop 3.4.15 we have
+  As $\lambda \supseteq \mu$, we can apply Prop 3.4.15 to get
   \begin{align*}
     s_{\lambda/\mu} = \sum\limits_{\nu \in Par} K_{\lambda/\mu, \nu} m_{\nu},
   \end{align*}
@@ -227,7 +227,7 @@
 
   We note that $\lambda \supseteq \mu$ implies that the tableau of shape $\mu$ is contained in the tableau of shape $\lambda$ (assuming they're both top-left aligned), so that in particular all the columns of the tableau of shape $\mu$ are contained in the tableau of shape $\lambda$,
   i.e. $\lambda_i' \geq \mu_i'$, for each $i$, so that $\lambda' \supseteq \mu'$. Thus, we can use the result we just found, alongside the fact that the inner product is invariant under $\omega$,
-  and that $\omega(s_{\lambda/\mu}) = s_{\lambda',\mu'}$ and $\omega(e_{\nu}) = h_{\nu}$ to get: 
+  and that $\omega(s_{\lambda/\mu}) = s_{\lambda'/\mu'}$ and $\omega(e_{\nu}) = h_{\nu}$ to get: 
   \begin{align*}
     \< s_{\lambda / \mu}, e_{\nu} \>
     &= \< \omega(s_{\lambda / \mu}), \omega(e_{\nu}) \> \\
