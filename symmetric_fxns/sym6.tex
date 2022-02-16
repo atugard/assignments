@@ -1,0 +1,248 @@
+\documentclass[12pt]{extarticle}
+%Some packages I commonly use.
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{framed}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage{ytableau}
+\usepackage[utf8]{inputenc}
+\usepackage[top=1 in,bottom=1in, left=1 in, right=1 in]{geometry}
+
+%A bunch of definitions that make my life easier
+\newcommand{\matlab}{{\sc Matlab} }
+\newcommand{\abs}[1]{|#1|}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\cvec}[1]{{\mathbf #1}}
+\newcommand{\rvec}[1]{\vec{\mathbf #1}}
+\newcommand{\ihat}{\hat{\textbf{\i}}}
+\newcommand{\jhat}{\hat{\textbf{\j}}}
+\newcommand{\khat}{\hat{\textbf{k}}}
+\newcommand{\minor}{{\rm minor}}
+\newcommand{\trace}{{\rm trace}}
+\newcommand{\spn}{{\rm Span}}
+\newcommand{\rem}{{\rm rem}}
+\newcommand{\ran}{{\rm range}}
+\newcommand{\range}{{\rm range}}
+\newcommand{\mdiv}{{\rm div}}
+\newcommand{\proj}{{\rm proj}}
+\newcommand{\sgn}{\text{sgn}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\attn}[1]{\textbf{#1}}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{prob}{Problem}
+\newtheorem{corollary}{Corollary}
+\newtheorem*{definition}{Definition}
+\newtheorem*{example}{Example}
+\newtheorem*{note}{Note}
+\newtheorem{exercise}{Exercise}
+\newcommand{\bproof}{\bigskip {\bf Proof. }}
+\newcommand{\eproof}{\hfill\qedsymbol}
+\newcommand{\Disp}{\displaystyle}
+\newcommand{\qe}{\hfill\(\bigtriangledown\)}
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+\setlength{\columnseprule}{1 pt}
+
+
+\title{ Math 4995/5327
+  \\
+  Assignment 6}
+\author{David Draguta}
+
+\begin{document}
+
+\maketitle
+
+\begin{exercise}
+  In this exercise we consider partitions of $n=4$.
+  \begin{enumerate}
+  \item
+    Write the partitions of $n$ in reverse lexicographic order.
+  \item
+    Write down the matrices $J,K,L,\epsilon,$ and $z$.
+  \item
+    Compute $M(h,f), M(s,e), M(p,f), M(p,h)$.
+  \item
+    Write $p_{(1^n)}$ as a linear combination of the forgotten symmetric functions.
+  \item
+    Write $p_n$ as a linear combination of the complete homogeneous symmetric functions. 
+  \end{enumerate}
+\end{exercise}
+\begin{proof}
+  \begin{enumerate}
+  \item
+    $(4) >_{lex} (3,1) >_{lex} (2,2) >_{lex} (2,1,1) >_{lex} (1^4)$.
+  \item
+    \begin{align*}
+      (4)' &= (1^4), \\
+      (3,1)' &= (2,1,1), \\
+      (2,2)'&=(2,2), \\
+      (2,1,1)'&=(3,1), \\
+      (1^4)'&=(4) ,
+    \end{align*}
+    so
+    \begin{align*}
+      \begin{pmatrix}
+        0 & 0 & 0 & 0 & 1 \\
+        0 & 0 & 0 & 1 & 0 \\
+        0 & 0 & 1 & 0 & 0 \\
+        0 & 1 & 0 & 0 & 0 \\
+        1 & 0 & 0 & 0 & 0
+      \end{pmatrix}.
+    \end{align*}
+    $K$ is dominant upper unitriangular, so we need only compute $K_{\lambda,\mu}$, for $\lambda>_{lex} \mu$, i.e. the number of semistandard tableaux of this shape and weight. We now compute the matrix $K$ row by row.
+    \begin{itemize}
+    \item
+      $\lambda = (4)$:
+
+      $K_{\lambda, (3,1)} = 1$:
+      \begin{align*}
+        \begin{ytableau}
+          1 & 1 & 1 & 2 
+        \end{ytableau}\quad.
+      \end{align*}
+
+      $K_{\lambda, (2,2)} = 1$:
+      \begin{align*}
+        \begin{ytableau}
+          1 & 1 & 2 & 2 
+        \end{ytableau}\quad.
+      \end{align*}
+
+      $K_{\lambda, (2,1,1)} = 1$:
+      \begin{align*}
+        \begin{ytableau}
+          1 & 1 & 2 & 3 
+        \end{ytableau}\quad.
+      \end{align*}
+
+      $K_{\lambda, (1^4)} = 1$:
+      \begin{align*}
+        \begin{ytableau}
+          1 & 2 & 3 & 4 
+        \end{ytableau}\quad.
+      \end{align*}
+      The first row is $(1,1,1,1,1)$.
+
+    \item
+      $\lambda=(3,1)$:
+      
+      $K_{\lambda, (2,2)} = 1$:
+      \begin{align*}
+        \begin{ytableau}
+          1 & 1 & 2 \\
+          2
+        \end{ytableau}\quad.
+      \end{align*}
+
+      $K_{\lambda, (2,1,1)} = 2$:
+      \begin{align*}
+        \begin{ytableau}
+          1 & 1 & 3 \\
+          2
+        \end{ytableau}\quad,\quad
+        \begin{ytableau}
+          1 & 1 & 2 \\
+          3
+        \end{ytableau}\quad.
+      \end{align*}
+
+      $K_{\lambda, (1^4)} = 3 $:
+      \begin{align*}
+        \begin{ytableau}
+          1 & 3 & 4 \\
+          2
+        \end{ytableau}\quad,\quad
+        \begin{ytableau}
+          1 & 2 & 4 \\
+          3
+        \end{ytableau}\quad,\quad
+        \begin{ytableau}
+          1 & 2 & 3 \\
+          4
+        \end{ytableau}\quad.        
+      \end{align*}
+      The second row is $(0,1,1,2,3)$.
+    \item
+      $\lambda=(2,2)$:
+
+      $K_{\lambda, (2,1,1)} = 1$:
+      \begin{align*}
+        \begin{ytableau}
+          1 & 1\\
+          2 & 3
+        \end{ytableau}\quad.
+      \end{align*}
+
+      $K_{\lambda, (1^4)} = 2$:
+      \begin{align*}
+        \begin{ytableau}
+          1 & 3\\
+          2 & 4
+        \end{ytableau}\quad,\quad
+        \begin{ytableau}
+          1 & 2\\
+          3 & 4
+        \end{ytableau}\quad.
+      \end{align*}
+      The third row is $(0,0,1,1,2)$.
+    \item
+      $\lambda=(2,1,1)$:
+      
+      $K_{\lambda, (1^4)} = 3$:
+      \begin{align*}
+        \begin{ytableau}
+          1 & 2 \\
+          3  \\
+          4 
+        \end{ytableau}\quad,\quad
+        \begin{ytableau}
+          1 & 3 \\
+          2  \\
+          4 
+        \end{ytableau}\quad,\quad
+        \begin{ytableau}
+          1 & 4 \\
+          2  \\
+          3
+        \end{ytableau}\quad.
+      \end{align*}
+      The fourth row is $(0,0,0,1,3)$.
+    \item
+      $\lambda = (1^4)$:
+
+      There's nothing to do here. The fifth row is $(0,0,0,0,1)$.
+    \end{itemize}
+    Putting our rows into a matrix we get:
+    \begin{align*}
+      K=
+      \begin{pmatrix}
+        1 & 1 & 1 & 1 & 1 \\
+        0 & 1 & 1 & 2 & 3 \\
+        0 & 0 & 1 & 1 & 2 \\
+        0 & 0 & 0 & 1 & 3 \\
+        0 & 0 & 0 & 0 & 1 
+      \end{pmatrix}
+    \end{align*}
+
+    
+  \end{enumerate}
+\end{proof}
+\end{document}
+
