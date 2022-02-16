@@ -241,7 +241,7 @@
       \end{pmatrix}
     \end{align*}
 
-    $L$ is dominant lower triangular, so we need only check $\lambda \leq_{\lex} \mu$. $L_{\lambda, \mu}$ is the number of Young Tableaux of shape $\lambda$ and weight $\mu$ with constant rows.
+    $L$ is dominant lower triangular, so we need only check $\lambda \leq_{lex} \mu$. $L_{\lambda, \mu}$ is the number of Young Tableaux of shape $\lambda$ and weight $\mu$ with constant rows.
     We proceed as before, computing the rows of the matrix, one by one.
 
     \begin{itemize}
@@ -673,6 +673,47 @@
         1 & 0 & 2 & 0 & 0 \\
         1 & 2 & 2 & 3 & 0 \\
         1 & 4 & 6 & 12 & 24
+      \end{pmatrix}
+    \end{align*}
+
+    We have $\abs{\lambda} = 4$, so 
+    \begin{align*}
+      \epsilon
+      &= 
+      \begin{pmatrix}
+        (-1)^{4-1} & 0 & 0 & 0 & 0 \\
+        0 & (-1)^{4-2} & 0 & 0 & 0 \\
+        0 & 0 & (-1)^{4-2} & 0 & 0 \\
+        0 & 0 & 0 & (-1)^{4-3} & 0 \\
+        0 & 0 & 0 & 0 & (-1)^{4-4} 
+      \end{pmatrix} \\
+      &=
+      \begin{pmatrix}
+        -1 & 0 & 0 & 0 & 0 \\
+        0 & 1 & 0 & 0 & 0 \\
+        0 & 0 & 1 & 0 & 0 \\
+        0 & 0 & 0 & -1 & 0 \\
+        0 & 0 & 0 & 0 & 1
+      \end{pmatrix}
+    \end{align*}
+
+    \begin{align*}
+      z
+      &=
+      \begin{pmatrix}
+        z_{(4)} & 0 & 0 & 0 & 0 \\
+        0 & z_{(3,1)} & 0 & 0 & 0 \\
+        0 & 0 & z_{(2,2)} & 0 & 0 \\
+        0 & 0 & 0 & z_{(2,1,1)} & 0 \\
+        0 & 0 & 0 & 0 & z_{(1,1,1,1)}
+      \end{pmatrix} \\
+      &=
+      \begin{pmatrix}
+        4 & 0 & 0 & 0 & 0 \\
+        0 & 3 & 0 & 0 & 0 \\
+        0 & 0 & 8 & 0 & 0 \\
+        0 & 0 & 0 & 4 & 0 \\
+        0 & 0 & 0 & 0 & 24
       \end{pmatrix}
     \end{align*}
   \end{enumerate}
