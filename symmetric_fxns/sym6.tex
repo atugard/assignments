@@ -241,7 +241,280 @@
       \end{pmatrix}
     \end{align*}
 
-    
+    $L$ is dominant lower triangular, so we need only check $\lambda \leq_{\lex} \mu$. $L_{\lambda, \mu}$ is the number of Young Tableaux of shape $\lambda$ and weight $\mu$ with constant rows.
+    We proceed as before, computing the rows of the matrix, one by one.
+
+    \begin{itemize}
+    \item
+      $\lambda=(4)$:
+      
+      $L_{\lambda, (4)} = 1$:
+      \begin{align*}
+        \begin{ytableau}
+          1 & 1 & 1 & 1
+        \end{ytableau}\quad.      
+      \end{align*}
+      The first row is $(1,0,0,0,0)$.
+    \item
+      $\lambda = (3,1)$:
+
+      $L_{\lambda, (4)} = 1$:
+      \begin{align*}
+        \begin{ytableau}
+          1 & 1 & 1 \\
+          1
+        \end{ytableau}\quad.      
+      \end{align*}      
+
+      $L_{\lambda, (3,1)} = 1$:
+      \begin{align*}
+        \begin{ytableau}
+          1 & 1 & 1 \\
+          2
+        \end{ytableau}\quad.      
+      \end{align*}
+
+      The second row is $(1,1,0,0,0)$.
+      
+    \item
+      $\lambda=(2,2)$:
+
+      $L_{\lambda, (4)} = 1$:
+      \begin{align*}
+        \begin{ytableau}
+          1 & 1 \\
+          1 & 1
+        \end{ytableau}
+      \end{align*}
+
+      $L_{\lambda, (3,1)} = 0$: If we place $2$ ones in a row, we're left to place a $1$ and a $2$, and so can't make up a second constant row. 
+
+      $L_{\lambda, (2,2)} = 2$:
+      \begin{align*}
+        \begin{ytableau}
+          1 & 1 \\
+          2 & 2
+        \end{ytableau}\quad,\quad
+        \begin{ytableau}
+          2 & 2 \\
+          1 & 1
+        \end{ytableau}\quad.              
+      \end{align*}
+      
+      The third row is $(1,0,2,0,0)$.
+
+    \item 
+      $\lambda=(2,1,1)$:
+
+      $L_{\lambda,(4)} = 1$:
+      \begin{align*}
+        \begin{ytableau}
+          1 & 1 \\
+          1 \\
+          1
+        \end{ytableau}
+      \end{align*}
+
+      $L_{\lambda, (3,1)} = 2 $:
+      \begin{align*}
+        \begin{ytableau}
+          1 & 1 \\
+          1 \\
+          2
+        \end{ytableau}\quad,\quad
+        \begin{ytableau}
+          1 & 1 \\
+          2 \\
+          1
+        \end{ytableau}.
+      \end{align*}
+
+      $L_{\lambda, (2,2)} = 2 $:
+      \begin{align*}
+        \begin{ytableau}
+          1 & 1 \\
+          2 \\
+          2
+        \end{ytableau}\quad,\quad
+        \begin{ytableau}
+          2 & 2 \\
+          1 \\
+          1
+        \end{ytableau}.
+      \end{align*}
+
+      $L_{\lambda, (2,1,1)} = 3 $:
+      \begin{align*}
+        \begin{ytableau}
+          1 & 1 \\
+          2 \\
+          3
+        \end{ytableau}\quad,\quad
+        \begin{ytableau}
+          1 & 1 \\
+          3 \\
+          2
+        \end{ytableau} \quad .
+      \end{align*}
+      The third row is $(1,2,2,3,0)$.
+    \end{itemize}
+  \item
+    $\lambda(1^4)$:
+
+    $L_{\lambda, (4)} = 1 $:
+    \begin{align*}
+      \begin{ytableau}
+        1 \\
+        1 \\
+        1 \\
+        1
+      \end{ytableau}\quad.
+    \end{align*}
+
+    $L_{\lambda, (3,1)} = 4 $:
+    \begin{align*}
+      \begin{ytableau}
+        1 \\
+        1 \\
+        1 \\
+        2
+      \end{ytableau}\quad,\quad
+      \begin{ytableau}
+        1 \\
+        1 \\
+        2 \\
+        1
+      \end{ytableau}\quad,\quad
+      \begin{ytableau}
+        1 \\
+        2 \\
+        1 \\
+        1
+      \end{ytableau}\quad,\quad
+      \begin{ytableau}
+        2 \\
+        1 \\
+        1 \\
+        1
+      \end{ytableau}\quad.\quad            
+    \end{align*}
+
+    $L_{\lambda, (2,2)} = 6$:
+
+    \begin{align*}
+      \begin{ytableau}
+        1 \\
+        1 \\
+        2 \\
+        2
+      \end{ytableau}\quad,\quad
+      \begin{ytableau}
+        1 \\
+        2 \\
+        1 \\
+        2
+      \end{ytableau}\quad,\quad
+      \begin{ytableau}
+        1 \\
+        2 \\
+        2 \\
+        1
+      \end{ytableau}\quad,\quad \\
+      \begin{ytableau}
+        2 \\
+        1 \\
+        1 \\
+        2
+      \end{ytableau}\quad,\quad
+      \begin{ytableau}
+        2 \\
+        1 \\
+        2 \\
+        1
+      \end{ytableau}\quad,\quad
+      \begin{ytableau}
+        2 \\
+        2 \\
+        1 \\
+        1
+      \end{ytableau}\quad.\quad          
+    \end{align*}
+
+    $L_{\lambda, (2,1,1)} = 12$:
+    \begin{align*}
+      &\begin{ytableau}
+        1 \\
+        1 \\
+        2 \\
+        3
+      \end{ytableau}\quad,\quad
+      \begin{ytableau}
+        1 \\
+        1 \\
+        3 \\
+        2
+      \end{ytableau}\quad,\quad
+      \begin{ytableau}
+        1 \\
+        2 \\
+        1 \\
+        3
+      \end{ytableau}\quad,\quad 
+      \begin{ytableau}
+        1 \\
+        2 \\
+        3 \\
+        1
+      \end{ytableau}\quad,\quad \\
+      &\begin{ytableau}
+        1 \\
+        3 \\
+        1 \\
+        2
+      \end{ytableau}\quad,\quad
+      \begin{ytableau}
+        1 \\
+        3 \\
+        2 \\
+        1
+      \end{ytableau}\quad,\quad 
+      \begin{ytableau}
+        2 \\
+        1 \\
+        1 \\
+        3
+      \end{ytableau}\quad,\quad 
+      \begin{ytableau}
+        2 \\
+        1 \\
+        3 \\
+        1
+      \end{ytableau}\quad,\quad  \\ 
+      &\begin{ytableau}
+        2 \\
+        3 \\
+        1 \\
+        1
+      \end{ytableau}\quad,\quad 
+      \begin{ytableau}
+        3 \\
+        1 \\
+        1 \\
+        2
+        \end{ytableau}\quad,\quad 
+      \begin{ytableau}
+        3 \\
+        1 \\
+        2 \\
+        1
+      \end{ytableau}\quad,\quad      
+      \begin{ytableau}
+        3 \\
+        2 \\
+        1 \\
+        1
+      \end{ytableau}\quad.\quad
+      \end{align*}
   \end{enumerate}
 \end{proof}
 \end{document}
