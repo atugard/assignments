@@ -900,7 +900,42 @@
         0 &  0 &  0 & 0 &  1 
       \end{pmatrix}
     \end{align*}
-    
+  \item
+    Writing
+    \begin{align*}
+      u
+      =
+      \begin{pmatrix}
+        u_{(4)} \\
+        u_{(3,1)} \\
+        \vdots \\
+        u_{(1^n)}   
+      \end{pmatrix}
+      =
+      \begin{pmatrix}
+        \sum\limits_{\mu \in Par(n)} M_{(4),\mu}(u,v) v_{\mu} \\
+        \sum\limits_{\mu \in Par(n)} M_{(3,1),\mu}(u,v) v_{\mu} \\
+        \vdots \\
+        \sum\limits_{\mu \in Par(n)} M_{(1^4),\mu}(u,v) v_{\mu} \\
+      \end{pmatrix},
+    \end{align*}
+    we find that the coefficients of $p_{(1^n)}$ written in $f_{\mu}$ come from the last row of $M(p,f)$:
+    \begin{align*}
+      p_{(1^n)}
+      &=
+      \sum\limits_{\mu \in Par(n)} M_{(1^n),\mu}(p,f) f_{\mu} \\
+      &=
+      f_{(4)} + 4f_{(3,1)} + 6f_{(2,2)} + 12f_{(2,1,1)} + 24f_{(1^4)}.
+    \end{align*}
+  \item
+    In the same way (by expanding out $p=M(p,h)h$, and looking at corresponding rows), one finds that the coefficients of $p_{(n)}$ written in $h_\mu$ are given by the first row of $M(p,h)$:
+    \begin{align*}
+      p_{(n)}
+      &=
+      \sum\limits_{\mu \in Par(n)} M_{(4),\mu}(p,h) h_{\mu} \\
+      &=
+     4h_{(4)} - 4h_{(3,1)} - 2h_{(2,2)} + 4h_{(2,1,1)} - h_{(1^4)}.      
+    \end{align*}
   \end{enumerate}
 \end{proof}
 \end{document}
