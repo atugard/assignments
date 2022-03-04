@@ -1,0 +1,108 @@
+\documentclass[12pt]{extarticle}
+%Some packages I commonly use.
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{framed}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage{ytableau}
+\usepackage[utf8]{inputenc}
+\usepackage[top=1 in,bottom=1in, left=1 in, right=1 in]{geometry}
+
+%A bunch of definitions that make my life easier
+\newcommand{\matlab}{{\sc Matlab} }
+\newcommand{\abs}[1]{|#1|}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\cvec}[1]{{\mathbf #1}}
+\newcommand{\rvec}[1]{\vec{\mathbf #1}}
+\newcommand{\ihat}{\hat{\textbf{\i}}}
+\newcommand{\jhat}{\hat{\textbf{\j}}}
+\newcommand{\khat}{\hat{\textbf{k}}}
+\newcommand{\minor}{{\rm minor}}
+\newcommand{\trace}{{\rm trace}}
+\newcommand{\spn}{{\rm Span}}
+\newcommand{\rem}{{\rm rem}}
+\newcommand{\ran}{{\rm range}}
+\newcommand{\range}{{\rm range}}
+\newcommand{\mdiv}{{\rm div}}
+\newcommand{\proj}{{\rm proj}}
+\newcommand{\sgn}{\text{sgn}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\attn}[1]{\textbf{#1}}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{prob}{Problem}
+\newtheorem{corollary}{Corollary}
+\newtheorem*{definition}{Definition}
+\newtheorem*{example}{Example}
+\newtheorem*{note}{Note}
+\newtheorem{exercise}{Exercise}
+\newcommand{\bproof}{\bigskip {\bf Proof. }}
+\newcommand{\eproof}{\hfill\qedsymbol}
+\newcommand{\Disp}{\displaystyle}
+\newcommand{\qe}{\hfill\(\bigtriangledown\)}
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+\setlength{\columnseprule}{1 pt}
+
+
+\title{ Math 4995/5327
+  \\
+  Assignment 7}
+\author{David Draguta}
+
+\begin{document}
+
+\maketitle
+
+\begin{exercise}
+  Let $n \in \Z$, $n \geq 1$. Prove that $\Q \otimes_{\Z} \Z/n\Z$ is the zero $\Z$-module.
+\end{exercise}
+
+\begin{proof}
+  Let $a \otimes b \in Q \otimes_{\Z}\Z/n\Z$. We have $a/n \in \Q$, so:
+  \begin{align*}
+    a \otimes b = n\cfrac{a}{n} \otimes b = \cfrac{a}{n} \otimes nb = \cfrac{a}{n} \otimes 0 = 0
+  \end{align*}
+\end{proof}
+
+\begin{exercise}
+  Show that, for $f,g \in Sym$, we have $(f \otimes g)^{\perp} = f^{\perp} \otimes g^{\perp}$.
+\end{exercise}
+
+\begin{proof}
+  Let $u,v \in Sym$. Then for all $p,q \in Sym$, 
+  \begin{align*}
+    ((f \otimes g)^{\perp}(u \otimes v), (p \otimes q)) 
+    &= (u \otimes v, (f \otimes g)(p \otimes q))\\
+    &= (u \otimes v, fp \otimes gq) \\
+    &= (u,fp)(v,gq) \\
+    &= (f^{\perp} u, p)(g^{\perp}v, q) \\
+    &= (f^{\perp}u \otimes g^{\perp}v, p \otimes q) \\
+    &= (f^{\perp} \otimes g^{\perp} (u \otimes v), p \otimes q),
+  \end{align*}
+  and so 
+  \begin{align*}
+    (f \otimes g)^{\perp}(u \otimes v) = (f^{\perp} \otimes g^{\perp} (u \otimes v).
+  \end{align*}
+
+  Since this holds for all $u, v \in Sym$, we conclude
+  \begin{align*}
+    (f \otimes g)^{\perp} = f^{\perp} \otimes g^{\perp}.
+  \end{align*}
+\end{proof}
+\end{document}
