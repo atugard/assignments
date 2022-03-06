@@ -74,10 +74,19 @@
 \end{exercise}
 
 \begin{proof}
-  Let $a \otimes b \in Q \otimes_{\Z}\Z/n\Z$. We have $a/n \in \Q$, so:
+  Let $\sum \limits_i r_i(a_i \otimes b_i) \in Q \otimes_{\Z}\Z/n\Z$ be a finite linear combination, for $r_i \in \Z$, $a_i \in \Q$, and $b_i \in \Z/n\Z$.
+
+  Then
   \begin{align*}
-    a \otimes b = n\cfrac{a}{n} \otimes b = \cfrac{a}{n} \otimes nb = \cfrac{a}{n} \otimes 0 = 0
+    \sum \limits_i r_i(a_i \otimes b_i) 
+    &= \sum \limits_i r_i(n\cfrac{a_i}{n} \otimes b_i) \\
+    &= \sum \limits_i r_i(\cfrac{a_i}{n} \otimes nb_i) \\
+    &= \sum \limits_i r_i(\cfrac{a_i}{n} \otimes 0) \\
+    &= (\sum \limits_i r_i\cfrac{a_i}{n}) \otimes 0 \\
+    &= 0.
   \end{align*}
+
+  Since the element was arbitrary we conclude that this is the zero $\Z$-module.
 \end{proof}
 
 \begin{exercise}
@@ -85,22 +94,31 @@
 \end{exercise}
 
 \begin{proof}
-  Let $u,v \in Sym$. Then for all $p,q \in Sym$, 
+  Let $\sum \limits_i u_i \otimes v_i, \sum \limits_j p_j \otimes q_j \in Sym \otimes Sym$. Then
   \begin{align*}
-    ((f \otimes g)^{\perp}(u \otimes v), (p \otimes q)) 
-    &= (u \otimes v, (f \otimes g)(p \otimes q))\\
-    &= (u \otimes v, fp \otimes gq) \\
-    &= (u,fp)(v,gq) \\
-    &= (f^{\perp} u, p)(g^{\perp}v, q) \\
-    &= (f^{\perp}u \otimes g^{\perp}v, p \otimes q) \\
-    &= (f^{\perp} \otimes g^{\perp} (u \otimes v), p \otimes q),
+    ((f \otimes g)^{\perp}(\sum \limits_i u_i \otimes v_i), (\sum \limits_j p_j \otimes q_j))
+    &=
+    (\sum \limits_i u_i \otimes v_i, (f \otimes g)(\sum \limits_j p_j \otimes q_j)) \\
+    &=
+    (\sum \limits_i u_i \otimes v_i, \sum \limits_jfp_j \otimes gq_j) \\
+    &=
+    \sum \limits_{i,j}(u_i \otimes v_i, fp_j \otimes gq_j) \\
+    &=
+    \sum \limits_{i,j}(u_i, fp_j)(v_i, gq_j) \\
+    &=    
+    \sum \limits_{i,j}(f^{\perp}u_i, p_j)(g^{\perp}v_i, q_j) \\
+    &=
+    \sum \limits_{i,j}(f^{\perp}u_i \otimes g^{\perp}v_i, p_j \otimes q_j) \\
+    &=
+    \sum \limits_{i,j}((f^{\perp} \otimes g^{\perp})(u_i \otimes v_i), p_j \otimes q_j) \\
+    &=    
+    ((f^{\perp} \otimes g^{\perp})(\sum \limits_{i} u_i \otimes v_i), \sum \limits_{j} p_j \otimes q_j).
   \end{align*}
-  and so 
+  Since this holds for all $\sum \limits_j p_j \otimes q_j$, we get
   \begin{align*}
-    (f \otimes g)^{\perp}(u \otimes v) = (f^{\perp} \otimes g^{\perp} (u \otimes v).
+    (f \otimes g)^{\perp}(\sum \limits_i u_i \otimes v_i) = (f^{\perp} \otimes g^{\perp}) (\sum \limits_i u_i \otimes v_i),
   \end{align*}
-
-  Since this holds for all $u, v \in Sym$, we conclude
+  and since this holds for all $\sum \limits_i u_i \otimes v_i$, we conclude
   \begin{align*}
     (f \otimes g)^{\perp} = f^{\perp} \otimes g^{\perp}.
   \end{align*}
