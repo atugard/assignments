@@ -113,6 +113,10 @@
   \begin{align*}
     p_r  = \sum\limits_{\mu}(-1)^{ht(\mu)} s_\mu,
   \end{align*}
-  where the sum is over all border strip partitions $\mu \in Par$ with $r$ boxes.
+  where the sum is over all border strip partitions $\mu \in Par$ with $r$ boxes, i.e. the sum's over  partitions $(r), (r-1,1), (r-2,1,1), (r-3,1,1,1), \dots, (1^r)$ with corresponding heights
+  $0,1,2,3, \dots, r-1$; and so this reduces to
+  \begin{align*}
+    p_r =  s_{(r)} - s_{(r-1,1)} + s_{(r-2,1,1)} + \dots + (-1)^{r-1} s_{(1^r)}.
+  \end{align*}
 \end{proof}
 \end{document}
