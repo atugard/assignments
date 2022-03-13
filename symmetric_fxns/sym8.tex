@@ -1,0 +1,111 @@
+\documentclass[12pt]{extarticle}
+%Some packages I commonly use.
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{framed}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage{ytableau}
+\usepackage[utf8]{inputenc}
+\usepackage[top=1 in,bottom=1in, left=1 in, right=1 in]{geometry}
+
+%A bunch of definitions that make my life easier
+\newcommand{\matlab}{{\sc Matlab} }
+\newcommand{\abs}[1]{|#1|}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\cvec}[1]{{\mathbf #1}}
+\newcommand{\rvec}[1]{\vec{\mathbf #1}}
+\newcommand{\ihat}{\hat{\textbf{\i}}}
+\newcommand{\jhat}{\hat{\textbf{\j}}}
+\newcommand{\khat}{\hat{\textbf{k}}}
+\newcommand{\minor}{{\rm minor}}
+\newcommand{\trace}{{\rm trace}}
+\newcommand{\spn}{{\rm Span}}
+\newcommand{\rem}{{\rm rem}}
+\newcommand{\ran}{{\rm range}}
+\newcommand{\range}{{\rm range}}
+\newcommand{\mdiv}{{\rm div}}
+\newcommand{\proj}{{\rm proj}}
+\newcommand{\sgn}{\text{sgn}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\attn}[1]{\textbf{#1}}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{prob}{Problem}
+\newtheorem{corollary}{Corollary}
+\newtheorem*{definition}{Definition}
+\newtheorem*{example}{Example}
+\newtheorem*{note}{Note}
+\newtheorem{exercise}{Exercise}
+\newcommand{\bproof}{\bigskip {\bf Proof. }}
+\newcommand{\eproof}{\hfill\qedsymbol}
+\newcommand{\Disp}{\displaystyle}
+\newcommand{\qe}{\hfill\(\bigtriangledown\)}
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+\setlength{\columnseprule}{1 pt}
+
+
+\title{ Math 4995/5327
+  \\
+  Assignment 8}
+\author{David Draguta}
+
+\begin{document}
+
+\maketitle
+
+\begin{exercise}
+  Find the group of grouplike elements of Sym.
+\end{exercise}
+\begin{proof}
+  Let $f \in Sym$ be grouplike. Then, for all $\lambda, \mu \in Par$ we have
+  \begin{align*}
+    (f, s_{\lambda} s_{\mu}) = (\triangle f, s_{\lambda} \otimes s_{\mu}) = (f \otimes f, s_{\lambda} \otimes s_{\mu}) = (f, s_{\lambda})(f, s_\mu).
+  \end{align*}
+  Hence,
+  \begin{align*}
+    s_{\lambda}^{\perp} f = \sum\limits_{\mu} (f, s_\lambda s_\mu) s_{\mu} =  \sum\limits_{\mu} (f, s_{\lambda})(f, s_\mu)s_{\mu} =  (f, s_{\lambda})\sum\limits_{\mu}(f, s_\mu)s_{\mu} = (f,s_\lambda)f.
+  \end{align*}
+  We define
+  \begin{align*}
+    G = \set{f \in Sym: s_\lambda^{\perp} f = (f,s_\lambda)f, \text{ for all } \lambda \in Par}.
+  \end{align*}
+  If $f$ is grouplike, then we just showed $f \in G$.
+
+  For any $f \in Sym$ we have, by an equality demonstrated in the proof of Proposition 4.4.5 in the course notes, that
+  \begin{align*}
+    \triangle f = \sum\limits_{\lambda \in Par} s_\lambda^{\perp}f \otimes s_{\lambda}.
+  \end{align*}
+
+  Using this, we get for $f \in G$
+  \begin{align*}
+    \triangle f
+    &= 
+    \sum\limits_{\lambda \in Par} s_\lambda^{\perp}f \otimes s_{\lambda} \\
+    &=  \sum\limits_{\lambda \in Par} (f,s_\lambda)f \otimes s_{\lambda} \\
+    &=  \sum\limits_{\lambda \in Par} f \otimes (f,s_\lambda)s_{\lambda} \\
+    &= f \otimes \sum\limits_{\lambda \in Par}(f,s_\lambda)s_{\lambda} \\
+    &=
+    f \otimes f,
+  \end{align*}
+  i.e. that $f$ is grouplike. We've shown $G$ contains exactly the grouplike elements of $Sym$. That $(G, \nabla)$ is indeed a group is given by Exercise 4.3.2 in the course notes.
+\end{proof}
+\begin{exercise}
+  Use the Murnaghan-Nakayama rule to write the power sum $p_r$, $r \geq 1$, as a linear combination of Schur functions.
+\end{exercise}
+\end{document}
