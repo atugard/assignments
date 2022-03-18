@@ -124,10 +124,35 @@
   \begin{align*}
     f = \sum\limits_{\lambda \in Par} c_\lambda p_\lambda,
   \end{align*}
-  for some $c_\lambda \in \Q$, $\lambda \in Par$, only finitely many of which are non zero. Choose $\lambda$ of maximal size amongst partitions such that $c_\lambda \neq 0$. Show that
+  for some $c_\lambda \in \Q$, $\lambda \in Par$, only finitely many of which are non zero. Choose $\lambda$ of maximal size amongst partitions such that $c_\lambda \neq 0$.
+
+  Show that
   \begin{align*}
-    p_\lambda^-f \stackrel{\text{4.13}}{=} (\prod\limits_{i=1}^{\ell(\lambda)} \lambda_i \cfrac{\partial}{\partial p_{\lambda_i}}) f
+    p_\lambda^-f &\overset{4.2.7}{=} (\prod\limits_{i=1}^{\ell(\lambda)} \lambda_i \cfrac{\partial}{\partial p_{\lambda_i}}) f
   \end{align*}
   is a nonzero constant polynomial.
 \end{exercise}
+\begin{proof}
+  If $\lambda, \mu$ are not comparable under partition inclusion, then there's some $\lambda_i$ that does not appear as a part in $\mu$, and so 
+  \begin{align*}
+    \cfrac{\partial}{\partial p_{\lambda_i}}p_\mu = 0.
+  \end{align*}
+  By our choice of $\lambda$ we have that for $\lambda \subsetneq \mu$, $c_\mu = 0$. Also, $\prod\limits_{i=1}^{\ell(\lambda)} \cfrac{\partial}{\partial p_{\lambda_i}}p_\mu = 0$ if $\mu \subsetneq \lambda$. We use all of these facts in the following:
+  \end{align*}
+  \begin{align*}
+    p_\lambda^-f
+    &=
+    (\prod\limits_{i=1}^{\ell(\lambda)} \lambda_i \cfrac{\partial}{\partial p_{\lambda_i}}) f \\
+    &=
+    \sum\limits_{\mu \in Par}c_\mu\prod\limits_{i=1}^{\ell(\lambda)} \lambda_i \cfrac{\partial}{\partial p_{\lambda_i}}p_\mu \\
+    &=
+    \sum\limits_{\lambda \subseteq \mu}c_\mu\prod\limits_{i=1}^{\ell(\lambda)} \lambda_i \cfrac{\partial}{\partial p_{\lambda_i}}p_\mu \\
+    &=
+    c_\lambda\prod\limits_{i=1}^{\ell(\lambda)} \lambda_i \cfrac{\partial}{\partial p_{\lambda_i}}p_\lambda \\
+    &=
+    c_\lambda\prod\limits_{i=1}^{\ell(\lambda)} \lambda_i m_{\lambda_i}(\lambda) \in \Q .\\
+  \end{align*}
+  \end{align*}
+  
+\end{proof}
 \end{document}
