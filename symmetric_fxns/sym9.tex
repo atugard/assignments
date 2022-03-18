@@ -62,7 +62,7 @@
 
 \title{ Math 4995/5327
   \\
-  Assignment 8}
+  Assignment 9}
 \author{David Draguta}
 
 \begin{document}
@@ -133,11 +133,16 @@
   is a nonzero constant polynomial.
 \end{exercise}
 \begin{proof}
-  If $\lambda, \mu$ are not comparable under partition inclusion, then there's some $\lambda_i$ that does not appear as a part in $\mu$, and so 
+  Let $\lambda \in Par$ be maximal such that $c_\lambda \neq 0$, and let $\mu \in Par$. If $\lambda$ and $\mu$ are not comparable under partition inclusion, then there's some $\lambda_i$ that does not appear as a part in $\mu$, and so 
   \begin{align*}
     \cfrac{\partial}{\partial p_{\lambda_i}}p_\mu = 0.
   \end{align*}
-  By our choice of $\lambda$ we have that for $\lambda \subsetneq \mu$, $c_\mu = 0$. Also, $\prod\limits_{i=1}^{\ell(\lambda)} \cfrac{\partial}{\partial p_{\lambda_i}}p_\mu = 0$ if $\mu \subsetneq \lambda$. We use all of these facts in the following:
+  By our choice of $\lambda$ we have that for $\lambda \subsetneq \mu$, $c_\mu = 0$. If $\mu \subsetneq \lambda$, we have either $\lambda$ has a distinct part $\lambda_i$, and $\cfrac{\partial}{\partial p_{\lambda_i}}p_\mu = 0$, or $\lambda$ and $\mu$ have the same parts, but $\lambda$ has a greater multiplicity of at least one part and 
+  \begin{align*}
+    \prod\limits_{i=1}^{\ell(\lambda)}\cfrac{\partial}{\partial p_{\lambda_i}}p_\mu = 0.
+  \end{align*}
+
+  We use all of these facts in the following:
   \end{align*}
   \begin{align*}
     p_\lambda^-f
