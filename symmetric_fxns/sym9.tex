@@ -116,7 +116,7 @@
   \end{align*}
   Since this holds for any symmetric function $u$, we get $\omega(f^-) = \omega(f)^-$.
 
-  We've shown that for all symmetric functions $f \in Sym$, we have \omega(f^{\pm}) = \omega(f)^{\pm}$. 
+  We've shown that for all symmetric functions $f \in Sym$, we have $\omega(f^{\pm}) = \omega(f)^{\pm}$. 
 \end{proof}
 
 \begin{exercise}
@@ -133,15 +133,14 @@
   is a nonzero constant polynomial.
 \end{exercise}
 \begin{proof}
-  Let $\lambda \in Par$ be maximal such that $c_\lambda \neq 0$, and let $\mu \in Par$. If $\lambda$ and $\mu$ are not comparable under partition inclusion, then there's some $\lambda_i$ that does not appear as a part in $\mu$, and so 
+  Let $\lambda \in Par$ be maximal (under partition inclusion $\subseteq$) such that $c_\lambda \neq 0$, and let $\mu \in Par$. If $\lambda$ and $\mu$ are not comparable under partition inclusion, then there's some $\lambda_i$ that does not appear as a part in $\mu$, and so 
   \begin{align*}
     \cfrac{\partial}{\partial p_{\lambda_i}}p_\mu = 0.
   \end{align*}
-  If $\lambda \subsetneq \mu$, then by our choice of $\lambda$ as maximal, $c_\mu = 0$. If $\mu \subsetneq \lambda$, we have either $\lambda$ has a distinct part $\lambda_i$, and $\cfrac{\partial}{\partial p_{\lambda_i}}p_\mu = 0$, or $\lambda$ and $\mu$ have the same parts, but $\lambda$ has a greater multiplicity of at least one part. In either case, the result is that
+  If $\lambda \subsetneq \mu$, then by our choice of $\lambda$, $c_\mu = 0$. If $\mu \subsetneq \lambda$, we have either $\lambda$ has a distinct part $\lambda_i$, and $\cfrac{\partial}{\partial p_{\lambda_i}}p_\mu = 0$, or $\lambda$ and $\mu$ have the same parts, but $\lambda$ has a greater multiplicity of at least one part say $\lambda_j$, and $(\cfrac{\partial}{\partial \lambda_j})^{m_{\lambda_j}(\lambda)}(p_\mu) = 0$. In either case, the result is that
   \begin{align*}
     \prod\limits_{i=1}^{\ell(\lambda)}\cfrac{\partial}{\partial p_{\lambda_i}}p_\mu = 0.
   \end{align*}
-
   We use all of these facts in the following:
   \end{align*}
   \begin{align*}
@@ -156,7 +155,6 @@
     c_\lambda\prod\limits_{i=1}^{\ell(\lambda)} \lambda_i \cfrac{\partial}{\partial p_{\lambda_i}}p_\lambda \\
     &=
     c_\lambda\prod\limits_{i=1}^{\ell(\lambda)} \lambda_i m_{\lambda_i}(\lambda) \in \Q .\\
-  \end{align*}
   \end{align*}
   
 \end{proof}
