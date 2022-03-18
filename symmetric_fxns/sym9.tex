@@ -1,0 +1,122 @@
+\documentclass[12pt]{extarticle}
+%Some packages I commonly use.
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{framed}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage{ytableau}
+\usepackage[utf8]{inputenc}
+\usepackage[top=1 in,bottom=1in, left=1 in, right=1 in]{geometry}
+
+%A bunch of definitions that make my life easier
+\newcommand{\matlab}{{\sc Matlab} }
+\newcommand{\abs}[1]{|#1|}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\cvec}[1]{{\mathbf #1}}
+\newcommand{\rvec}[1]{\vec{\mathbf #1}}
+\newcommand{\ihat}{\hat{\textbf{\i}}}
+\newcommand{\jhat}{\hat{\textbf{\j}}}
+\newcommand{\khat}{\hat{\textbf{k}}}
+\newcommand{\minor}{{\rm minor}}
+\newcommand{\trace}{{\rm trace}}
+\newcommand{\spn}{{\rm Span}}
+\newcommand{\rem}{{\rm rem}}
+\newcommand{\ran}{{\rm range}}
+\newcommand{\range}{{\rm range}}
+\newcommand{\mdiv}{{\rm div}}
+\newcommand{\proj}{{\rm proj}}
+\newcommand{\sgn}{\text{sgn}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\attn}[1]{\textbf{#1}}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{prob}{Problem}
+\newtheorem{corollary}{Corollary}
+\newtheorem*{definition}{Definition}
+\newtheorem*{example}{Example}
+\newtheorem*{note}{Note}
+\newtheorem{exercise}{Exercise}
+\newcommand{\bproof}{\bigskip {\bf Proof. }}
+\newcommand{\eproof}{\hfill\qedsymbol}
+\newcommand{\Disp}{\displaystyle}
+\newcommand{\qe}{\hfill\(\bigtriangledown\)}
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+\setlength{\columnseprule}{1 pt}
+
+
+\title{ Math 4995/5327
+  \\
+  Assignment 8}
+\author{David Draguta}
+
+\begin{document}
+
+\maketitle
+
+\begin{exercise}
+  Prove that the involution $\omega$ of Heis defined by
+  \begin{align*}
+    \omega: Heis \to Heis, \quad \omega(a)= \omega \circ a \circ \omega, \quad a \in Heis,
+  \end{align*}
+  where on the right-hand side, $\omega$ is the involution of $Sym$ given by $\omega(e_r) = h_r$, satisfies $\omega(f^{\pm}) = (\omega(f))^{\pm}$.
+\end{exercise}
+\begin{proof}
+  Let $f \in Sym$, then, $f^+ \in Heis$, and for $u \in Sym$, 
+  \begin{align*}
+    \omega(f^+)(u)
+    &=
+    (\omega \circ f^+ \circ \omega)(u) \\
+    &=
+    (\omega \circ f^+) (\omega(u)) \\
+    &=
+    \omega ( f\omega(u)) \\
+    &=
+    \omega(f)\omega^2(u) \\
+    &=
+    \omega(f)u \\
+    &=\omega(f)^+(u).
+  \end{align*}
+  Since this holds for arbitrary $u \in Sym$ it holds for all $u \in Sym$, and $\omega(f^+) = \omega(f)^+$.
+
+  We also have $f^- \in Heis$, and for $u \in Sym$,
+  \begin{align*}
+    \omega(f^-)(u)
+    &=
+    (\omega \circ f^- \circ \omega)(u) \\
+    &=
+    (\omega \circ f^-) \circ (\omega(u)) \\
+    &=
+    \omega \circ (f^-(\omega(u))) \\
+    &=
+    \omega \circ (\sum\limits_{\lambda \in Par} (\omega(u), fs_\lambda)s_\lambda) \\
+    &=
+    \sum\limits_{\lambda \in Par} (\omega(u), fs_\lambda)s_{\lambda^'} \\
+    &=
+    \sum\limits_{\lambda \in Par} (u, \omega(f)s_{\lambda^{'}}) s_{\lambda^'} \\
+    &=
+    \sum\limits_{\lambda \in Par} ({\omega(f)}^-u, s_{\lambda^{'}}) s_{\lambda^{'}} \\
+    &=
+    {\omega(f)}^-(u).
+  \end{align*}
+  Since this holds for any symmetric function $u$, we get $\omega(f^-) = \omega(f)^-$.
+
+  We've shown that for all symmetric functions $f \in Sym$, we have \omega(f^{\pm}) = \omega(f)^{\pm}$. 
+\end{proof}
+
+\end{document}
