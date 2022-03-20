@@ -133,10 +133,14 @@
   is a nonzero constant polynomial.
 \end{exercise}
 \begin{proof}
-  Let $\lambda \in Par$ be maximal (under partition inclusion $\subseteq$) such that $c_\lambda \neq 0$, and let $\mu \in Par$. If $\lambda$ and $\mu$ are not comparable under partition inclusion, then there's some $\lambda_i$ that does not appear as a part in $\mu$, and 
+  Let $\lambda \in Par$ be maximal (under partition inclusion $\subseteq$) such that $c_\lambda \neq 0$, and let $\mu \in Par$.
+  
+  If $\lambda$ and $\mu$ are not comparable under partition inclusion, then there's some $\lambda_i>\mu_i$, and 
   \begin{align*}
     \cfrac{\partial}{\partial p_{\lambda_i}}p_\mu = 0.
   \end{align*}
+
+  
   Otherwise, $\lambda, \mu$ are comparable. If $\lambda \subsetneq \mu$, then by our choice of $\lambda$, $c_\mu = 0$. If $\mu \subsetneq \lambda$, we have either $\lambda$ has a distinct part $\lambda_i$, and $\cfrac{\partial}{\partial p_{\lambda_i}}p_\mu = 0$; or $\lambda$ and $\mu$ have the same parts, but $\lambda$ has a greater multiplicity of at least one part $\lambda_j$, and $(\cfrac{\partial}{\partial \lambda_j})^{m_{\lambda_j}(\lambda)}(p_\mu) = 0$. 
   
   We use all of these facts in the following:
@@ -152,9 +156,13 @@
     &=
     c_\lambda\prod\limits_{i=1}^{\ell(\lambda)} \lambda_i \cfrac{\partial}{\partial p_{\lambda_i}}p_\lambda \\
     &=
-    c_\lambda\prod\limits_{\lambda_i} \lambda_i^{m_{\lambda_i}(\lambda)} m_{\lambda_i}(\lambda)! \in \Q,\\
+    c_\lambda\prod\limits_{\lambda_i \text{distinct}} \lambda_i^{m_{\lambda_i}(\lambda)} m_{\lambda_i}(\lambda)! \\
+    &=
+    c_\lambda\prod\limits_{i \geq 1} i^{m_{i}(\lambda)} m_{i}(\lambda)!\\
+    &=
+    c_\lambda z_\lambda
   \end{align*}
-  where the last product is over distinct parts $\lambda_i$ of $\lambda$.
+
   
 \end{proof}
 \end{document}
