@@ -1,0 +1,97 @@
+\documentclass[12pt]{extarticle}
+%Some packages I commonly use.
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{framed}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage{ytableau}
+\usepackage[utf8]{inputenc}
+\usepackage[top=1 in,bottom=1in, left=1 in, right=1 in]{geometry}
+
+%A bunch of definitions that make my life easier
+\newcommand{\matlab}{{\sc Matlab} }
+\newcommand{\abs}[1]{|#1|}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\cvec}[1]{{\mathbf #1}}
+\newcommand{\rvec}[1]{\vec{\mathbf #1}}
+\newcommand{\ihat}{\hat{\textbf{\i}}}
+\newcommand{\jhat}{\hat{\textbf{\j}}}
+\newcommand{\khat}{\hat{\textbf{k}}}
+\newcommand{\minor}{{\rm minor}}
+\newcommand{\trace}{{\rm trace}}
+\newcommand{\spn}{{\rm Span}}
+\newcommand{\rem}{{\rm rem}}
+\newcommand{\ran}{{\rm range}}
+\newcommand{\range}{{\rm range}}
+\newcommand{\mdiv}{{\rm div}}
+\newcommand{\proj}{{\rm proj}}
+\newcommand{\sgn}{\text{sgn}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\attn}[1]{\textbf{#1}}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{prob}{Problem}
+\newtheorem{corollary}{Corollary}
+\newtheorem*{definition}{Definition}
+\newtheorem*{example}{Example}
+\newtheorem*{note}{Note}
+\newtheorem{exercise}{Exercise}
+\newcommand{\bproof}{\bigskip {\bf Proof. }}
+\newcommand{\eproof}{\hfill\qedsymbol}
+\newcommand{\Disp}{\displaystyle}
+\newcommand{\qe}{\hfill\(\bigtriangledown\)}
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+  \left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+  #1 % the function
+  \vphantom{\big|} % pretend it's a little taller at normal size
+  \right|_{#2} % this is the delimiter
+  }}
+\setlength{\columnseprule}{1 pt}
+
+
+\title{ Math 4995/5327
+  \\
+  Assignment 9}
+\author{David Draguta}
+
+\begin{document}
+
+\maketitle
+
+\begin{exercise}
+  It follows from Theorem 5.4.1 and (5.6) that $P_{r}P_{-r} = P_{-r}P_r - r, r \geq 1.$ So what is wrong with the following computation?
+  \begin{align*}
+    P_r P_{-r}
+    &= \sum\limits_{j,k \in \Z} \psi_{j+r}^+ \psi_{j}^-\psi_{k-r}^+\psi_k^- \\
+    &\overset{5.10}{=} - \sum\limits_{j,k \in \Z} \psi_{j+r}^+\psi_{k-r}^+\psi_j^-\psi_k^- + \sum\limits_{j,k \in \Z} \delta_{j,k-r}\psi_{j+r}^+\psi_k^- \\
+    &\overset{5.10}{=} - \sum\limits_{j,k \in \Z} \psi_{k-r}^+\psi_{j+r}^+\psi_k^-\psi_j^- + \sum\limits_{j \in \Z} \psi_{j+r}^+\psi_{j+r}^- \\
+    &\overset{5.10}{=} \sum\limits_{j,k \in \Z} \psi_{k-r}^+\psi_{k}^-\psi_{j+r}^+\psi_j^- - \sum\limits_{j,k \in \Z} \delta_{k,j+r}\psi_{k-r}^+\psi_k^- + \sum\limits_{j \in \Z} \psi_{j+r}^+ \psi_{j+r}^- \\
+    &= P_{-r}P_{r} - \sum\limits_{j \in \Z} \psi_{j +r}^+\psi_{j+r}^- + \sum\limits_{j \in \Z} \psi_{j+r}^+\psi_{j+r}^-  \\
+    &= P_{-r}P_{r}
+  \end{align*}
+\end{exercise}
+\begin{proof}
+  Let $j \in \mathbf{i}$ mean that there exists some non negative $s \in \Z$ such that $i_s = j$. We have, then, that  
+  \begin{align*}
+    \sum\limits_{j \in \Z} \psi_{j +r}^+\psi_{j+r}^- v_{\mathbf{i}}
+    &=
+    \sum\limits_{j+r \in \mathbf{i}} v_{\mathbf{i}},
+  \end{align*}
+  which is an infinite sum of non zero, antisymmetric, infinite rank tensor terms, which in general is not well defined; and so we can't just cancel the expression in the second last line.
+\end{proof}
+
+\begin{exercise}
+  
+\end{exercise}
+\end{document}
