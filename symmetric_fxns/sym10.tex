@@ -88,10 +88,34 @@
     &=
     \sum\limits_{j+r \in \mathbf{i}} v_{\mathbf{i}},
   \end{align*}
-  which is an infinite sum of non zero, antisymmetric, infinite rank tensor terms, which in general is not well defined; and so we can't just cancel the expression in the second last line.
+  which is an infinite sum of non zero tensors, which is in general is not well defined, so we can't just cancel the expression in the second last line.
 \end{proof}
 
 \begin{exercise}
-  
+  With $\varphi(tu)$ as in 5.42, show that
+  \begin{align*}
+    f(t)\varphi(tu) = f(u^{-1})\varphi(tu), \quad \forall f(t) \in \Q[t]
+  \end{align*}
 \end{exercise}
+
+\begin{exercise}
+  Prove that $B^-(t)B^-(u) +tu^{-1}B^-(u)B^-(t) = 0$.
+\end{exercise}
+\begin{proof}
+  \begin{align*}
+    B^-(t)B^-(u)
+    &=
+    E^+(-t^{-1})H^-(t) E^+(-u^{-1})H^-(u) \\
+    &\overset{5.34}{=}
+    (1-tu^{-1})E^+(-t^{-1})E^+(-u^{-1})H^{-}(t)H^-(u) \\
+    &=
+    (1-tu^{-1})E^+(-u^{-1})E^+(-t^{-1})H^-(u)H^{-}(t) \\
+    &=
+    -tu^{-1}(1-ut^{-1})E^+(-u^{-1})E^+(-t^{-1})H^-(u)H^{-}(t) \\
+    &\overset{5.34}{=}
+    -tu^{-1}E^+(-u^{-1})H^-(u)E^+(-t^{-1})H^{-}(t)  \\
+    &=
+    -tu^{-1}B^-(u)B^-(t) \\
+  \end{align*}
+\end{proof}
 \end{document}
