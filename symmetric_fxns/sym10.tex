@@ -82,11 +82,11 @@
   \end{align*}
 \end{exercise}
 \begin{proof}
-  Fix some $\mathbf{i} = (i_0, i_1, \dots)$, for $i_j \in \Z, j \geq 0$. There are infinitely many terms in $\mathbf{i}$, and so  
+  Fix some $\mathbf{i} = (i_0, i_1, \dots)$, for $i_j \in \Z, j \geq 0$ and $i_k \neq i_l$ if $k \neq l$. There are infinitely many terms in $\mathbf{i}$, and so  
   \begin{align*}
     \sum\limits_{j \in \Z} \psi_{j +r}^+\psi_{j+r}^- v_{\mathbf{i}}
     &=
-    \sum\limits_{\set{j \in \Z: j+r \text{ appears in } \mathbf{i}}} v_{\mathbf{i}}.
+    \sum\limits_{\set{j \in \Z: j+r \text{ appears in } \mathbf{i}}} v_{\mathbf{i}} 
   \end{align*}
   is an infinite sum, which in general isn't well defined. The problem in the computation is that we're algebraically manipulating this sum as though it were well defined, and in particular in the second last line we cancel the sums, arriving at our conclusion, but that operation of cancellation of two not well defined sums is not well defined.
 \end{proof}
