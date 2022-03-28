@@ -62,7 +62,7 @@
 
 \title{ Math 4995/5327
   \\
-  Assignment 9}
+  Assignment 10}
 \author{David Draguta}
 
 \begin{document}
@@ -82,22 +82,37 @@
   \end{align*}
 \end{exercise}
 \begin{proof}
-  Let $j \in \mathbf{i}$ mean that there exists some non negative $s \in \Z$ such that $i_s = j$. We have, then, that  
+  We have 
   \begin{align*}
     \sum\limits_{j \in \Z} \psi_{j +r}^+\psi_{j+r}^- v_{\mathbf{i}}
     &=
-    \sum\limits_{j+r \in \mathbf{i}} v_{\mathbf{i}},
+    \sum\limits_{\set{j \in \Z: j+r \text{ appears in } \mathbf{i}}} v_{\mathbf{i}}.
   \end{align*}
-  which is an infinite sum of non zero tensors, which is in general is not well defined, so we can't just cancel the expression in the second last line.
+  This is an infinite sum of infinite rank tensors, which in general isn't well defined. The problem in the computation is that we're algebraically manipulating this sum as though it were well defined, and in particular in the second last line we cancel the sums, arriving at our conclusion, but that operation of cancellation of two not well defined sums is not well defined.
 \end{proof}
-
+\newpage
 \begin{exercise}
   With $\varphi(tu)$ as in 5.42, show that
   \begin{align*}
     f(t)\varphi(tu) = f(u^{-1})\varphi(tu), \quad \forall f(t) \in \Q[t]
   \end{align*}
 \end{exercise}
-
+\begin{proof}
+  Let $f(t) = \sum\limits_{n \geq 0} a_n t^n$, for $a_n \in \Q$; then
+  \begin{align*}
+    f(t)\varphi(tu)
+    &=
+    \sum\limits_{n \geq 0} a_n t^n (\sum\limits_{m \in \Z} (tu)^m) \\
+    &=
+    \sum\limits_{n \geq 0} a_n \sum\limits_{m \in \Z} (t^{n+m} u^{m}) \\
+    &=
+    \sum\limits_{n \geq 0} a_nu^{-n} \sum\limits_{m \in \Z} (tu)^{n+m} \\
+    &=
+    \sum\limits_{n \geq 0} a_nu^{-n} \sum\limits_{k \in \Z} (tu)^{k} \\
+    &=
+    f(u^{-1}) \varphi(tu)
+  \end{align*}
+\end{proof}
 \begin{exercise}
   Prove that $B^-(t)B^-(u) +tu^{-1}B^-(u)B^-(t) = 0$.
 \end{exercise}
@@ -115,7 +130,7 @@
     &\overset{5.34}{=}
     -tu^{-1}E^+(-u^{-1})H^-(u)E^+(-t^{-1})H^{-}(t)  \\
     &=
-    -tu^{-1}B^-(u)B^-(t) \\
+    -tu^{-1}B^-(u)B^-(t)  \\
   \end{align*}
 \end{proof}
 \end{document}
