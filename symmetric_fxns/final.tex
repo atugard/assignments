@@ -87,10 +87,72 @@
 
 \end{exercise}
 
+\begin{proof}
+  By Proposition 2.4.5 we have
+  \begin{align*}
+    e_r(\underbrace{1, \dots, 1}_{\text{n entries}}) = \sum\limits_{T \in RowStrict((k), n)} 1 =
+    \begin{pmatrix}
+      n \\
+      k
+    \end{pmatrix},
+  \end{align*}
+  since a strictly increasing filled row of $k$ boxes with entries from $1$ to $n$ corresponds to a choice of $k$ distinct numbers from $1$ to $n$ up to permutation, and there are
+  $\begin{pmatrix}
+      n \\
+      k
+  \end{pmatrix}$
+  such choices, i.e. that many tableaux.
+
+  Next, we argue by induction:
+  \begin{align*}
+    h_k(x_1, \dots, x_n)
+    &= h_k(x_1, \dots, x_{n-1}) + x_n h_{k-1}(x_1, \dots, x_n),
+  \end{align*}
+  so
+  \begin{align*}
+    h_k(\underbrace{1, \dots, 1}_{n \text{ entries} })
+    &= h_k(\underbrace{1, \dots, 1}_{n-1 \text{ entries} }) + h_{k-1}(\underbrace{1, \dots, 1}_{n \text{ entries }}) \\
+    &=
+    \begin{pmatrix}
+      (n-1) + k - 1 \\
+      k
+    \end{pmatrix}
+    +
+    \begin{pmatrix}
+      n + (k-1) - 1 \\
+      k - 1
+    \end{pmatrix}
+    \\
+    &=
+    \begin{pmatrix}
+      n + k - 2 \\
+      k
+    \end{pmatrix}
+    +
+    \begin{pmatrix}
+      n + k - 2 \\
+      k - 1
+    \end{pmatrix}
+    \\
+    &=    
+    \begin{pmatrix}
+      n + k - 1 \\
+      k
+    \end{pmatrix},
+  \end{align*}
+  with inductive base case $k=0$:
+  \begin{align*}
+    h_0(x_1, \dots, x_n) = 1 =
+    \begin{pmatrix}
+      n + 0 - 1 \\
+      0
+    \end{pmatrix}.
+  \end{align*}
+\end{proof}
 \begin{exercise}
   Using Newton's identity
   \begin{align*}
-    nen = \sum\limits_{r=1}^{n}(-1)^{r-1}p_r e_{n-r}
+    ne_n = \sum\limits_{r=1}^{n}(-1)^{r-1}p_r e_{n-r}
   \end{align*}
   prove that
   \begin{align*}
