@@ -34,6 +34,7 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\<}{\langle}
 \renewcommand{\>}{\rangle}
@@ -86,4 +87,90 @@
 
 \end{exercise}
 
+\begin{exercise}
+  Using Newton's identity
+  \begin{align*}
+    nen = \sum\limits_{r=1}^{n}(-1)^{r-1}p_r e_{n-r}
+  \end{align*}
+  prove that
+  \begin{align*}
+    p_n = 
+    \begin{pmatrix}
+      e_1 & 1 & 0 & 0 & \cdots & 0 \\
+      2e_2 & e_1 & 1 & 0 & \cdots & 0 \\
+      \vdots & \vdots & \ddots & \ddots  & \ddots & \vdots \\
+      \vdots & \vdots & \ddots & \ddots  & 1 & 0 \\
+      \vdots & \vdots & \ddots & \ddots  & e_1 & 1 \\            
+      ne_n & e_{n-1} & e_{n-2} & \cdots  & e_2 & e_1 \\            
+    \end{pmatrix}
+    \quad \text { and } \quad
+    n!e_n = 
+    \begin{pmatrix}
+      p_1 & 1 & 0 & 0 & \cdots & 0 \\
+      p_2 & p_1 & 2 & 0 & \cdots & 0 \\
+      \vdots & \vdots & \ddots & \ddots  & \ddots & \vdots \\
+      \vdots & \vdots & \ddots & \ddots  & \ddots & 0 \\
+      p_{n-1} & p_{n-2} & \cdots & \cdots  & p_1 & n-1 \\            
+      p_n & p_{n-1} & \cdots & \cdots  & p_2 & p_1 \\            
+    \end{pmatrix}    
+  \end{align*}
+\end{exercise}
+
+\begin{exercise}
+  Write the skew Schur function $s_{(4,3,2)/(1,1)}$ as a linear combination of Schur functions. 
+\end{exercise}
+
+\begin{exercise}
+  Prove that
+  \begin{align*}
+    \set{f^{\perp} : f \in Sym_\Q} = Span_{\Q}\set{\cfrac{\partial^k}{\partial p_{i_1} \partial p_{i_2} \cdots \partial p_{i_k}} : k \in \N, i_1, \dots, i_k \geq 1 }.
+  \end{align*}
+  Here we view both sides as subspaces of $End_{\Q}(Sym)$.
+\end{exercise}
+
+\begin{exercise}
+  Suppose $(C, \triangle, \epsilon)$ is a counital coassociative coalgebra over a field $k$. Show that the dual space $C^* = Hom_k(C,k)$ is a unital associative algebra with multiplication
+  \begin{align*}
+    \nabla: C^* \otimes C^* \to C^*, \quad \nabla(f \otimes g)(x) = (f \otimes g) \circ \triangle(x), \quad f,g \in C^*, x \in C,
+  \end{align*}
+  extended by linearity, and a unit
+  \begin{align*}
+    \eta: k \to C^* , \quad \eta(a) = a\epsilon, \quad a \in k.
+  \end{align*}
+\end{exercise}
+
+\begin{exercise}
+  Let $m,n \in \N$. In the Heisenberg algebra, write $p_m^-e_n^+$ and $p_m^-h_n^+$ as linear combinations of elements of the form $f^+g^-$, $f,g \in Sym$.
+\end{exercise}
+
+\begin{exercise}
+  Let $H$ be a subgroup of a finite group $G$, and let $f \in \mathcal{C}(H,\C)$. Define
+  \begin{align*}
+    \hat f : G \to \C, \quad \hat f (x) = 
+    \begin{cases}
+      f(x) & x \in H, \\
+      0 & x \not \in H. 
+    \end{cases}
+  \end{align*}
+  \begin{enumerate}
+  \item
+    Show that
+    \begin{align*}
+      \hat f (y^{-1} z y) = \hat f (z), \quad \text{ for all } y \in H, z \in G. 
+    \end{align*}
+  \item
+    Let $x_1, \dots, x_m$ be a complete set of representatives of the left cosets of $H$ in $G$. Recall that we defined
+    \begin{align*}
+      Ind_H^G(f)(x) = \cfrac{1}{\abs{H}} \sum\limits_{y \in G} \hat f (y^{-1}xy).
+    \end{align*}
+    Prove that
+    \begin{align*}
+      Ind_H^G(f)(x) = \sum\limits_{i=1}^m \hat f (x_i^{-1}xx_i).      
+    \end{align*}
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+  Use Proposition 6.3.9 to compute the character table of $\mathfrak{S}_4$.
+\end{exercise}
 \end{document}
