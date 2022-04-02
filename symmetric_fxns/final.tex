@@ -571,7 +571,7 @@
     \nabla(f \otimes a \epsilon) (x) \\
     &= (\nabla \circ id \otimes \eta)(f \otimes a) (x),
   \end{align*}
-  where we used the commutativity of the counit diagram in the fourth equality. Identifying $af$ with $a \otimes f$, $f \otimes a$ (by $af \overset{\cong}{\mapsto} a \otimes f$ and $af \overset{\cong}{\mapsto} f \otimes a$) we conclude that
+  where we used the commutativity of the counit diagram in the fourth equality. Identifying $af$ with $a \otimes f$, $f \otimes a$ (by $a \otimes f \overset{\cong}{\mapsto} af$ and $f \otimes a \overset{\cong}{\mapsto} af$) we conclude that
   \begin{align*}
     \nabla \circ \eta \otimes id = \nabla \circ id \otimes \eta,
   \end{align*}
@@ -630,7 +630,35 @@
     \end{align*}
   \end{enumerate}
 \end{exercise}
-
+\begin{proof}
+  \begin{enumerate}
+  \item
+    Fix $y$ in $H$. If $y^{-1}zy \in H$, then $ z \in yHy^{-1}=H$, so
+    \begin{align*}
+      \hat f(y^{-1}zy) = f(y^{-1}zy) = f(z) = \hat f (z),
+    \end{align*}
+    since $f \in \mathcal{C}(H,\C)$. Otherwise, $z \not \in H$ and
+    \begin{align*}
+      \hat f(y^{-1}zy) = \hat f(z) = 0.
+    \end{align*}
+  \item
+    We have $G = \bigsqcup\limits_{i=1}^m x_iH$, so
+    \begin{align*}
+      Ind_H^G(f)(x)
+      &=
+      \cfrac{1}{\abs{H}} \sum\limits_{y \in G}\hat f (y^{-1}xy) \\
+      &=
+      \cfrac{1}{\abs{H}} \sum\limits_{i=1}^m \sum\limits_{y \in H}\hat f ((x_i y)^{-1}x x_i y) \\
+      &= 
+      \cfrac{1}{\abs{H}} \sum\limits_{i=1}^m \sum\limits_{y \in H}\hat f (y^{-1} x_i^{-1}x x_i y) \\
+      &=
+      \cfrac{1}{\abs{H}} \sum\limits_{i=1}^m \sum\limits_{y \in H}\hat f (x_i^{-1}x x_i) \\
+      &=
+      \sum\limits_{i=1}^m f (x_i^{-1}x x_i),                         
+    \end{align*}
+    where in the second last equality we used the result from the first part of this question.
+  \end{enumerate}
+\end{proof}
 \begin{exercise}
   Use Proposition 6.3.9 to compute the character table of $\mathfrak{S}_4$.
 \end{exercise}
