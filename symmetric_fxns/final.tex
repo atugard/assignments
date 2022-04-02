@@ -1,4 +1,4 @@
-\documentclass[12pt]{extarticle}
+\documentclass[9pt]{extarticle}
 %Some packages I commonly use.
 \usepackage[english]{babel}
 \usepackage{graphicx}
@@ -88,7 +88,7 @@
 \end{exercise}
 
 \begin{proof}
-  By Proposition 2.4.5 we have for $0 \leq k \leq n$ \footnote{where $e_k = e_ke_0 = e_{(k)}$}:
+  By Proposition 2.4.5 we have for $0 \leq k \leq n$: \footnote{where $e_k = e_ke_0 = e_{(k)}$}
   \begin{align*}
     e_k(\underbrace{1, \dots, 1}_{\text{n entries}}) = \sum\limits_{T \in RowStrict((k), n)} 1 =
     \begin{pmatrix}
@@ -96,16 +96,14 @@
       k
     \end{pmatrix},
   \end{align*}
-  since a strictly increasing filled row of $k$ boxes with entries from $1$ to $n$ corresponds to a choice of $k$ distinct numbers from $1$ to $n$ up to permutation, and there are
+  since a strictly increasing row of $k$ boxes with entries from $1$ to $n$ corresponds to a choice of $k$ distinct numbers from $1$ to $n$ up to permutation, and there are
   $\begin{pmatrix}
       n \\
       k
   \end{pmatrix}$
   such choices, i.e. that many tableaux.
 
-  Next, we argue by induction:
-  
-  Let $0 \leq k \leq n$, then 
+  Next, arguing by induction, let $0 \leq k \leq n$, then 
   \begin{align*}
     h_k(x_1, \dots, x_n)
     &= h_k(x_1, \dots, x_{n-1}) + x_n h_{k-1}(x_1, \dots, x_n),
@@ -142,9 +140,9 @@
       k
     \end{pmatrix},
   \end{align*}
-  with inductive base case $k=0$:
+  with base case $k=0$:
   \begin{align*}
-    h_0(x_1, \dots, x_n) = 1 =
+    h_0(\underbrace{1, \dots, 1}_{n \text{ entries }}) = 1 =
     \begin{pmatrix}
       n + 0 - 1 \\
       0
@@ -176,10 +174,161 @@
       \vdots & \vdots & \ddots & \ddots  & \ddots & 0 \\
       p_{n-1} & p_{n-2} & \cdots & \cdots  & p_1 & n-1 \\            
       p_n & p_{n-1} & \cdots & \cdots  & p_2 & p_1 \\            
-    \end{vmatrik}    
+    \end{vmatrix}    
   \end{align*}
 \end{exercise}
-
+\begin{proof}
+  \begin{align*}
+    \begin{vmatrix}
+      e_1 & 1 & 0 & 0 & \cdots & 0 \\
+      2e_2 & e_1 & 1 & 0 & \cdots & 0 \\
+      \vdots & \vdots & \ddots & \ddots  & \ddots & \vdots \\
+      \vdots & \vdots & \ddots & \ddots  & 1 & 0 \\
+      \vdots & \vdots & \ddots & \ddots  & e_1 & 1 \\            
+      ne_n & e_{n-1} & e_{n-2} & \cdots  & e_2 & e_1 \\            
+    \end{vmatrix}
+    &=
+    \begin{vmatrix}
+      \sum\limits_{r=1}^{1}(-1)^{r-1}p_r e_{1-r} & 1 & 0 & 0 & \cdots & 0 \\
+      \sum\limits_{r=1}^{2}(-1)^{r-1}p_r e_{2-r} & e_1 & 1 & 0 & \cdots & 0 \\
+      \vdots & \vdots & \ddots & \ddots  & \ddots & \vdots \\
+      \vdots & \vdots & \ddots & \ddots  & 1 & 0 \\
+      \vdots & \vdots & \ddots & \ddots  & e_1 & 1 \\            
+      \sum\limits_{r=1}^{n}(-1)^{r-1}p_r e_{n-r} & e_{n-1} & e_{n-2} & \cdots  & e_2 & e_1 \\            
+    \end{vmatrix}    \\
+    &=p_1
+    \begin{vmatrix}
+      1 & 1 & 0 & 0 & \cdots & 0 \\
+      e_1 & e_1 & 1 & 0 & \cdots & 0 \\
+      \vdots & \vdots & \ddots & \ddots  & \ddots & \vdots \\
+      \vdots & \vdots & \ddots & \ddots  & 1 & 0 \\
+      \vdots & \vdots & \ddots & \ddots  & e_1 & 1 \\            
+      e_{n-1} & e_{n-1} & e_{n-2} & \cdots  & e_2 & e_1 \\
+    \end{vmatrix} \\
+    &+
+    \begin{vmatrix}
+      0 & 1 & 0 & 0 & \cdots & 0 \\
+      \sum\limits_{r=2}^{2}(-1)^{r-1}p_r e_{2-r} & e_1 & 1 & 0 & \cdots & 0 \\
+      \vdots & \vdots & \ddots & \ddots  & \ddots & \vdots \\
+      \vdots & \vdots & \ddots & \ddots  & 1 & 0 \\
+      \vdots & \vdots & \ddots & \ddots  & e_1 & 1 \\            
+      \sum\limits_{r=2}^{n}(-1)^{r-1}p_r e_{n-r} & e_{n-1} & e_{n-2} & \cdots  & e_2 & e_1 \\
+    \end{vmatrix}
+    \\
+    &=
+    \begin{vmatrix}
+      0 & 1 & 0 & 0 & \cdots & 0 \\
+      \sum\limits_{r=2}^{2}(-1)^{r-1}p_r e_{2-r} & e_1 & 1 & 0 & \cdots & 0 \\
+      \vdots & \vdots & \ddots & \ddots  & \ddots & \vdots \\
+      \vdots & \vdots & \ddots & \ddots  & 1 & 0 \\
+      \vdots & \vdots & \ddots & \ddots  & e_1 & 1 \\            
+      \sum\limits_{r=2}^{n}(-1)^{r-1}p_r e_{n-r} & e_{n-1} & e_{n-2} & \cdots  & e_2 & e_1 \\
+    \end{vmatrix} \\    
+    &= \dots
+    \\
+    &=
+    \begin{vmatrix}
+      0 & 1 & 0 & 0 & \cdots & 0 \\
+      0 & e_1 & 1 & 0 & \cdots & 0 \\
+      \vdots & \vdots & \ddots & \ddots  & \ddots & \vdots \\
+      \vdots & \vdots & \ddots & \ddots  & 1 & 0 \\
+      \vdots & \vdots & \ddots & \ddots  & e_1 & 1 \\            
+      (-1)^{n-1}p_n & e_{n-1} & e_{n-2} & \cdots  & e_2 & e_1 \\
+    \end{vmatrix} \\
+    &=
+    p_n
+    \begin{vmatrix}
+      1 & 0 & 0 & \cdots & 0 \\
+       e_1 & 1 & 0 & \cdots & 0 \\
+       \vdots & \ddots & \ddots  & \ddots & \vdots \\
+       \vdots & \ddots & \ddots  & 1 & 0 \\
+       \vdots & \ddots & \ddots  & e_1 & 1 
+    \end{vmatrix}
+    \\
+    &=
+    p_n
+  \end{align*}
+  Next, from Newton's identity we get
+  \begin{align*}
+    p_n = (-1)^{n-1}ne_n + \sum\limits_{r=1}^{n-1}(-1)^{n+r-1}p_r e_{n-r}
+  \end{align*}
+  so
+  \begin{align*}
+    \begin{vmatrix}
+      p_1 & 1 & 0 & 0 & \cdots & 0 \\
+      p_2 & p_1 & 2 & 0 & \cdots & 0 \\
+      \vdots & \vdots & \ddots & \ddots  & \ddots & \vdots \\
+      \vdots & \vdots & \ddots & \ddots  & \ddots & 0 \\
+      p_{n-1} & p_{n-2} & \cdots & \cdots  & p_1 & n-1 \\            
+      p_n & p_{n-1} & \cdots & \cdots  & p_2 & p_1 
+    \end{vmatrix} 
+    &=
+    \begin{vmatrix}
+      e_1 & 1 & 0 & 0 & \cdots & 0 \\
+      e_1p_1 - 2e_2 & p_1 & 2 & 0 & \cdots & 0 \\
+      \vdots & \vdots & \ddots
+      & \ddots  & \ddots & \vdots \\
+      \vdots & \vdots & \ddots & \ddots  & \ddots & 0 \\
+      (-1)^{n-2}(n-1)e_{n-1} + \sum\limits_{r=1}^{n-2}(-1)^{n+r-2}p_r e_{n-r-1} & p_{n-2} & \cdots & \cdots  & p_1 & n-1 \\            
+      (-1)^{n-1}ne_n + \sum\limits_{r=1}^{n-1}(-1)^{n+r-1}p_r e_{n-r} & p_{n-1} & \cdots & \cdots  & p_2 & p_1 
+    \end{vmatrix}
+    \\
+    &=
+    e_1
+    \begin{vmatrix}
+      1 & 1 & 0 & 0 & \cdots & 0 \\
+      p_1 & p_1 & 2 & 0 & \cdots & 0 \\
+      \vdots & \vdots & \ddots
+      & \ddots  & \ddots & \vdots \\
+      \vdots & \vdots & \ddots & \ddots  & \ddots & 0 \\
+      p_{n-2} & p_{n-2} & \cdots & \cdots  & p_1 & n-1 \\            
+      p_{n-1} & p_{n-1} & \cdots & \cdots  & p_2 & p_1 
+    \end{vmatrix} \\
+    &+
+    \begin{vmatrix}
+      0 & 1 & 0 & 0 & \cdots & 0 \\
+      - 2e_2 & p_1 & 2 & 0 & \cdots & 0 \\
+      \vdots & \vdots & \ddots
+      & \ddots  & \ddots & \vdots \\
+      \vdots & \vdots & \ddots & \ddots  & \ddots & 0 \\
+      (-1)^{n-2}(n-1)e_{n-1} + \sum\limits_{r=1}^{n-3}(-1)^{n+r-2}p_r e_{n-r-1} & p_{n-2} & \cdots & \cdots  & p_1 & n-1 \\            
+      (-1)^{n-1}ne_n + \sum\limits_{r=1}^{n-2}(-1)^{n+r-1}p_r e_{n-r} & p_{n-1} & \cdots & \cdots  & p_2 & p_1 
+    \end{vmatrix} \\
+    &=
+    \begin{vmatrix}
+      0 & 1 & 0 & 0 & \cdots & 0 \\
+      - 2e_2 & p_1 & 2 & 0 & \cdots & 0 \\
+      \vdots & \vdots & \ddots
+      & \ddots  & \ddots & \vdots \\
+      \vdots & \vdots & \ddots & \ddots  & \ddots & 0 \\
+      (-1)^{n-2}(n-1)e_{n-1} + \sum\limits_{r=1}^{n-3}(-1)^{n+r-2}p_r e_{n-r-1} & p_{n-2} & \cdots & \cdots  & p_1 & n-1 \\            
+      (-1)^{n-1}ne_n + \sum\limits_{r=1}^{n-2}(-1)^{n+r-1}p_r e_{n-r} & p_{n-1} & \cdots & \cdots  & p_2 & p_1 
+    \end{vmatrix} \\
+    &=\dots \\
+    &=
+    \begin{vmatrix}
+      0 & 1 & 0 & 0 & \cdots & 0 \\
+      0 & p_1 & 2 & 0 & \cdots & 0 \\
+      \vdots & \vdots & \ddots
+      & \ddots  & \ddots & \vdots \\
+      \vdots & \vdots & \ddots & \ddots  & \ddots & 0 \\
+      0 & p_{n-2} & \cdots & \cdots  & p_1 & n-1 \\            
+      (-1)^{n-1}ne_n & p_{n-1} & \cdots & \cdots  & p_2 & p_1 
+    \end{vmatrix} \\
+    &=
+    ne_n
+    \begin{vmatrix}
+      1 & 0 & 0 & \cdots & 0 \\
+      p_1 & 2 & 0 & \cdots & 0 \\
+       \vdots & \ddots
+      \ddots  & \ddots & \vdots \\
+      \vdots & \ddots & \ddots  & \ddots & 0 \\
+      p_{n-2} & \cdots & \cdots  & p_1 & n-1 \\            
+    \end{vmatrix} \\
+    &=
+    ne_n(n-1)! \\
+    &= n!e_n
+\end{proof}
 \begin{exercise}
   Write the skew Schur function $s_{(4,3,2)/(1,1)}$ as a linear combination of Schur functions. 
 \end{exercise}
