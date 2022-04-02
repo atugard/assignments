@@ -515,7 +515,7 @@
   \begin{align*}
     a_{\lambda^i} = i_1 i_2 \cdots i_k.
   \end{align*}
-  Thus
+  For $b_{i} \in \Q$ we have
   \begin{align*}
     \sum\limits_{i} b_{i}\cfrac{\partial^k}{\partial p_{i_1} \partial p_{i_2} \cdots \partial p_{i_k}}
     &=
@@ -523,7 +523,7 @@
     &=
     (\sum\limits_{i} b_{i}\cfrac{1}{a_{\lambda^i}}p_{\lambda^i})^{\perp},
   \end{align*}
-  where the sum is over $i=(i_1, \dots, i_k)$, with $i_1, \dots, i_k \geq 1$; and $k \in \N$, $a_{\lambda^i} = i_1 \cdots i_k$, and $b_{i} \in \Q$. Since $\sum\limits_{i} b_{i}\cfrac{1}{a_{\lambda^i}}p_{\lambda^i} \in Sym_{\Q}$, this $\Q$-linear combination from the right hand side is included in the left hand side.
+  where the sum is over $i=(i_1, \dots, i_k)$, with $i_1, \dots, i_k \geq 1$, and $k \in \N$. Since $\sum\limits_{i} b_{i}\cfrac{1}{a_{\lambda^i}}p_{\lambda^i} \in Sym_{\Q}$, this $\Q$-linear combination from the right hand side is included in the left hand side.
 \end{proof}
 \newpage
 \begin{exercise}
@@ -536,7 +536,48 @@
     \eta: k \to C^* , \quad \eta(a) = a\epsilon, \quad a \in k.
   \end{align*}
 \end{exercise}
+\begin{proof}
+  Let $f,g,h \in C^*$ and $x \in C$, then 
+  \begin{align*}
+    (\nabla \circ \nabla \otimes id)(f \otimes g \otimes h)(x)
+    &= \nabla(\nabla(f \otimes g) \otimes h)(x)\\
+    &= (\nabla(f \otimes g) \otimes h) \circ \triangle(x)\\
+    &= (f \otimes g \otimes h) \circ \triangle \otimes id \circ \triangle(x)\\
+    &= (f \otimes g \otimes h) \circ id \otimes \triangle \circ \triangle(x)\\
+    &= (f \otimes \nabla(g \otimes h))\circ \triangle(x)\\
+    &= \nabla(f \otimes \nabla(g \otimes h))(x) \\
+    &= (\nabla\circ id \otimes \nabla)(f \otimes g \otimes h)(x),    
+  \end{align*}
+  where we used the coassociativity of $\triangle$ in the fourth equality. We conclude that
+  \begin{align*}
+    \nabla \circ \nabla \otimes id = \nabla\circ id \otimes \nabla,
+  \end{align*}
+  and so the first diagram of 4.17 commutes.
 
+  Next, let $a \in k$, $f \in C^*$, then
+  \begin{align*}
+    (\nabla \circ \eta \otimes id)(a \otimes f)(x)
+    &=
+    \nabla(a \epsilon \otimes f)(x) \\
+    &=
+    (a \epsilon \otimes f) \circ \triangle (x) \\
+    &=
+    (a \otimes f)\circ \epsilon \otimes id \circ \triangle (x) \\
+    &=
+    (f \otimes a) \circ id \otimes \epsilon \circ \triangle (x) \\
+    &=
+    (f \otimes a \epsilon)  \circ \triangle (x) \\
+    &=
+    \nabla(f \otimes a \epsilon) (x) \\
+    &= (\nabla \circ id \otimes \eta)(f \otimes a) (x),
+  \end{align*}
+  where we used the commutativity of the counit diagram in the fourth equality. Identifying $af$ with $a \otimes f$, $f \otimes a$ (by $af \overset{\cong}{\mapsto} a \otimes f$ and $af \overset{\cong}{\mapsto} f \otimes a$) we conclude that
+  \begin{align*}
+    \nabla \circ \eta \otimes id = \nabla \circ id \otimes \eta,
+  \end{align*}
+  and so the second diagram of 4.17 commutes.
+\end{proof}
+\newpage
 \begin{exercise}
   Let $m,n \in \N$. In the Heisenberg algebra, write $p_m^-e_n^+$ and $p_m^-h_n^+$ as linear combinations of elements of the form $f^+g^-$, $f,g \in Sym$.
 \end{exercise}
