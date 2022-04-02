@@ -484,11 +484,44 @@
     (p_{\lambda_1} \cdots p_{\lambda_{\ell(\lambda)}})^{\perp} \\
     &= p_{\lambda_1}^{\perp} \cdots p_{\lambda_{\ell(\lambda)}}^{\perp} \\
     &= \prod_{i=1}^{\ell(\lambda)} \lambda_i \cfrac{\partial}{\partial p_{\lambda_i}} \\
-    &= a \cfrac{\partial^{\ell(\lambda)}}{\partial p_{\lambda_1}\partial p_{\lambda_2} \cdots \partial p_{\lambda_{\ell(\lambda)}}}
+    &= a_{\lambda} \cfrac{\partial^{\ell(\lambda)}}{\partial p_{\lambda_1}\partial p_{\lambda_2} \cdots \partial p_{\lambda_{\ell(\lambda)}}},
   \end{align*}
-  for $a = \prod\limits_{i=1}^{\ell(\lambda)} \lambda_i \in \Q$.
+  for $a_{\lambda} = \prod\limits_{i=1}^{\ell(\lambda)} \lambda_i$. Now, let $f^{\perp}$ be an element on the left hand side. We have for some $b_\lambda \in \Q$ that $f = \sum\limits_{\lambda \in Par} b_{\lambda} p_{\lambda}$, and so using again that the adjoint is a ring morphism we get:
+  \begin{align*}
+    f^{\perp}
+    &=
+    (\sum\limits_{\lambda \in Par} b_{\lambda} p_{\lambda})^{\perp}
+    \\
+    &=
+    \sum\limits_{\lambda \in Par} b_{\lambda} p_{\lambda}^{\perp}    \\
+    &=
+    \sum\limits_{\lambda \in Par} (b_{\lambda} a_{\lambda}) \cfrac{\partial^{\ell(\lambda)}}{\partial p_{\lambda_1}\partial p_{\lambda_2} \cdots \partial p_{\lambda_{\ell(\lambda)}}}, 
+  \end{align*}
+  where $a_{\lambda} = \prod\limits_{i=1}^{\ell(\lambda)} \lambda_i$ and so $b_{\lambda} a_{\lambda} \in \Q$; and so $f^{\perp}$ is an element of the right hand side.
+  
+  For the opposite inclusion, let $i = (i_1, \dots, i_k)$, for $i_1, \dots, i_k \geq 1$ and $k \in \N$. Then, we can permute these into a partition. Assume without loss of generality that it already is a partition. We write
+  \begin{align*}
+    \lambda^i = i,
+  \end{align*}
+  and get
+  \begin{align*}
+    \cfrac{\partial^k}{\partial p_{i_1} \partial p_{i_2} \cdots \partial p_{i_k}} = \cfrac{1}{a_{\lambda^i}} (p_{\lambda^i})^{\perp},
+  \end{align*}
+  where
+  \begin{align*}
+    a_{\lambda^i} = i_1 i_2 \cdots i_k.
+  \end{align*}
+  Thus
+  \begin{align*}
+    \sum\limits_{i} b_{i}\cfrac{\partial^k}{\partial p_{i_1} \partial p_{i_2} \cdots \partial p_{i_k}}
+    &=
+    \sum\limits_{i} b_{i}\cfrac{1}{a_{\lambda^i}} (p_{\lambda^i})^{\perp} \\
+    &=
+    (\sum\limits_{i} b_{i}\cfrac{1}{a_{\lambda^i}}p_{\lambda^i})^{\perp},
+  \end{align*}
+  and $\sum\limits_{i} b_{i}\cfrac{1}{a_{\lambda^i}}p_{\lambda^i} \in Sym_{\Q}$; and so any $\Q$ linear combination on the right hand side is included in the left hand side.
 \end{proof}
-
+\newpage
 \begin{exercise}
   Suppose $(C, \triangle, \epsilon)$ is a counital coassociative coalgebra over a field $k$. Show that the dual space $C^* = Hom_k(C,k)$ is a unital associative algebra with multiplication
   \begin{align*}
