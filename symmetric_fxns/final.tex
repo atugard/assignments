@@ -1,4 +1,4 @@
-\documentclass[9pt]{extarticle}
+\documentclass[8pt]{extarticle}
 %Some packages I commonly use.
 \usepackage[english]{babel}
 \usepackage{graphicx}
@@ -88,7 +88,7 @@
 \end{exercise}
 
 \begin{proof}
-  By Proposition 2.4.5 we have for $0 \leq k \leq n$: \footnote{where $e_k = e_ke_0 = e_{(k)}$}
+  By Proposition 2.4.5 we have for $0 \leq k \leq n$: \footnote{Where $e_k = e_ke_0 = e_{(k)}$. }
   \begin{align*}
     e_k(\underbrace{1, \dots, 1}_{\text{n entries}}) = \sum\limits_{T \in RowStrict((k), n)} 1 =
     \begin{pmatrix}
@@ -320,18 +320,150 @@
     \begin{vmatrix}
       1 & 0 & 0 & \cdots & 0 \\
       p_1 & 2 & 0 & \cdots & 0 \\
-       \vdots & \ddots
-      \ddots  & \ddots & \vdots \\
+       \vdots & \ddots & \ddots  & \ddots & \vdots \\
       \vdots & \ddots & \ddots  & \ddots & 0 \\
       p_{n-2} & \cdots & \cdots  & p_1 & n-1 \\            
     \end{vmatrix} \\
     &=
     ne_n(n-1)! \\
     &= n!e_n
+  \end{align*}
 \end{proof}
+\newpage
 \begin{exercise}
   Write the skew Schur function $s_{(4,3,2)/(1,1)}$ as a linear combination of Schur functions. 
 \end{exercise}
+
+\begin{proof}
+  By Proposition 3.4.15, we have
+  \begin{align*}
+    s_{(4,3,2)/(1,1)} = \sum\limits_{\nu \in Par} K_{(4,3,2)/(1,1), \nu} m_{\nu}.
+  \end{align*}
+  where $K_{(4,3,2)/(1,1), \nu}$ is the number of semi standard skew tableaux of shape $(4,3,2)/(1,1)$ and weight $\nu$. Now, $s_{(4,3,2)/(1,1)}$ is homogeneous of degree $(4+3+2) - (1+1) = 7$, and so $K_{(4,3,2)/(1,1), \nu} = 0$ for $\nu \not \in Par(7)$. It remains to check all possible fillings with weight $\nu \in Par(7)$:
+
+  $K_{(4,3,2)/(1,1), (7)} = 0 $.
+  
+  $K_{(4,3,2)/(1,1), (6,1)} = 0$.
+  
+  $K_{(4,3,2)/(1,1), (5,2)} = 0$.
+  
+  $K_{(4,3,2)/(1,1), (5,1^2)} = 0$.
+  
+  $K_{(4,3,2)/(1,1), (4,3)} = 0$.
+  
+  $K_{(4,3,2)/(1,1), (4,2,1)} = 1$:
+  \begin{align*}
+    \begin{ytableau}
+      \none & 1 & 1 & 1 \\
+      \none & 2 & 2 \\
+      1 & 3  
+    \end{ytableau}\quad.
+  \end{align*}
+  
+  $K_{(4,3,2)/(1,1), (4,1^3)} = 2$:
+  \begin{align*}
+    \begin{ytableau}
+      \none & 1 & 1 & 1 \\
+      \none & 2 & 3 \\
+      1 & 4  
+    \end{ytableau}\quad,\quad
+    \begin{ytableau}
+      \none & 1 & 1 & 1 \\
+      \none & 2 & 4 \\
+      1 & 3  
+    \end{ytableau}\quad.    
+  \end{align*}  
+  
+  $K_{(4,3,2)/(1,1), (3^2,1)} = 2$:
+  \begin{align*}
+    \begin{ytableau}
+      \none & 1 & 1 & 1 \\
+      \none & 2 & 2 \\
+      2 & 3  
+    \end{ytableau}\quad,\quad
+    \begin{ytableau}
+      \none & 1 & 1 & 2 \\
+      \none & 2 & 2 \\
+      1 & 3  
+    \end{ytableau}\quad.\quad
+  \end{align*}  
+  
+  $K_{(4,3,2)/(1,1), (3,2^2)} = 4$:
+  \begin{align*}
+    &\begin{ytableau}
+      \none & 1 & 1 & 1 \\
+      \none & 2 & 2 \\
+      3 & 3  
+    \end{ytableau}\quad,\quad
+    \begin{ytableau}
+      \none & 1 & 1 & 1 \\
+      \none & 2 & 3 \\
+      2 & 3  
+    \end{ytableau}\quad,\quad    
+    \begin{ytableau}
+      \none & 1 & 1 & 2 \\
+      \none & 2 & 3 \\
+      1 & 3  
+    \end{ytableau}\quad,\quad \\
+    &\begin{ytableau}
+      \none & 1 & 1 & 3 \\
+      \none & 2 & 2 \\
+      1 & 3  
+    \end{ytableau}\quad.    
+  \end{align*}    
+  
+  $K_{(4,3,2)/(1,1), (3,2,1^2)} = 7$:
+  \begin{align*}
+    &\begin{ytableau}
+      \none & 1 & 1 & 1 \\
+      \none & 2 & 2 \\
+       3 & 4  
+    \end{ytableau}\quad,\quad
+    \begin{ytableau}
+      \none & 1 & 1 & 1 \\
+      \none & 2 & 3 \\
+       2 & 4  
+    \end{ytableau}\quad,\quad
+    \begin{ytableau}
+      \none & 1 & 1 & 1 \\
+      \none & 2 & 4 \\
+       2 & 3  
+    \end{ytableau}\quad,\quad \\
+    &
+    \begin{ytableau}
+      \none & 1 & 1 & 2 \\
+      \none & 2 & 3 \\
+       1 & 4  
+    \end{ytableau}\quad,\quad
+    \begin{ytableau}
+      \none & 1 & 1 & 2 \\
+      \none & 2 & 4 \\
+       1 & 3  
+    \end{ytableau}\quad,\quad    
+    \begin{ytableau}
+      \none & 1 & 1 & 3 \\
+      \none & 2 & 2 \\
+       1 & 4  
+    \end{ytableau}\quad,\quad    \\
+    &
+    \begin{ytableau}
+      \none & 1 & 1 & 4 \\
+      \none & 2 & 2 \\
+       1 & 3  
+    \end{ytableau}\quad,\quad    \\    
+  \end{align*}  
+  
+  $K_{(4,3,2)/(1,1), (3,1^4)}$:
+  
+  $K_{(4,3,2)/(1,1), (2^3,1)}$:
+  
+  $K_{(4,3,2)/(1,1), (2^2,1^3)}$:
+  
+  $K_{(4,3,2)/(1,1), (2,1^5)}$:
+  
+  $K_{(4,3,2)/(1,1), (1^7)}$:
+
+\end{proof}
 
 \begin{exercise}
   Prove that
