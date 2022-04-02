@@ -88,9 +88,9 @@
 \end{exercise}
 
 \begin{proof}
-  By Proposition 2.4.5 we have
+  By Proposition 2.4.5 we have for $0 \leq k \leq n$ \footnote{where $e_k = e_ke_0 = e_{(k)}$}:
   \begin{align*}
-    e_r(\underbrace{1, \dots, 1}_{\text{n entries}}) = \sum\limits_{T \in RowStrict((k), n)} 1 =
+    e_k(\underbrace{1, \dots, 1}_{\text{n entries}}) = \sum\limits_{T \in RowStrict((k), n)} 1 =
     \begin{pmatrix}
       n \\
       k
@@ -159,24 +159,24 @@
   prove that
   \begin{align*}
     p_n = 
-    \begin{pmatrix}
+    \begin{vmatrix}
       e_1 & 1 & 0 & 0 & \cdots & 0 \\
       2e_2 & e_1 & 1 & 0 & \cdots & 0 \\
       \vdots & \vdots & \ddots & \ddots  & \ddots & \vdots \\
       \vdots & \vdots & \ddots & \ddots  & 1 & 0 \\
       \vdots & \vdots & \ddots & \ddots  & e_1 & 1 \\            
       ne_n & e_{n-1} & e_{n-2} & \cdots  & e_2 & e_1 \\            
-    \end{pmatrix}
+    \end{vmatrix}
     \quad \text { and } \quad
     n!e_n = 
-    \begin{pmatrix}
+    \begin{vmatrix}
       p_1 & 1 & 0 & 0 & \cdots & 0 \\
       p_2 & p_1 & 2 & 0 & \cdots & 0 \\
       \vdots & \vdots & \ddots & \ddots  & \ddots & \vdots \\
       \vdots & \vdots & \ddots & \ddots  & \ddots & 0 \\
       p_{n-1} & p_{n-2} & \cdots & \cdots  & p_1 & n-1 \\            
       p_n & p_{n-1} & \cdots & \cdots  & p_2 & p_1 \\            
-    \end{pmatrix}    
+    \end{vmatrik}    
   \end{align*}
 \end{exercise}
 
