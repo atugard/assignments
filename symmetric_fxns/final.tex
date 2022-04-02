@@ -473,6 +473,22 @@
   Here we view both sides as subspaces of $End_{\Q}(Sym)$.
 \end{exercise}
 
+\begin{proof}
+  By Theorem 2.6.4., we know that the $p_\lambda$ ($\lambda \in Par$) form a $\Q$-basis of $Sym_\Q$. By Proposition 4.2.7 we have
+  \begin{align*}
+    p_n^{\perp} = n \cfrac{\partial}{\partial p_n},
+  \end{align*}
+  and by Prop 4.2.1 we know that the adjoint is a ring morphism, so
+  \begin{align*}
+    p_{\lambda}^{\perp} &=
+    (p_{\lambda_1} \cdots p_{\lambda_{\ell(\lambda)}})^{\perp} \\
+    &= p_{\lambda_1}^{\perp} \cdots p_{\lambda_{\ell(\lambda)}}^{\perp} \\
+    &= \prod_{i=1}^{\ell(\lambda)} \lambda_i \cfrac{\partial}{\partial p_{\lambda_i}} \\
+    &= a \cfrac{\partial^{\ell(\lambda)}}{\partial p_{\lambda_1}\partial p_{\lambda_2} \cdots \partial p_{\lambda_{\ell(\lambda)}}}
+  \end{align*}
+  for $a = \prod\limits_{i=1}^{\ell(\lambda)} \lambda_i \in \Q$.
+\end{proof}
+
 \begin{exercise}
   Suppose $(C, \triangle, \epsilon)$ is a counital coassociative coalgebra over a field $k$. Show that the dual space $C^* = Hom_k(C,k)$ is a unital associative algebra with multiplication
   \begin{align*}
