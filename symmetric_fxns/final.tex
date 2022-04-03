@@ -10,7 +10,6 @@
 \usepackage{amsfonts}
 \usepackage{enumerate}
 \usepackage{ytableau}
-\usepackage{tikz}
 \usepackage[utf8]{inputenc}
 \usepackage[top=1 in,bottom=1in, left=1 in, right=1 in]{geometry}
 
@@ -334,157 +333,47 @@
 \begin{exercise}
   Write the skew Schur function $s_{(4,3,2)/(1,1)}$ as a linear combination of Schur functions. 
 \end{exercise}
-
 \begin{proof}
-  By Proposition 3.4.15, we have
+   equation (3.38) we have 
   \begin{align*}
-    s_{(4,3,2)/(1,1)} = \sum\limits_{\nu \in Par} K_{(4,3,2)/(1,1), \nu} m_{\nu}.
+    s_{\lambda/\mu} = \sum\limits_{\nu \in Par} c_{\mu \nu}^{\lambda} s_{\nu},
   \end{align*}
-  where $K_{(4,3,2)/(1,1), \nu}$ is the number of semi standard skew tableaux of shape $(4,3,2)/(1,1)$ and weight $\nu$. Now, $s_{(4,3,2)/(1,1)}$ is homogeneous of degree $(4+3+2) - (1+1) = 7$, and so $K_{(4,3,2)/(1,1), \nu} = 0$ for $\nu \not \in Par(7)$. It remains to check all possible fillings with weight $\nu \in Par(7)$:
+  and by Theorem 3.6.9, $c_{\mu \nu}^{\lambda}$ is the number of Littlewood-Richardson tableaux of shape $\lambda/\mu$ and weight $\nu$.
+  Since $s_{(4,3,2)/(1,1)}$ is homogeneous of degree 7, we compute $c_{\mu \nu}^{\lambda}$, for $\nu \in Par(7)$. In what follows, $\lambda = (4,3,2)$ and $\mu = (1,1)$:
 
-  $K_{(4,3,2)/(1,1), (7)} = 0 $.
+  There are no semi standard tableaux of shape $\lambda/\mu$ and weight $\nu = (6,1), (5,2), (5,1^2), (4,3)$, so $c_{\mu \nu}^{\lambda} = 0$ for these $\nu$.
   
-  $K_{(4,3,2)/(1,1), (6,1)} = 0$.
-  
-  $K_{(4,3,2)/(1,1), (5,2)} = 0$.
-  
-  $K_{(4,3,2)/(1,1), (5,1^2)} = 0$.
-  
-  $K_{(4,3,2)/(1,1), (4,3)} = 0$.
-  
-  $K_{(4,3,2)/(1,1), (4,2,1)} = 1$:
-  \begin{align*}
-    \begin{ytableau}
-      \none & 1 & 1 & 1 \\
-      \none & 2 & 2 \\
-      1 & 3  
-    \end{ytableau}\quad.
-  \end{align*}
-  
-  $K_{(4,3,2)/(1,1), (4,1^3)} = 2$:
-  \begin{align*}
-    \begin{ytableau}
-      \none & 1 & 1 & 1 \\
-      \none & 2 & 3 \\
-      1 & 4  
-    \end{ytableau}\quad,\quad
-    \begin{ytableau}
-      \none & 1 & 1 & 1 \\
-      \none & 2 & 4 \\
-      1 & 3  
-    \end{ytableau}\quad.    
-  \end{align*}  
-  
-  $K_{(4,3,2)/(1,1), (3^2,1)} = 2$:
-  \begin{align*}
-    \begin{ytableau}
-      \none & 1 & 1 & 1 \\
-      \none & 2 & 2 \\
-      2 & 3  
-    \end{ytableau}\quad,\quad
-    \begin{ytableau}
-      \none & 1 & 1 & 2 \\
-      \none & 2 & 2 \\
-      1 & 3  
-    \end{ytableau}\quad.\quad
-  \end{align*}  
-  
-  $K_{(4,3,2)/(1,1), (3,2^2)} = 4$:
-  \begin{align*}
-    &\begin{ytableau}
-      \none & 1 & 1 & 1 \\
-      \none & 2 & 2 \\
-      3 & 3  
-    \end{ytableau}\quad,\quad
-    \begin{ytableau}
-      \none & 1 & 1 & 1 \\
-      \none & 2 & 3 \\
-      2 & 3  
-    \end{ytableau}\quad,\quad    
-    \begin{ytableau}
-      \none & 1 & 1 & 2 \\
-      \none & 2 & 3 \\
-      1 & 3  
-    \end{ytableau}\quad,\quad \\
-    &\begin{ytableau}
-      \none & 1 & 1 & 3 \\
-      \none & 2 & 2 \\
-      1 & 3  
-    \end{ytableau}\quad.    
-  \end{align*}    
-  
-  $K_{(4,3,2)/(1,1), (3,2,1^2)} = 7$:
-  \begin{align*}
-    &\begin{ytableau}
-      \none & 1 & 1 & 1 \\
-      \none & 2 & 2 \\
-       3 & 4  
-    \end{ytableau}\quad,\quad
-    \begin{ytableau}
-      \none & 1 & 1 & 1 \\
-      \none & 2 & 3 \\
-       2 & 4  
-    \end{ytableau}\quad,\quad
-    \begin{ytableau}
-      \none & 1 & 1 & 1 \\
-      \none & 2 & 4 \\
-       2 & 3  
-    \end{ytableau}\quad,\quad \\
-    &
-    \begin{ytableau}
-      \none & 1 & 1 & 2 \\
-      \none & 2 & 3 \\
-       1 & 4  
-    \end{ytableau}\quad,\quad
-    \begin{ytableau}
-      \none & 1 & 1 & 2 \\
-      \none & 2 & 4 \\
-       1 & 3  
-    \end{ytableau}\quad,\quad    
-    \begin{ytableau}
-      \none & 1 & 1 & 3 \\
-      \none & 2 & 2 \\
-       1 & 4  
-    \end{ytableau}\quad,\quad    \\
-    &
-    \begin{ytableau}
-      \none & 1 & 1 & 4 \\
-      \none & 2 & 2 \\
-       1 & 3  
-    \end{ytableau}\quad.\quad    \\    
-  \end{align*}  
-  
-  $K_{(4,3,2)/(1,1), (3,1^4)} = 13$:
-  
-  $K_{(4,3,2)/(1,1), (2^3,1)} = 12$:
-  
-  $K_{(4,3,2)/(1,1), (2^2,1^3)} = 22$:
-  
-  $K_{(4,3,2)/(1,1), (2,1^5)} = 41$:
-  
-  $K_{(4,3,2)/(1,1), (1^7)} = 77$:
+  $\nu =  (4,2,1)$:
 
-  We can only place a 1 in the bottom left or top left box:
+  There's only one semi-standard tableau of this weight, which is a Littlewood-Richardson tableau.
   \begin{align*}
     \begin{ytableau}
-      \none & 1 & - & - \\
-      \none & - & - \\
-      - & -  
-    \end{ytableau}\quad,\quad    
-    \begin{ytableau}
-      \none & - & - & - \\
-      \none & - & - \\
-      1 & -  
-    \end{ytableau}\quad.\quad    \\          
+      \none & 1 & 1 & 1 \\
+      \none & 2 & 2 \\
+      1 & 3 
+    \end{ytableau},
   \end{align*}
-  In the second case, we have to place the two in the top left box, so we get
-  \begin{align*}
-    \begin{ytableau}
-      \none & 2 & - & - \\
-      \none & - & - \\
-      1 & -  
-    \end{ytableau}\quad.\quad    \\          
-  \end{align*}
+  so $c_{\mu \nu}^{\lambda} = 1$
+  
+  $\nu = (4,1^3)$:
+  
+  $\nu = (3^2,1)$:
+  
+  $\nu = (3,2^2)$:
+  
+  $\nu = (3,2,1^2)$:
+  
+  $\nu = (3,1^4)$:
+  
+  $\nu = (2^3,1)$:
+  
+  $\nu = (2^2,1^3)$:
+  
+  $\nu = (2,1^5)$:
+  
+  $\nu = (1^7)$:
+
+
 \end{proof}
 
 \begin{exercise}
@@ -595,7 +484,7 @@
     \nabla(f \otimes a \epsilon) (x) \\
     &= (\nabla \circ id \otimes \eta)(f \otimes a) (x),
   \end{align*}
-  where we used the commutativity of the counit diagram in the fourth equality. Identifying $a \otimes f$, $f \otimes a$  with $af$ (by $a \otimes f \overset{\cong}{\mapsto} af$ and $f \otimes a \overset{\cong}{\mapsto} af$) we conclude that
+  where we used the commutativity of the counit diagram in the fourth equality. Identifying $a \otimes f$, $f \otimes a$  with $af$ [(by $a \otimes f \overset{\cong}{\mapsto} af$ and $f \otimes a \overset{\cong}{\mapsto} af$) we conclude that
   \begin{align*}
     \nabla \circ \eta \otimes id = \nabla \circ id \otimes \eta,
   \end{align*}
