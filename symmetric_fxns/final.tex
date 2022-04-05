@@ -501,7 +501,7 @@
     &= \prod_{i=1}^{\ell(\lambda)} \lambda_i \cfrac{\partial}{\partial p_{\lambda_i}} \\
     &= a_{\lambda} \cfrac{\partial^{\ell(\lambda)}}{\partial p_{\lambda_1}\partial p_{\lambda_2} \cdots \partial p_{\lambda_{\ell(\lambda)}}},
   \end{align*}
-  for $a_{\lambda} = \prod\limits_{i=1}^{\ell(\lambda)} \lambda_i$.
+  for $a_{\lambda} = \prod\limits_{i=1}^{\ell(\lambda)} \lambda_i$. 
 
   Now, let $f^{\perp}$ be an element on the left hand side. We have for some $b_\lambda \in \Q$ that $f = \sum\limits_{\lambda \in Par} b_{\lambda} p_{\lambda}$, and so using again that the adjoint is a ring morphism we get:
   \begin{align*}
@@ -522,9 +522,8 @@
     &= i \text{ permuted into a partition } \\
     &= i^{\pi},
   \end{align*}
-  for some $\pi \in \mathfrak{S}_k$ such that $i^{\pi} \in Par$. This is well defined, since each such ordered $i$ is a weak composition, so there exists a unique partition into which it may be permuted.
-
-  Then
+  for some $\pi \in \mathfrak{S}_k$ such that $i^{\pi} \in Par$. This is well defined, since each such ordered $i$ is a weak composition, so there exists a unique partition into which it may be permuted. Since the adjoint is a ring morphism we have that the mixed partials commute, and so rearranging terms we get:
+  
   \begin{align*}
     \cfrac{\partial^k}{\partial p_{i_1} \partial p_{i_2} \cdots \partial p_{i_k}} = \cfrac{1}{a_{\lambda^i}} (p_{\lambda^i})^{\perp},
   \end{align*}
