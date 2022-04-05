@@ -516,13 +516,13 @@
   \end{align*}
   where $a_{\lambda} = \prod\limits_{i=1}^{\ell(\lambda)} \lambda_i$, and $b_{\lambda} a_{\lambda} \in \Q$; and so $f^{\perp}$ is an element of the right hand side.
 
-  For the opposite inclusion, we define a function $\N^k \to Par$,  $i \mapsto \lambda^i$ by:
+  For the opposite inclusion, we define a partition for each ordered $i \in \N^k$, $k \in \N$:
   \begin{align*}
     \lambda^i
     &= i \text{ permuted into a partition } \\
     &= i^{\pi},
   \end{align*}
-  for some $\pi \in \mathfrak{S}_k$ such that $i^{\pi} \in Par$. 
+  for some $\pi \in \mathfrak{S}_k$ such that $i^{\pi} \in Par$. This is well defined, since each such ordered $i$ is a weak composition, so there exists a unique partition into which it may be permuted.
 
   Then
   \begin{align*}
@@ -588,7 +588,7 @@
     \nabla(f \otimes a \epsilon) (x) \\
     &= (\nabla \circ id \otimes \eta)(f \otimes a) (x),
   \end{align*}
-  where we used the commutativity of the counit diagram in the fourth equality. Identifying $a \otimes f$, $f \otimes a$  with $af$ [(by $a \otimes f \overset{\cong}{\mapsto} af$ and $f \otimes a \overset{\cong}{\mapsto} af$) we conclude that
+  where we used the commutativity of the counit diagram in the fourth equality. Identifying $a \otimes f$, $f \otimes a$  with $af$ (by $a \otimes f \overset{\cong}{\mapsto} af$ and $f \otimes a \overset{\cong}{\mapsto} af$) we conclude that
   \begin{align*}
     \nabla \circ \eta \otimes id = \nabla \circ id \otimes \eta,
   \end{align*}
