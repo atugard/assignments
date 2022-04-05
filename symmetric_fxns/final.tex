@@ -493,21 +493,19 @@
   \begin{align*}
     p_n^{\perp} = n \cfrac{\partial}{\partial p_n},
   \end{align*}
-  We use the assumption that the mixed partials commute in their action on $Sym_\Q$.
-  \footnote{We have $p_n^- h_m = h_{m-n}$, so
+  We use the fact that the mixed partials commute in their action on $Sym_\Q$.
+  \footnote{We have $p_n^- h_m = h_{m-n}$. Using that $p_n^-$ is a $\Q$-derivation, we get 
 
   \begin{align*}
     p_n^-p_m^- h_{\lambda}
     &=
-    \sum\limits_{i,j=1}^{\ell(\lambda)} h_{\lambda_1} \cdots \cfrac{\partial}{\partial p_n} h_{\lambda_i} \cdots \cfrac{\partial}{\partial p_m} h_{\lambda_j} \cdots h_{\lambda_{\ell{\lambda}}} \\
+    \sum\limits_{i,j=1}^{\ell(\lambda)} h_{\lambda_1} \cdots h_{\lambda_i-n} \cdots h_{\lambda_j-m} \cdots h_{\lambda_{\ell(\lambda)}} \\    
     &=
-    \sum\limits_{i,j=1}^{\ell(\lambda)} h_{\lambda_1} \cdots h_{\lambda_i-n} \cdots h_{\lambda_j-m} \cdots h_{\lambda_{\ell{\lambda}}} \\    
+    p_m^-(\sum\limits_{i=1}^{\ell(\lambda)} h_{\lambda_1} \cdots h_{\lambda_i-n} \cdots  h_{\lambda_{\ell(\lambda)}}) \\
     &=
-    p_m^-(\sum\limits_{i,j=1}^{\ell(\lambda)} h_{\lambda_1} \cdots h_{\lambda_i-n} \cdots h_{\lambda_j} \cdots h_{\lambda_{\ell{\lambda}}}) \\
+    p_m^-p_n^-(h_{\lambda_1} \cdots h_{\lambda_{\ell(\lambda)}}) \\
     &=
-    p_m^-p_n^-(\sum\limits_{i,j=1}^{\ell(\lambda)} h_{\lambda_1} \cdots h_{\lambda_i} \cdots h_{\lambda_j} \cdots h_{\lambda_{\ell{\lambda}}}) \\
-    &=
-    p_m^-p_n^-h_{\lambda},\\
+    p_m^-p_n^-h_{\lambda},
   \end{align*}
   and $\set{h_{\lambda} : \lambda \in Par}$ forms a $\Q$-basis of $Sym_{\Q}$.}
   By Prop 4.2.1 we know that the adjoint is a ring morphism, so
