@@ -499,9 +499,11 @@
   \begin{align*}
     p_n^-p_m^- h_{\lambda}
     &=
-    \sum\limits_{i,j=1}^{\ell(\lambda)} h_{\lambda_1} \cdots h_{\lambda_i-n} \cdots h_{\lambda_j-m} \cdots h_{\lambda_{\ell(\lambda)}} \\    
+    p_n^-(\sum\limits_{i=1}^{\ell(\lambda)} h_{\lambda_1} \cdots h_{\lambda_i-m} \cdots  h_{\lambda_{\ell(\lambda)}}) \\
     &=
-    p_m^-(\sum\limits_{i=1}^{\ell(\lambda)} h_{\lambda_1} \cdots h_{\lambda_i-n} \cdots  h_{\lambda_{\ell(\lambda)}}) \\
+    \sum\limits_{i,j=1}^{\ell(\lambda)} h_{\lambda_1} \cdots h_{\lambda_i-m} \cdots h_{\lambda_j-n} \cdots h_{\lambda_{\ell(\lambda)}} \\    
+    &=
+    p_m^-(\sum\limits_{j=1}^{\ell(\lambda)} h_{\lambda_1} \cdots h_{\lambda_j-n} \cdots  h_{\lambda_{\ell(\lambda)}}) \\
     &=
     p_m^-p_n^-(h_{\lambda_1} \cdots h_{\lambda_{\ell(\lambda)}}) \\
     &=
